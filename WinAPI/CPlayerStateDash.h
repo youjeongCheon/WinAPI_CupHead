@@ -7,6 +7,8 @@ class CPlayerStateDash : public CState
 {
 private:
 	CPlayer* pPlayer;
+	Vector m_vecPos;
+	float fCooltime;
 
 public:
 	CPlayerStateDash(CPlayer* pPlayer) { this->pPlayer = pPlayer; }

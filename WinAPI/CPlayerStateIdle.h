@@ -7,7 +7,7 @@ class CPlayerStateIdle : public CState
 {
 private:
 	CPlayer* pPlayer;
-	float m_fSpeed=
+	Vector m_vecPos;
 
 public:
 	CPlayerStateIdle(CPlayer* pPlayer) { this->pPlayer = pPlayer; }

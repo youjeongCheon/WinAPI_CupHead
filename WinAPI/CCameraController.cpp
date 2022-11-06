@@ -4,9 +4,7 @@
 #include "CInputManager.h"
 #include "CCameraManager.h"
 
-CCameraController::CCameraController()
-{
-}
+#include "CPlayer.h"
 
 CCameraController::~CCameraController()
 {
@@ -18,9 +16,9 @@ void CCameraController::Init()
 
 void CCameraController::Update()
 {
-	if (LMOUSEDOWN(false))
+	if (pPlayer->GetPos().x > +WINSIZEX*0.5f)
 	{
-		CAMERA->SetTargetPos(MOUSEWORLDPOS, 1);
+		CAMERA->SetTargetPos(Vector(pPlayer->GetPos().x, WINSIZEY * 0.5f), 0);
 	}
 
 	Vector dir;

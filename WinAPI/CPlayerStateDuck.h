@@ -7,6 +7,7 @@ class CPlayerStateDuck : public CState
 {
 private:
 	CPlayer* pPlayer;
+	float fCooltime;
 
 public:
 	CPlayerStateDuck(CPlayer* pPlayer) { this->pPlayer = pPlayer; }

@@ -7,6 +7,7 @@ class CPlayerStateRun : public CState
 {
 private:
 	CPlayer* pPlayer;
+	Vector m_vecPos;
 
 public:
 	CPlayerStateRun(CPlayer* pPlayer) { this->pPlayer = pPlayer; }

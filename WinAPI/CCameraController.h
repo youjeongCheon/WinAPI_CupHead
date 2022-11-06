@@ -1,14 +1,19 @@
 #pragma once
 #include "CGameObject.h"
+
+class CPlayer;
+
 class CCameraController : public CGameObject
 {
 public:
-	CCameraController();
+	CCameraController(CPlayer* pPlayer) { this->pPlayer = pPlayer; }
 	virtual ~CCameraController();
 
 private:
 	float m_fMouseTime = 1;
 	float m_fScrollSpeed = 200;
+
+	CPlayer* pPlayer;
 
 private:
 	void Init() override;

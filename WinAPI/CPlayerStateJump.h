@@ -7,6 +7,8 @@ class CPlayerStateJump : public CState
 {
 private:
 	CPlayer* pPlayer;
+	Vector m_vecPos;
+	float fCooltime;
 
 public:
 	CPlayerStateJump(CPlayer* pPlayer) { this->pPlayer = pPlayer; }

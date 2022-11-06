@@ -149,6 +149,7 @@
     <ClInclude Include="CComponent.h" />
     <ClInclude Include="CCore.h" />
     <ClInclude Include="CEventManager.h" />
+    <ClInclude Include="CGameManager.h" />
     <ClInclude Include="CGameObject.h" />
     <ClInclude Include="CGroundTile.h" />
     <ClInclude Include="CImageObject.h" />
@@ -158,11 +159,15 @@
     <ClInclude Include="CPanel.h" />
     <ClInclude Include="CPathManager.h" />
     <ClInclude Include="CPlayer.h" />
+    <ClInclude Include="CPlayerStateAim.h" />
     <ClInclude Include="CPlayerStateDash.h" />
     <ClInclude Include="CPlayerStateDuck.h" />
     <ClInclude Include="CPlayerStateIdle.h" />
     <ClInclude Include="CPlayerStateJump.h" />
+    <ClInclude Include="CPlayerStateParry.h" />
     <ClInclude Include="CPlayerStateRun.h" />
+    <ClInclude Include="CPlayerStateRunShoot.h" />
+    <ClInclude Include="CPlayerStateShoot.h" />
     <ClInclude Include="CRenderManager.h" />
     <ClInclude Include="CResource.h" />
     <ClInclude Include="CResourceManager.h" />
@@ -200,6 +205,7 @@
     <ClCompile Include="CComponent.cpp" />
     <ClCompile Include="CCore.cpp" />
     <ClCompile Include="CEventManager.cpp" />
+    <ClCompile Include="CGameManager.cpp" />
     <ClCompile Include="CGameObject.cpp" />
     <ClCompile Include="CGroundTile.cpp" />
     <ClCompile Include="CImageObject.cpp" />
@@ -209,11 +215,15 @@
     <ClCompile Include="CPanel.cpp" />
     <ClCompile Include="CPathManager.cpp" />
     <ClCompile Include="CPlayer.cpp" />
+    <ClCompile Include="CPlayerStateAim.cpp" />
     <ClCompile Include="CPlayerStateDash.cpp" />
     <ClCompile Include="CPlayerStateDuck.cpp" />
     <ClCompile Include="CPlayerStateIdle.cpp" />
     <ClCompile Include="CPlayerStateJump.cpp" />
+    <ClCompile Include="CPlayerStateParry.cpp" />
     <ClCompile Include="CPlayerStateRun.cpp" />
+    <ClCompile Include="CPlayerStateRunShoot.cpp" />
+    <ClCompile Include="CPlayerStateShoot.cpp" />
     <ClCompile Include="CRenderManager.cpp" />
     <ClCompile Include="CResource.cpp" />
     <ClCompile Include="CResourceManager.cpp" />

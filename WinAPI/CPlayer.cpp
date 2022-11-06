@@ -16,7 +16,7 @@ CPlayer::CPlayer()
 	m_vecScale = Vector(100, 100);
 	m_layer = Layer::Player;
 	m_strName = L"플레이어";
-	m_curState = PlayerState::Idle;
+	m_curState = PlayerState::Run;
 
 	m_pIdleImage = nullptr;
 	m_pRunImage = nullptr;
@@ -33,10 +33,30 @@ CPlayer::CPlayer()
 
 	m_vecMoveDir = Vector(0, 0);
 	m_vecLookDir = Vector(1, 0);
+
+	bIsGround = true;
 }
 
 CPlayer::~CPlayer()
 {
+}
+
+void CPlayer::SetPos(Vector pos)
+{
+	if (pos.x < 70)
+		m_vecPos.x = 70;
+	else 
+		m_vecPos.x = pos.x;
+	m_vecPos.y = pos.y;
+}
+
+void CPlayer::SetPos(float x, float y)
+{
+	if (x < 70)
+		m_vecPos.x = 70;
+	else
+		m_vecPos.x = x;
+	m_vecPos.y = y;
 }
 
 void CPlayer::ChangeState(PlayerState state)
@@ -54,6 +74,25 @@ void CPlayer::SetStateName(wstring strState)
 Vector CPlayer::GetLookDir()
 {
 	return m_vecLookDir;
+}
+
+void CPlayer::SetLookDir(Vector vecLookDir)
+{
+	m_vecLookDir = vecLookDir;
+}
+
+bool CPlayer::isGround()
+{
+	if (m_vecPos.y > PLAYERSTARTPOS.y)
+	{
+		bIsGround = false;
+	}
+	else
+	{
+		bIsGround = true;
+	}
+
+	return bIsGround;
 }
 
 void CPlayer::Init()
@@ -75,16 +114,16 @@ void CPlayer::Init()
 	m_pAnimator = new CAnimator;
 	m_pAnimator->CreateAnimation(L"IdleRight", m_pIdleImage, Vector(0.f, 0.f), Vector(200.f, 200.f), Vector(200.f, 0.f), 0.1f, 8);
 	m_pAnimator->CreateAnimation(L"IdleLeft", m_pIdleImage, Vector(0.f, 200.f), Vector(200.f, 200.f), Vector(200.f, 0.f), 0.1f, 8);
-	m_pAnimator->CreateAnimation(L"RunRight", m_pRunImage, Vector(0.f, 0.f), Vector(200.f, 200.f), Vector(200.f, 0.f), 0.1f, 16);
-	m_pAnimator->CreateAnimation(L"RunLeft", m_pRunImage, Vector(0.f, 200.f), Vector(200.f, 200.f), Vector(200.f, 0.f), 0.1f, 16);
-	m_pAnimator->CreateAnimation(L"JumpRight", m_pJumpImage, Vector(0.f, 0.f), Vector(200.f, 200.f), Vector(200.f, 0.f), 0.1f, 8);
-	m_pAnimator->CreateAnimation(L"JumpLeft", m_pJumpImage, Vector(0.f, 200.f), Vector(200.f, 200.f), Vector(200.f, 0.f), 0.1f, 8);
-	m_pAnimator->CreateAnimation(L"DahsRight", m_pDashImage, Vector(0.f, 0.f), Vector(500.f, 200.f), Vector(500.f, 0.f), 0.1f, 8, false);
-	m_pAnimator->CreateAnimation(L"DahsLeft", m_pDashImage, Vector(0.f, 200.f), Vector(500.f, 200.f), Vector(500.f, 0.f), 0.1f, 8, false);
+	m_pAnimator->CreateAnimation(L"RunRight", m_pRunImage, Vector(0.f, 0.f), Vector(200.f, 200.f), Vector(200.f, 0.f), 0.05f, 16);
+	m_pAnimator->CreateAnimation(L"RunLeft", m_pRunImage, Vector(0.f, 200.f), Vector(200.f, 200.f), Vector(200.f, 0.f), 0.05f, 16);
+	m_pAnimator->CreateAnimation(L"JumpRight", m_pJumpImage, Vector(0.f, 0.f), Vector(200.f, 200.f), Vector(200.f, 0.f), 0.05f, 8);
+	m_pAnimator->CreateAnimation(L"JumpLeft", m_pJumpImage, Vector(0.f, 200.f), Vector(200.f, 200.f), Vector(200.f, 0.f), 0.05f, 8);
+	m_pAnimator->CreateAnimation(L"DashRight", m_pDashImage, Vector(0.f, 0.f), Vector(500.f, 200.f), Vector(500.f, 0.f), 0.05f, 8, false);
+	m_pAnimator->CreateAnimation(L"DashLeft", m_pDashImage, Vector(0.f, 200.f), Vector(500.f, 200.f), Vector(500.f, 0.f), 0.05f, 8, false);
 	m_pAnimator->CreateAnimation(L"DuckRight", m_pDuckImage, Vector(0.f, 0.f), Vector(200.f, 200.f), Vector(200.f, 0.f), 0.1f, 7, false);
 	m_pAnimator->CreateAnimation(L"DuckLeft", m_pDuckImage, Vector(0.f, 200.f), Vector(200.f, 200.f), Vector(200.f, 0.f), 0.1f, 7, false);
-	m_pAnimator->CreateAnimation(L"DuckIdleRight", m_pDuckIdleImage, Vector(0.f, 0.f), Vector(200.f, 200.f), Vector(200.f, 0.f), 0.1f, 5);
-	m_pAnimator->CreateAnimation(L"DuckIdleLeft", m_pDuckIdleImage, Vector(0.f, 200.f), Vector(200.f, 200.f), Vector(200.f, 0.f), 0.1f, 5);
+	m_pAnimator->CreateAnimation(L"DuckRightIdle", m_pDuckIdleImage, Vector(0.f, 0.f), Vector(200.f, 200.f), Vector(200.f, 0.f), 0.1f, 5);
+	m_pAnimator->CreateAnimation(L"DuckLeftIdle", m_pDuckIdleImage, Vector(0.f, 200.f), Vector(200.f, 200.f), Vector(200.f, 0.f), 0.1f, 5);
 	m_pAnimator->CreateAnimation(L"AimRightUp", m_pAimImage, Vector(0.f, 0.f), Vector(200.f, 200.f), Vector(200.f, 0.f), 0.1f, 8);
 	m_pAnimator->CreateAnimation(L"AimRightDigonalUp", m_pAimImage, Vector(0.f, 200.f), Vector(200.f, 200.f), Vector(200.f, 0.f), 0.1f, 8);
 	m_pAnimator->CreateAnimation(L"AimRight", m_pAimImage, Vector(0.f, 400.f), Vector(200.f, 200.f), Vector(200.f, 0.f), 0.1f, 8);
@@ -117,7 +156,7 @@ void CPlayer::Init()
 	AddComponent(m_pAnimator);
 #pragma endregion
 
-	AddCollider(ColliderType::Rect, Vector(150, 160), Vector(0, 0));
+	AddCollider(ColliderType::Rect, Vector(120, 160), Vector(0, 0));
 
 	m_mapState.insert(make_pair(PlayerState::Idle, new CPlayerStateIdle(this)));
 	m_mapState.insert(make_pair(PlayerState::Run, new CPlayerStateRun(this)));
@@ -129,48 +168,9 @@ void CPlayer::Init()
 
 void CPlayer::Update()
 {
+	
+
 	m_mapState[m_curState]->Update();
-
-
-	/*if (BUTTONSTAY(VK_LEFT))
-	{
-		m_vecPos.x -= m_fSpeed * DT;
-		m_bIsMove = true;
-		m_vecMoveDir.x = -1;
-	}
-	else if (BUTTONSTAY(VK_RIGHT))
-	{
-		m_vecPos.x += m_fSpeed * DT;
-		m_bIsMove = true;
-		m_vecMoveDir.x = +1;
-	}
-	else
-	{
-		m_vecMoveDir.x = 0;
-	}
-
-	if (BUTTONSTAY(VK_UP))
-	{
-		m_vecPos.y -= m_fSpeed * DT;
-		m_bIsMove = true;
-		m_vecMoveDir.y = +1;
-	}
-	else if (BUTTONSTAY(VK_DOWN))
-	{
-		m_vecPos.y += m_fSpeed * DT;
-		m_bIsMove = true;
-		m_vecMoveDir.y = -1;
-	}
-	else
-	{
-		m_vecMoveDir.y = 0;
-	}
-
-	if (BUTTONDOWN(VK_SPACE))
-	{
-		CreateMissile();
-	}*/
-
 	AnimatorUpdate();
 }
 
@@ -185,17 +185,6 @@ void CPlayer::Release()
 
 void CPlayer::AnimatorUpdate()
 {
-	//if (m_vecMoveDir.Length() > 0)
-	//	m_vecLookDir = m_vecMoveDir;
-
-	///*if()
-	//if (m_vecLookDir.x > 0) m_strState += L"Right";
-	//else if (m_vecLookDir.x < 0) m_strState += L"Left";
-
-	//if (m_vecLookDir.y > 0) m_strState += L"Up";
-	//else if (m_vecLookDir.y < 0) m_strState += L"Down";
-	//else if(m_vecLookDir.x > 0&&)*/
-
 	m_pAnimator->Play(m_strState, false);
 }
 

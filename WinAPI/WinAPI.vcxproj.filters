@@ -207,6 +207,21 @@
     <ClInclude Include="CPlayerStateRun.h">
       <Filter>GameObject\Player\PlayerState</Filter>
     </ClInclude>
+    <ClInclude Include="CGameManager.h">
+      <Filter>Engine\Manager</Filter>
+    </ClInclude>
+    <ClInclude Include="CPlayerStateAim.h">
+      <Filter>GameObject\Player\PlayerState</Filter>
+    </ClInclude>
+    <ClInclude Include="CPlayerStateParry.h">
+      <Filter>GameObject\Player\PlayerState</Filter>
+    </ClInclude>
+    <ClInclude Include="CPlayerStateRunShoot.h">
+      <Filter>GameObject\Player\PlayerState</Filter>
+    </ClInclude>
+    <ClInclude Include="CPlayerStateShoot.h">
+      <Filter>GameObject\Player\PlayerState</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="WinAPI.cpp">
@@ -336,6 +351,21 @@
       <Filter>GameObject\Player\PlayerState</Filter>
     </ClCompile>
     <ClCompile Include="CPlayerStateDash.cpp">
+      <Filter>GameObject\Player\PlayerState</Filter>
+    </ClCompile>
+    <ClCompile Include="CGameManager.cpp">
+      <Filter>Engine\Manager</Filter>
+    </ClCompile>
+    <ClCompile Include="CPlayerStateAim.cpp">
+      <Filter>GameObject\Player\PlayerState</Filter>
+    </ClCompile>
+    <ClCompile Include="CPlayerStateParry.cpp">
+      <Filter>GameObject\Player\PlayerState</Filter>
+    </ClCompile>
+    <ClCompile Include="CPlayerStateRunShoot.cpp">
+      <Filter>GameObject\Player\PlayerState</Filter>
+    </ClCompile>
+    <ClCompile Include="CPlayerStateShoot.cpp">
       <Filter>GameObject\Player\PlayerState</Filter>
     </ClCompile>
   </ItemGroup>

@@ -8,7 +8,7 @@ class CState;
 
 enum class PlayerState
 {
-	Idle, Run, Jump, Dash, Duck, DuckIlde, Aim, Shoot, RunShoot,  Parry, SpecialAttack, TakeHit
+	Idle, Run, Jump, Dash, Duck, Aim, Shoot, RunShoot,  Parry, SpecialAttack, TakeHit
 };
 
 class CPlayer : public CGameObject
@@ -40,15 +40,19 @@ private:
 	Vector m_vecMoveDir;
 	Vector m_vecLookDir;
 
-
-	float m_fSpeed = 200.0f;
+	bool bIsGround;
 
 public:
+	void SetPos(Vector pos);
+	void SetPos(float x, float y);
+
 	void ChangeState(PlayerState state);
 	void SetStateName(wstring strState);
-	Vector GetLookDir();
 
+	Vector GetLookDir();
+	void SetLookDir(Vector vecLookDir);
 	
+	bool isGround();
 
 private:
 	void Init() override;
@@ -63,3 +67,5 @@ private:
 	void OnCollisionStay(CCollider* pOtherCollider) override;
 	void OnCollisionExit(CCollider* pOtherCollider) override;
 };
+
+#define PLAYERSTARTPOS Vector(200, WINSIZEY*0.75f)
