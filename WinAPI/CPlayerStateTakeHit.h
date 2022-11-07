@@ -3,15 +3,15 @@
 
 class CPlayer;
 
-class CPlayerStateAim : public CState
+class CPlayerStateTakeHit : public CState
 {
 private:
 	CPlayer* pPlayer;
 	Vector m_vecPos;
 
 public:
-	CPlayerStateAim(CPlayer* pPlayer) { this->pPlayer = pPlayer; }
-	virtual ~CPlayerStateAim();
+	CPlayerStateTakeHit(CPlayer* pPlayer) { this->pPlayer = pPlayer; }
+	virtual ~CPlayerStateTakeHit();
 
 	void Enter() override;
 	void Update() override;

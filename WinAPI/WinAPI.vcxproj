@@ -164,10 +164,10 @@
     <ClInclude Include="CPlayerStateDuck.h" />
     <ClInclude Include="CPlayerStateIdle.h" />
     <ClInclude Include="CPlayerStateJump.h" />
-    <ClInclude Include="CPlayerStateParry.h" />
     <ClInclude Include="CPlayerStateRun.h" />
-    <ClInclude Include="CPlayerStateRunShoot.h" />
     <ClInclude Include="CPlayerStateShoot.h" />
+    <ClInclude Include="CPlayerStateSpecialAttack.h" />
+    <ClInclude Include="CPlayerStateTakeHit.h" />
     <ClInclude Include="CRenderManager.h" />
     <ClInclude Include="CResource.h" />
     <ClInclude Include="CResourceManager.h" />
@@ -177,6 +177,7 @@
     <ClInclude Include="CSceneTileTool.h" />
     <ClInclude Include="CSceneTitle.h" />
     <ClInclude Include="CImage.h" />
+    <ClInclude Include="CSceneTutorial.h" />
     <ClInclude Include="CSound.h" />
     <ClInclude Include="CSoundManager.h" />
     <ClInclude Include="CState.h" />
@@ -220,10 +221,10 @@
     <ClCompile Include="CPlayerStateDuck.cpp" />
     <ClCompile Include="CPlayerStateIdle.cpp" />
     <ClCompile Include="CPlayerStateJump.cpp" />
-    <ClCompile Include="CPlayerStateParry.cpp" />
     <ClCompile Include="CPlayerStateRun.cpp" />
-    <ClCompile Include="CPlayerStateRunShoot.cpp" />
     <ClCompile Include="CPlayerStateShoot.cpp" />
+    <ClCompile Include="CPlayerStateSpecialAttack.cpp" />
+    <ClCompile Include="CPlayerStateTakeHit.cpp" />
     <ClCompile Include="CRenderManager.cpp" />
     <ClCompile Include="CResource.cpp" />
     <ClCompile Include="CResourceManager.cpp" />
@@ -233,6 +234,7 @@
     <ClCompile Include="CSceneTileTool.cpp" />
     <ClCompile Include="CSceneTitle.cpp" />
     <ClCompile Include="CImage.cpp" />
+    <ClCompile Include="CSceneTutorial.cpp" />
     <ClCompile Include="CSound.cpp" />
     <ClCompile Include="CSoundManager.cpp" />
     <ClCompile Include="CState.cpp" />

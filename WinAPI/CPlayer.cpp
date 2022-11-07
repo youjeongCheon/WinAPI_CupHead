@@ -6,6 +6,10 @@
 #include "CPlayerStateJump.h"
 #include "CPlayerStateDash.h"
 #include "CPlayerStateDuck.h"
+#include "CPlayerStateAim.h"
+#include "CPlayerStateShoot.h"
+#include "CPlayerStateSpecialAttack.h"
+#include "CPlayerStateTakeHit.h"
 
 #include "CMissile.h"
 #include "CState.h"
@@ -98,18 +102,18 @@ bool CPlayer::isGround()
 void CPlayer::Init()
 {
 #pragma region ImageLoad
-	m_pIdleImage			= RESOURCE->LoadImg(L"PlayerIdle",			L"Image\\cuphead_idle.png");
-	m_pRunImage				= RESOURCE->LoadImg(L"PlayerRun",			L"Image\\cuphead_run.png");
-	m_pJumpImage			= RESOURCE->LoadImg(L"PlayerJump",			L"Image\\cuphead_jump.png");
-	m_pDashImage			= RESOURCE->LoadImg(L"PlayerDash",			L"Image\\cuphead_dash.png");
-	m_pDuckImage			= RESOURCE->LoadImg(L"PlayerDuck",			L"Image\\cuphead_duck.png");
-	m_pDuckIdleImage		= RESOURCE->LoadImg(L"PlayerDuckIdle",		L"Image\\cuphead_duckIdle.png");
-	m_pAimImage				= RESOURCE->LoadImg(L"PlayerAim",			L"Image\\cuphead_aim.png");
-	m_pShootImage			= RESOURCE->LoadImg(L"PlayerShoot",			L"Image\\cuphead_shoot.png");
-	m_pRunShootImage		= RESOURCE->LoadImg(L"PlayerRunShoot",		L"Image\\cuphead_runShoot.png");
-	m_pParryImage			= RESOURCE->LoadImg(L"PlayerParry",			L"Image\\cuphead_parry.png");
-	m_pSpecialAttackImage	= RESOURCE->LoadImg(L"PlayerSpecialAttack", L"Image\\cuphead_ex_move.png");
-	m_pTakeHitImage			= RESOURCE->LoadImg(L"PlayerTakeHit",		L"Image\\cuphead_hit.png");
+	m_pIdleImage = RESOURCE->LoadImg(L"PlayerIdle", L"Image\\cuphead_idle.png");
+	m_pRunImage = RESOURCE->LoadImg(L"PlayerRun", L"Image\\cuphead_run.png");
+	m_pJumpImage = RESOURCE->LoadImg(L"PlayerJump", L"Image\\cuphead_jump.png");
+	m_pDashImage = RESOURCE->LoadImg(L"PlayerDash", L"Image\\cuphead_dash.png");
+	m_pDuckImage = RESOURCE->LoadImg(L"PlayerDuck", L"Image\\cuphead_duck.png");
+	m_pDuckIdleImage = RESOURCE->LoadImg(L"PlayerDuckIdle", L"Image\\cuphead_duckIdle.png");
+	m_pAimImage = RESOURCE->LoadImg(L"PlayerAim", L"Image\\cuphead_aim.png");
+	m_pShootImage = RESOURCE->LoadImg(L"PlayerShoot", L"Image\\cuphead_shoot.png");
+	m_pRunShootImage = RESOURCE->LoadImg(L"PlayerRunShoot", L"Image\\cuphead_runShoot.png");
+	m_pParryImage = RESOURCE->LoadImg(L"PlayerParry", L"Image\\cuphead_parry.png");
+	m_pSpecialAttackImage = RESOURCE->LoadImg(L"PlayerSpecialAttack", L"Image\\cuphead_ex_move.png");
+	m_pTakeHitImage = RESOURCE->LoadImg(L"PlayerTakeHit", L"Image\\cuphead_hit.png");
 
 	m_pAnimator = new CAnimator;
 	m_pAnimator->CreateAnimation(L"IdleRight", m_pIdleImage, Vector(0.f, 0.f), Vector(200.f, 200.f), Vector(200.f, 0.f), 0.1f, 8);
@@ -152,7 +156,7 @@ void CPlayer::Init()
 	m_pAnimator->CreateAnimation(L"SpecialAttackLeft", m_pSpecialAttackImage, Vector(0.f, 400.f), Vector(400.f, 400.f), Vector(200.f, 0.f), 0.1f, 15, false);
 	m_pAnimator->CreateAnimation(L"TakeHitRight", m_pTakeHitImage, Vector(0.f, 0.f), Vector(200.f, 300.f), Vector(200.f, 0.f), 0.1f, 6, false);
 	m_pAnimator->CreateAnimation(L"TakeHitLeft", m_pTakeHitImage, Vector(0.f, 300.f), Vector(200.f, 300.f), Vector(200.f, 0.f), 0.1f, 6, false);
-	
+
 	AddComponent(m_pAnimator);
 #pragma endregion
 
@@ -163,7 +167,10 @@ void CPlayer::Init()
 	m_mapState.insert(make_pair(PlayerState::Jump, new CPlayerStateJump(this)));
 	m_mapState.insert(make_pair(PlayerState::Dash, new CPlayerStateDash(this)));
 	m_mapState.insert(make_pair(PlayerState::Duck, new CPlayerStateDuck(this)));
-
+	m_mapState.insert(make_pair(PlayerState::Aim, new CPlayerStateAim(this)));
+	m_mapState.insert(make_pair(PlayerState::Shoot, new CPlayerStateShoot(this)));
+	m_mapState.insert(make_pair(PlayerState::SpecialAttack, new CPlayerStateSpecialAttack(this)));
+	m_mapState.insert(make_pair(PlayerState::TakeHit, new CPlayerStateTakeHit(this)));
 }
 
 void CPlayer::Update()

@@ -26,7 +26,12 @@ void CPlayerStateJump::Update()
 		else
 		{
 			m_vecPos = pPlayer->GetPos();
-			m_vecPos.y -= 500 * DT;
+			// 중력 포물선 운동
+			if (fCooltime > 0.3f)
+				m_vecPos.y -= 200 * DT;
+			else
+				m_vecPos.y -= 500 * DT;
+			
 			pPlayer->SetPos(m_vecPos);
 		}
 		if (BUTTONSTAY(VK_RIGHT))

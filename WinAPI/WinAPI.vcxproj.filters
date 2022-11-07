@@ -213,13 +213,16 @@
     <ClInclude Include="CPlayerStateAim.h">
       <Filter>GameObject\Player\PlayerState</Filter>
     </ClInclude>
-    <ClInclude Include="CPlayerStateParry.h">
-      <Filter>GameObject\Player\PlayerState</Filter>
-    </ClInclude>
-    <ClInclude Include="CPlayerStateRunShoot.h">
-      <Filter>GameObject\Player\PlayerState</Filter>
-    </ClInclude>
     <ClInclude Include="CPlayerStateShoot.h">
+      <Filter>GameObject\Player\PlayerState</Filter>
+    </ClInclude>
+    <ClInclude Include="CSceneTutorial.h">
+      <Filter>Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="CPlayerStateSpecialAttack.h">
+      <Filter>GameObject\Player\PlayerState</Filter>
+    </ClInclude>
+    <ClInclude Include="CPlayerStateTakeHit.h">
       <Filter>GameObject\Player\PlayerState</Filter>
     </ClInclude>
   </ItemGroup>
@@ -359,13 +362,16 @@
     <ClCompile Include="CPlayerStateAim.cpp">
       <Filter>GameObject\Player\PlayerState</Filter>
     </ClCompile>
-    <ClCompile Include="CPlayerStateParry.cpp">
-      <Filter>GameObject\Player\PlayerState</Filter>
-    </ClCompile>
-    <ClCompile Include="CPlayerStateRunShoot.cpp">
-      <Filter>GameObject\Player\PlayerState</Filter>
-    </ClCompile>
     <ClCompile Include="CPlayerStateShoot.cpp">
+      <Filter>GameObject\Player\PlayerState</Filter>
+    </ClCompile>
+    <ClCompile Include="CSceneTutorial.cpp">
+      <Filter>Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="CPlayerStateSpecialAttack.cpp">
+      <Filter>GameObject\Player\PlayerState</Filter>
+    </ClCompile>
+    <ClCompile Include="CPlayerStateTakeHit.cpp">
       <Filter>GameObject\Player\PlayerState</Filter>
     </ClCompile>
   </ItemGroup>
