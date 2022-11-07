@@ -19,7 +19,9 @@ public:
 
 private:
 	map< PlayerState, CState*> m_mapState;
+
 	PlayerState m_curState;
+	
 	wstring m_strState;
 
 	CAnimator* m_pAnimator;
@@ -43,8 +45,6 @@ private:
 	bool bIsGround;
 
 public:
-	void SetPos(Vector pos);
-	void SetPos(float x, float y);
 
 	void ChangeState(PlayerState state);
 	void SetStateName(wstring strState);

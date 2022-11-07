@@ -48,20 +48,9 @@ void CPlayerStateJump::Update()
 			pPlayer->SetPos(m_vecPos);
 			pPlayer->SetLookDir(Vector(-1, 0));
 		}
-		
 	}
 	else
-	{
-		
-		if (BUTTONDOWN(VK_DOWN))
-			pPlayer->ChangeState(PlayerState::Duck);
-		if (BUTTONDOWN('C'))
-			pPlayer->ChangeState(PlayerState::Aim);
-		if (BUTTONDOWN('X'))
-			pPlayer->ChangeState(PlayerState::Shoot);
-		else
-			pPlayer->ChangeState(PlayerState::Idle);
-	}
+		pPlayer->ChangeState(PlayerState::Idle);
 
 	if (pPlayer->GetLookDir().x == +1)
 		str += L"Right";

@@ -42,17 +42,17 @@ void CPlayerStateIdle::Update()
 	else
 	{
 		str += L"Idle";
-		if (BUTTONDOWN(VK_RIGHT) || BUTTONDOWN(VK_LEFT))
+		if (BUTTONSTAY(VK_RIGHT) || BUTTONSTAY(VK_LEFT))
 			pPlayer->ChangeState(PlayerState::Run);
-		if (BUTTONDOWN('Z'))
+		if (BUTTONSTAY('Z'))
 			pPlayer->ChangeState(PlayerState::Jump);
-		if (BUTTONDOWN(VK_SHIFT))
+		if (BUTTONSTAY(VK_SHIFT))
 			pPlayer->ChangeState(PlayerState::Dash);
-		if (BUTTONDOWN(VK_DOWN))
+		if (BUTTONSTAY(VK_DOWN))
 			pPlayer->ChangeState(PlayerState::Duck);
-		if (BUTTONDOWN('C'))
+		if (BUTTONSTAY('C'))
 			pPlayer->ChangeState(PlayerState::Aim);
-		if (BUTTONDOWN('X'))
+		if (BUTTONSTAY('X'))
 			pPlayer->ChangeState(PlayerState::Shoot);
 	}
 

@@ -32,7 +32,7 @@ void CPlayerStateDuck::Update()
 	else 
 		pPlayer->ChangeState(PlayerState::Idle);
 
-	 if (BUTTONDOWN(VK_RIGHT) || BUTTONDOWN(VK_LEFT))
+	 if (BUTTONSTAY(VK_RIGHT) || BUTTONSTAY(VK_LEFT))
 		pPlayer->ChangeState(PlayerState::Run);
 	 if (BUTTONDOWN('Z'))
 		pPlayer->ChangeState(PlayerState::Jump);

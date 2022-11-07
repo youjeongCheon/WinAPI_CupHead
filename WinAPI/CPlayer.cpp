@@ -20,7 +20,7 @@ CPlayer::CPlayer()
 	m_vecScale = Vector(100, 100);
 	m_layer = Layer::Player;
 	m_strName = L"플레이어";
-	m_curState = PlayerState::Run;
+	m_curState = PlayerState::Idle;
 
 	m_pIdleImage = nullptr;
 	m_pRunImage = nullptr;
@@ -43,24 +43,6 @@ CPlayer::CPlayer()
 
 CPlayer::~CPlayer()
 {
-}
-
-void CPlayer::SetPos(Vector pos)
-{
-	if (pos.x < 70)
-		m_vecPos.x = 70;
-	else 
-		m_vecPos.x = pos.x;
-	m_vecPos.y = pos.y;
-}
-
-void CPlayer::SetPos(float x, float y)
-{
-	if (x < 70)
-		m_vecPos.x = 70;
-	else
-		m_vecPos.x = x;
-	m_vecPos.y = y;
 }
 
 void CPlayer::ChangeState(PlayerState state)
@@ -175,9 +157,10 @@ void CPlayer::Init()
 
 void CPlayer::Update()
 {
-	
-
 	m_mapState[m_curState]->Update();
+
+	if (m_vecPos.x < 70)
+		m_vecPos.x = 70;
 	AnimatorUpdate();
 }
 
