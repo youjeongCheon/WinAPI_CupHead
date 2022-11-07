@@ -111,27 +111,27 @@ void CPlayer::Init()
 	m_pAnimator->CreateAnimation(L"DuckRightIdle", m_pDuckIdleImage, Vector(0.f, 0.f), Vector(200.f, 200.f), Vector(200.f, 0.f), 0.1f, 5);
 	m_pAnimator->CreateAnimation(L"DuckLeftIdle", m_pDuckIdleImage, Vector(0.f, 200.f), Vector(200.f, 200.f), Vector(200.f, 0.f), 0.1f, 5);
 	m_pAnimator->CreateAnimation(L"AimRightUp", m_pAimImage, Vector(0.f, 0.f), Vector(200.f, 200.f), Vector(200.f, 0.f), 0.1f, 8);
-	m_pAnimator->CreateAnimation(L"AimRightDigonalUp", m_pAimImage, Vector(0.f, 200.f), Vector(200.f, 200.f), Vector(200.f, 0.f), 0.1f, 8);
+	m_pAnimator->CreateAnimation(L"AimRightDiagonalUp", m_pAimImage, Vector(0.f, 200.f), Vector(200.f, 200.f), Vector(200.f, 0.f), 0.1f, 8);
 	m_pAnimator->CreateAnimation(L"AimRight", m_pAimImage, Vector(0.f, 400.f), Vector(200.f, 200.f), Vector(200.f, 0.f), 0.1f, 8);
-	m_pAnimator->CreateAnimation(L"AimRightDigonalDown", m_pAimImage, Vector(0.f, 600.f), Vector(200.f, 200.f), Vector(200.f, 0.f), 0.1f, 8);
+	m_pAnimator->CreateAnimation(L"AimRightDiagonalDown", m_pAimImage, Vector(0.f, 600.f), Vector(200.f, 200.f), Vector(200.f, 0.f), 0.1f, 8);
 	m_pAnimator->CreateAnimation(L"AimRightDown", m_pAimImage, Vector(0.f, 800.f), Vector(200.f, 200.f), Vector(200.f, 0.f), 0.1f, 8);
 	m_pAnimator->CreateAnimation(L"AimLeftUp", m_pAimImage, Vector(0.f, 1000.f), Vector(200.f, 200.f), Vector(200.f, 0.f), 0.1f, 8);
-	m_pAnimator->CreateAnimation(L"AimLeftDigonalUp", m_pAimImage, Vector(0.f, 1200.f), Vector(200.f, 200.f), Vector(200.f, 0.f), 0.1f, 8);
+	m_pAnimator->CreateAnimation(L"AimLeftDiagonalUp", m_pAimImage, Vector(0.f, 1200.f), Vector(200.f, 200.f), Vector(200.f, 0.f), 0.1f, 8);
 	m_pAnimator->CreateAnimation(L"AimLeft", m_pAimImage, Vector(0.f, 1400.f), Vector(200.f, 200.f), Vector(200.f, 0.f), 0.1f, 8);
-	m_pAnimator->CreateAnimation(L"AimLeftDigonalDown", m_pAimImage, Vector(0.f, 1600.f), Vector(200.f, 200.f), Vector(200.f, 0.f), 0.1f, 8);
+	m_pAnimator->CreateAnimation(L"AimLeftDiagonalDown", m_pAimImage, Vector(0.f, 1600.f), Vector(200.f, 200.f), Vector(200.f, 0.f), 0.1f, 8);
 	m_pAnimator->CreateAnimation(L"AimLeftDown", m_pAimImage, Vector(0.f, 1800.f), Vector(200.f, 200.f), Vector(200.f, 0.f), 0.1f, 8);
 	m_pAnimator->CreateAnimation(L"ShootRightUp", m_pShootImage, Vector(0.f, 0.f), Vector(200.f, 200.f), Vector(200.f, 0.f), 0.1f, 3, false);
-	m_pAnimator->CreateAnimation(L"ShootRightDigonalUp", m_pShootImage, Vector(0.f, 200.f), Vector(200.f, 200.f), Vector(200.f, 0.f), 0.1f, 3, false);
+	m_pAnimator->CreateAnimation(L"ShootRightDiagonalUp", m_pShootImage, Vector(0.f, 200.f), Vector(200.f, 200.f), Vector(200.f, 0.f), 0.1f, 3, false);
 	m_pAnimator->CreateAnimation(L"ShootRight", m_pShootImage, Vector(0.f, 400.f), Vector(200.f, 200.f), Vector(200.f, 0.f), 0.1f, 3, false);
-	m_pAnimator->CreateAnimation(L"ShootRightDigonalDown", m_pShootImage, Vector(0.f, 600.f), Vector(200.f, 200.f), Vector(200.f, 0.f), 0.1f, 3, false);
+	m_pAnimator->CreateAnimation(L"ShootRightDiagonalDown", m_pShootImage, Vector(0.f, 600.f), Vector(200.f, 200.f), Vector(200.f, 0.f), 0.1f, 3, false);
 	m_pAnimator->CreateAnimation(L"ShootRightDown", m_pShootImage, Vector(0.f, 800.f), Vector(200.f, 200.f), Vector(200.f, 0.f), 0.1f, 3, false);
 	m_pAnimator->CreateAnimation(L"ShootLeftUp", m_pShootImage, Vector(0.f, 1000.f), Vector(200.f, 200.f), Vector(200.f, 0.f), 0.1f, 3, false);
-	m_pAnimator->CreateAnimation(L"ShootLeftDigonalUp", m_pShootImage, Vector(0.f, 1200.f), Vector(200.f, 200.f), Vector(200.f, 0.f), 0.1f, 3, false);
+	m_pAnimator->CreateAnimation(L"ShootLeftDiagonalUp", m_pShootImage, Vector(0.f, 1200.f), Vector(200.f, 200.f), Vector(200.f, 0.f), 0.1f, 3, false);
 	m_pAnimator->CreateAnimation(L"ShootLeft", m_pShootImage, Vector(0.f, 1400.f), Vector(200.f, 200.f), Vector(200.f, 0.f), 0.1f, 3, false);
-	m_pAnimator->CreateAnimation(L"ShootLeftDigonalDown", m_pShootImage, Vector(0.f, 1600.f), Vector(200.f, 200.f), Vector(200.f, 0.f), 0.1f, 3, false);
+	m_pAnimator->CreateAnimation(L"ShootLeftDiagonalDown", m_pShootImage, Vector(0.f, 1600.f), Vector(200.f, 200.f), Vector(200.f, 0.f), 0.1f, 3, false);
 	m_pAnimator->CreateAnimation(L"ShootLeftDown", m_pShootImage, Vector(0.f, 1800.f), Vector(200.f, 200.f), Vector(200.f, 0.f), 0.1f, 3, false);
-	m_pAnimator->CreateAnimation(L"RunShootImageRight", m_pRunShootImage, Vector(0.f, 0.f), Vector(200.f, 200.f), Vector(200.f, 0.f), 0.1f, 16);
-	m_pAnimator->CreateAnimation(L"RunShootImageLeft", m_pRunShootImage, Vector(0.f, 200.f), Vector(200.f, 200.f), Vector(200.f, 0.f), 0.1f, 16);
+	m_pAnimator->CreateAnimation(L"RunShootRight", m_pRunShootImage, Vector(0.f, 0.f), Vector(200.f, 200.f), Vector(200.f, 0.f), 0.05f, 16);
+	m_pAnimator->CreateAnimation(L"RunShootLeft", m_pRunShootImage, Vector(0.f, 200.f), Vector(200.f, 200.f), Vector(200.f, 0.f), 0.05f, 16);
 	m_pAnimator->CreateAnimation(L"ParryRight", m_pParryImage, Vector(0.f, 0.f), Vector(200.f, 200.f), Vector(200.f, 0.f), 0.1f, 16, false);
 	m_pAnimator->CreateAnimation(L"ParryLeft", m_pParryImage, Vector(0.f, 200.f), Vector(200.f, 200.f), Vector(200.f, 0.f), 0.1f, 16, false);
 	m_pAnimator->CreateAnimation(L"SpecialAttackRight", m_pSpecialAttackImage, Vector(0.f, 0.f), Vector(400.f, 400.f), Vector(200.f, 0.f), 0.1f, 15, false);
@@ -178,13 +178,13 @@ void CPlayer::AnimatorUpdate()
 	m_pAnimator->Play(m_strState, false);
 }
 
-void CPlayer::CreateMissile()
+void CPlayer::CreateMissile(Vector pos, Vector direction, bool ExMissile = false)
 {
 	Logger::Debug(L"미사일 생성");
 
-	CMissile* pMissile = new CMissile();
-	pMissile->SetPos(m_vecPos);
-	pMissile->SetDir(Vector(1, 0));
+	CMissile* pMissile = new CMissile(ExMissile);
+	pMissile->SetPos(pos);
+	pMissile->SetDir(direction.Normalized());
 	ADDOBJECT(pMissile);
 
 }

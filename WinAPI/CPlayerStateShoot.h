@@ -7,7 +7,11 @@ class CPlayerStateShoot : public CState
 {
 private:
 	CPlayer* pPlayer;
-	Vector m_vecPos;
+	Vector m_LookDir;
+	float fCooltime = 0;
+
+	Vector m_vecMissilePos;
+	bool bShoot;
 
 public:
 	CPlayerStateShoot(CPlayer* pPlayer) { this->pPlayer = pPlayer; }

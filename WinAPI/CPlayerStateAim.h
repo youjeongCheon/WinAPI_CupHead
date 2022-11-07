@@ -7,7 +7,8 @@ class CPlayerStateAim : public CState
 {
 private:
 	CPlayer* pPlayer;
-	Vector m_vecPos;
+	Vector m_LookDir;
+	bool m_bDiagonal = false;
 
 public:
 	CPlayerStateAim(CPlayer* pPlayer) { this->pPlayer = pPlayer; }

@@ -54,6 +54,8 @@ public:
 	
 	bool isGround();
 
+	void CreateMissile(Vector pos, Vector direction, bool ExMissile= false);
+
 private:
 	void Init() override;
 	void Update() override;
@@ -61,7 +63,6 @@ private:
 	void Release() override;
 
 	void AnimatorUpdate();
-	void CreateMissile();
 
 	void OnCollisionEnter(CCollider* pOtherCollider) override;
 	void OnCollisionStay(CCollider* pOtherCollider) override;
