@@ -29,6 +29,9 @@ void CPlayerStateAim::Update()
 			result += up;
 		else if (BUTTONSTAY(VK_DOWN))
 			result += down;
+		else
+			m_LookDir.y = 0;
+
 		if (BUTTONSTAY(VK_RIGHT))
 			result += right;
 		else if (BUTTONSTAY(VK_LEFT))

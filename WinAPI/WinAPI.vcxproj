@@ -155,6 +155,8 @@
     <ClInclude Include="CImageObject.h" />
     <ClInclude Include="CInputManager.h" />
     <ClInclude Include="CMissile.h" />
+    <ClInclude Include="CMissileDeath.h" />
+    <ClInclude Include="CMissileSpawn.h" />
     <ClInclude Include="CMonster.h" />
     <ClInclude Include="CPanel.h" />
     <ClInclude Include="CPathManager.h" />
@@ -212,6 +214,8 @@
     <ClCompile Include="CImageObject.cpp" />
     <ClCompile Include="CInputManager.cpp" />
     <ClCompile Include="CMissile.cpp" />
+    <ClCompile Include="CMissileDeath.cpp" />
+    <ClCompile Include="CMissileSpawn.cpp" />
     <ClCompile Include="CMonster.cpp" />
     <ClCompile Include="CPanel.cpp" />
     <ClCompile Include="CPathManager.cpp" />

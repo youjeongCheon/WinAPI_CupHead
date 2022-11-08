@@ -4,8 +4,6 @@
 class CImage;
 class CAnimator;
 
-enum  class MissileState { Spawn, Loop, Death, EX_Loop, EX_Death };
-
 class CMissile : public CGameObject
 {
 public:
@@ -16,10 +14,10 @@ private:
 	Vector m_vecDir;
 	float m_fVelocity;
 	bool m_bExMissile;
-
+	bool bCreate;
 	CAnimator* m_pAnimator;
 
-	CImage* m_pSpawnImage;
+	
 	CImage* m_pLoopImage;
 	CImage* m_pDeathImage;
 	CImage* m_pExLoopImage;
@@ -32,6 +30,7 @@ private:
 	void Release() override;
 
 	void OnCollisionEnter(CCollider* pOtherCollider) override;
+	void CreateSpawn(Vector pos);
 
 public:
 	void SetDir(Vector dir);

@@ -11,10 +11,12 @@ public:
 
 private:
 	CImage* m_pImage;
+	bool m_bChange;
 
 public:
 	CImage* GetIamge();
 	void SetImage(CImage* pImage);
+	void ChangeScale(bool change, Vector scale);
 
 private:
 	void Init() override;
