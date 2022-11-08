@@ -234,6 +234,9 @@
     <ClInclude Include="CMissileDeath.h">
       <Filter>GameObject\Stage\Missile</Filter>
     </ClInclude>
+    <ClInclude Include="CLayer.h">
+      <Filter>Engine\Asset</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="WinAPI.cpp">
@@ -388,6 +391,9 @@
     </ClCompile>
     <ClCompile Include="CMissileSpawn.cpp">
       <Filter>GameObject\Stage\Missile</Filter>
+    </ClCompile>
+    <ClCompile Include="CLayer.cpp">
+      <Filter>Engine\Asset</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

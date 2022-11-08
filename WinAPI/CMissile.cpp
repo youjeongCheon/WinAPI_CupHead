@@ -86,12 +86,17 @@ void CMissile::Update()
 	else if (m_vecDir.y < 0)
 		str += L"Up";
 
-	// 화면밖으로 나갈경우 삭제
-	if (m_vecPos.x < 0 ||
-		m_vecPos.x > WINSIZEX ||
-		m_vecPos.y < 0 ||
-		m_vecPos.y > WINSIZEY)
+	//화면밖으로 나갈경우 삭제
+	if (m_vecPos.x < CAMERALOOKAT.x - WINSIZEX * 0.5f ||
+		m_vecPos.x > CAMERALOOKAT.x + WINSIZEX*0.5f ||
+		m_vecPos.y < CAMERALOOKAT.y - WINSIZEY * 0.5f ||
+		m_vecPos.y > CAMERALOOKAT.y + WINSIZEY * 0.5f
+		)
+	{
 		DELETEOBJECT(this);
+		Logger::Debug(L"미사일이 화면밖으로 나가 삭제");
+	}
+		
 
 	m_pAnimator->Play(str, false);
 }

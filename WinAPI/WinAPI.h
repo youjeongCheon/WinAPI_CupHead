@@ -27,6 +27,8 @@ enum class GroupScene
 {
 	Title,
 
+	Tutorial,
+
 	TileTool,
 
 	Stage01,
@@ -45,6 +47,7 @@ enum class Layer
 	Player,
 	Missile,
 	Monster,
+	FrontLayer,
 
 	Ui,
 	Size,

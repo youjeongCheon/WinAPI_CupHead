@@ -51,3 +51,5 @@ private:
 };
 
 #define CAMERA	CCameraManager::GetInstance()
+#define CAMERALOOKAT CCameraManager::GetInstance()->GetLookAt()
+#define WORLDTOSCREEN(x,y) CCameraManager::GetInstance()->WorldToScreenPoint(Vector (x,y))

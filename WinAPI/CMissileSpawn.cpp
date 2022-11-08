@@ -17,7 +17,6 @@ void CMissileSpawn::Init()
 	m_pAnimator = new CAnimator;
 	m_pAnimator->CreateAnimation(L"Spawn", m_pSpawnImage, Vector(0.f, 0.f), Vector(150, 150), Vector(150, 0.f), 0.05f, 4, false);
 	AddComponent(m_pAnimator);
-	Logger::Debug(L"Spawn 생성");
 }
 
 void CMissileSpawn::Update()
@@ -29,7 +28,6 @@ void CMissileSpawn::Update()
 	if (fCoolTime > 0.2)
 	{
 		DELETEOBJECT(this);
-		Logger::Debug(L"Spawn 제거");
 	}
 		
 
