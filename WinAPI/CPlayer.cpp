@@ -178,11 +178,12 @@ void CPlayer::AnimatorUpdate()
 	m_pAnimator->Play(m_strState, false);
 }
 
-void CPlayer::CreateMissile(Vector pos, Vector direction, bool ExMissile = false)
+void CPlayer::CreateMissile(Vector pos, Vector direction, bool ExMissile )
 {
 	Logger::Debug(L"미사일 생성");
 
-	CMissile* pMissile = new CMissile(ExMissile);
+	CMissile* pMissile = new CMissile();
+	pMissile->SetExMissile(ExMissile);
 	pMissile->SetPos(pos);
 	pMissile->SetDir(direction.Normalized());
 	ADDOBJECT(pMissile);

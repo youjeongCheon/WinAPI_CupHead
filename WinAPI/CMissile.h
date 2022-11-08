@@ -9,14 +9,12 @@ enum  class MissileState { Spawn, Loop, Death, EX_Loop, EX_Death };
 class CMissile : public CGameObject
 {
 public:
-	CMissile(bool ExMissile) { m_bExMissile = ExMissile; };
 	CMissile();
 	virtual ~CMissile();
 
 private:
 	Vector m_vecDir;
 	float m_fVelocity;
-	Vector m_vecPos;
 	bool m_bExMissile;
 
 	CAnimator* m_pAnimator;
@@ -38,4 +36,5 @@ private:
 public:
 	void SetDir(Vector dir);
 	void SetVelocity(float velocity);
+	void SetExMissile(bool bExMissile);
 };

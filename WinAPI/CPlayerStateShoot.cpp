@@ -86,14 +86,15 @@ void CPlayerStateShoot::Update()
 	}
 	pPlayer->SetStateName(str);
 
+	pPlayer->CreateMissile(m_vecMissilePos, m_LookDir);
+	
 	fCooltime += DT;
-	if (fCooltime == 0.05f)
+	if (fCooltime>0.3f)
 	{
-		pPlayer->CreateMissile(m_vecMissilePos, m_LookDir.Normalized());
-	}
-	else if (!fCooltime<0.3f)
-	{
-		pPlayer->ChangeState(PlayerState::Idle);
+		if(BUTTONSTAY('C'))
+			pPlayer->ChangeState(PlayerState::Aim);
+		else
+			pPlayer->ChangeState(PlayerState::Idle);
 	}
 }
 

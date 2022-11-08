@@ -13,7 +13,7 @@ CMissile::CMissile()
 	m_fVelocity = 1000;
 	m_layer = Layer::Missile;
 	m_strName = L"미사일";
-	m_vecPos = Vector(0, 0);
+	m_bExMissile = false;
 
 	m_pSpawnImage = nullptr;
 	m_pLoopImage = nullptr;
@@ -37,8 +37,8 @@ void CMissile::Init()
 
 	m_pAnimator = new CAnimator;
 	m_pAnimator->CreateAnimation(L"Spawn", m_pSpawnImage, Vector(0.f, 0.f), Vector(150, 150), Vector(150, 0.f), 0.05f, 4,false);
-	m_pAnimator->CreateAnimation(L"LoopRight", m_pLoopImage, Vector(0.f, 0.f), Vector(200.f, 100), Vector(200.f, 0.f), 0.05f, 7);
-	m_pAnimator->CreateAnimation(L"LoopLeft", m_pLoopImage, Vector(0.f, 100), Vector(200.f, 100), Vector(200.f, 0.f), 0.05f, 7);
+	m_pAnimator->CreateAnimation(L"LoopRight", m_pLoopImage, Vector(0.f, 0.f), Vector(200.f, 100), Vector(200.f, 0.f), 0.05f, 7,false);
+	m_pAnimator->CreateAnimation(L"LoopLeft", m_pLoopImage, Vector(0.f, 100), Vector(200.f, 100), Vector(200.f, 0.f), 0.05f, 7,false);
 	m_pAnimator->CreateAnimation(L"Death", m_pDeathImage, Vector(0.f, 0.f), Vector(300, 300), Vector(300, 0.f), 0.05f, 9,false);
 	m_pAnimator->CreateAnimation(L"ExLoopRight", m_pExLoopImage, Vector(0.f, 0.f), Vector(500, 200.f), Vector(500, 0.f), 0.05f, 8);
 	m_pAnimator->CreateAnimation(L"ExLoopLeft", m_pExLoopImage, Vector(0.f, 200), Vector(500, 200.f), Vector(500, 0.f), 0.05f, 8);
@@ -46,23 +46,24 @@ void CMissile::Init()
 
 	AddComponent(m_pAnimator);
 
-	AddCollider(ColliderType::Circle, Vector(100, 100), Vector(0, 0));
+	AddCollider(ColliderType::Circle, Vector(10, 10), Vector(0, 0));
 }
 
 void CMissile::Update()
 {
-	m_vecPos += m_vecDir * m_fVelocity * DT;
+	m_vecPos += m_vecDir  * m_fVelocity * DT;
 
 	wstring str = L"";
 
 	if (m_bExMissile == false)
 		str += L"Loop";
+
 	else
 		str += L"ExLoop";
 
-	if (m_vecDir.x == +1)
+	if (m_vecDir.x >0)
 		str += L"Right";
-	else if (m_vecDir.x == -1)
+	else if (m_vecDir.x <0)
 		str += L"Left";
 
 	// 화면밖으로 나갈경우 삭제
@@ -71,6 +72,8 @@ void CMissile::Update()
 		m_vecPos.y < 0 ||
 		m_vecPos.y > WINSIZEY)
 		DELETEOBJECT(this);
+
+	m_pAnimator->Play(str, false);
 }
 
 void CMissile::Render()
@@ -99,4 +102,9 @@ void CMissile::SetDir(Vector dir)
 void CMissile::SetVelocity(float velocity)
 {
 	m_fVelocity = velocity;
+}
+
+void CMissile::SetExMissile(bool bExMissile)
+{
+	m_bExMissile = bExMissile;
 }
