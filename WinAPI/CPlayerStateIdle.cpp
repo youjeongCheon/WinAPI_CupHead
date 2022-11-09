@@ -17,7 +17,7 @@ void CPlayerStateIdle::Update()
 	wstring str = L"";
 
 	// 땅에 있지 않는다면
-	if (pPlayer->isGround())
+	if (!pPlayer->isGround())
 	{
 		m_vecPos = pPlayer->GetPos();
 		m_vecPos.y += 500 * DT;

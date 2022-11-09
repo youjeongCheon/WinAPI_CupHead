@@ -43,6 +43,8 @@ private:
 	Vector m_vecLookDir;
 
 	bool bIsGround;
+	bool bIsOnBlock;
+	int num; // 1 : 왼쪽에서 충돌, 2 : 위쪽에 충돌, 3 : 오른쪽에서 충돌
 
 public:
 

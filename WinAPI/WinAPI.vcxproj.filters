@@ -237,6 +237,9 @@
     <ClInclude Include="CLayer.h">
       <Filter>Engine\Asset</Filter>
     </ClInclude>
+    <ClInclude Include="CBlock.h">
+      <Filter>GameObject\Player</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="WinAPI.cpp">
@@ -394,6 +397,9 @@
     </ClCompile>
     <ClCompile Include="CLayer.cpp">
       <Filter>Engine\Asset</Filter>
+    </ClCompile>
+    <ClCompile Include="CBlock.cpp">
+      <Filter>GameObject\Player</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

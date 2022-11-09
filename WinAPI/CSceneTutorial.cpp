@@ -5,6 +5,7 @@
 #include "CMonster.h"
 #include "CCameraController.h"
 #include "CImageObject.h"
+#include "CBlock.h"
 
 CSceneTutorial::CSceneTutorial()
 {
@@ -37,6 +38,14 @@ void CSceneTutorial::Init()
 	pObjArrowDuck->SetImage(pArrowDuck);
 	pObjArrowDuck->SetPos(640, 430);
 	AddGameObject(pObjArrowDuck);
+
+	CBlock* pBlockCube = new CBlock();
+	pBlockCube->SetBlockType(BlockType::Cube);
+	AddGameObject(pBlockCube);
+
+	CBlock* pBlockCP = new CBlock();
+	pBlockCP->SetBlockType(BlockType::Cylinder_platform);
+	AddGameObject(pBlockCP);
 
 #pragma endregion 
 
@@ -74,7 +83,7 @@ void CSceneTutorial::Update()
 
 void CSceneTutorial::Render()
 {
-	//RENDER->Image(pFrontLayer, CAMERALOOKAT.x - WINSIZEX * CAMERALOOKAT.y + WINSIZEY * 0.5f, 0, CAMERALOOKAT.x + WINSIZEX * 0.5f, CAMERALOOKAT.y - WINSIZEY * 0.5f);
+	
 }
 
 void CSceneTutorial::Exit()

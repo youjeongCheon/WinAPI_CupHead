@@ -39,6 +39,8 @@ CPlayer::CPlayer()
 	m_vecLookDir = Vector(1, 0);
 
 	bIsGround = true;
+	bIsOnBlock = false;
+	num = 0;
 }
 
 CPlayer::~CPlayer()
@@ -69,14 +71,19 @@ void CPlayer::SetLookDir(Vector vecLookDir)
 
 bool CPlayer::isGround()
 {
-	if (m_vecPos.y > PLAYERSTARTPOS.y)
+	if (!bIsOnBlock)
 	{
-		bIsGround = false;
+		if (m_vecPos.y < PLAYERSTARTPOS.y)
+		{
+			bIsGround = false;
+		}
+		else
+		{
+			bIsGround = true;
+		}
 	}
 	else
-	{
 		bIsGround = true;
-	}
 
 	return bIsGround;
 }
@@ -142,7 +149,7 @@ void CPlayer::Init()
 	AddComponent(m_pAnimator);
 #pragma endregion
 
-	AddCollider(ColliderType::Rect, Vector(120, 160), Vector(0, 0));
+	AddCollider(ColliderType::Rect, Vector(120, 80), Vector(0, 0));
 
 	m_mapState.insert(make_pair(PlayerState::Idle, new CPlayerStateIdle(this)));
 	m_mapState.insert(make_pair(PlayerState::Run, new CPlayerStateRun(this)));
@@ -192,12 +199,50 @@ void CPlayer::CreateMissile(Vector pos, Vector direction, bool ExMissile )
 
 void CPlayer::OnCollisionEnter(CCollider* pOtherCollider)
 {
+
+	if (pOtherCollider->GetObjName() == L"block")
+	{
+		Logger::Debug(L"플레이어가 block과 충돌진입");
+		if ((m_vecPos.x < pOtherCollider->GetPos().x) &&
+			!(abs((int)GetCollider()->GetPos().y - pOtherCollider->GetPos().y) == (GetCollider()->GetScale().y + pOtherCollider->GetScale().y) * 0.5f))
+			num = 1;
+		else if ((m_vecPos.x > pOtherCollider->GetPos().x) &&
+			!(abs((int)GetCollider()->GetPos().y - pOtherCollider->GetPos().y)== (GetCollider()->GetScale().y + pOtherCollider->GetScale().y) * 0.5f))
+			num = 3;
+		else if (m_vecPos.y < pOtherCollider->GetPos().y)
+			num = 2;
+	}
+	
 }
 
 void CPlayer::OnCollisionStay(CCollider* pOtherCollider)
 {
+	if (pOtherCollider->GetObjName() == L"block")
+	{
+		Logger::Debug(L"플레이어가 block과 충돌");
+		switch (num)
+		{
+		case 1:
+			m_vecPos.x = pOtherCollider->GetPos().x - 0.5f * (GetCollider()->GetScale().x + pOtherCollider->GetScale().x );
+			break;
+
+		case 2:
+			bIsOnBlock = true;
+			m_vecPos.y = 1 + pOtherCollider->GetPos().y - 0.5f * (GetCollider()->GetScale().y + pOtherCollider->GetScale().y);
+			break;
+
+		case 3:
+			m_vecPos.x = pOtherCollider->GetPos().x + 0.5f * (GetCollider()->GetScale().x + pOtherCollider->GetScale().x );
+			break;
+		default:
+			Logger::Debug(L"플레이어가 block과 충돌 이상");
+			break;
+		}
+	}
 }
 
 void CPlayer::OnCollisionExit(CCollider* pOtherCollider)
 {
+	Logger::Debug(L"플레이어가 block과 충돌해제");
+	bIsOnBlock = false;
 }

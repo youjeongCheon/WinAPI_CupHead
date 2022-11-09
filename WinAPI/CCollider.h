@@ -37,6 +37,7 @@ public:
 	Vector GetPos();
 	Vector GetOffsetPos();
 	Vector GetScale();
+	
 
 private:
 	void Init() override;
