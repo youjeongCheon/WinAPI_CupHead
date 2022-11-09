@@ -56,10 +56,11 @@ void CImageObject::Render()
 		{
 			RENDER->Image(
 				m_pImage,
-				m_vecRenderPos.x - (float)m_pImage->GetWidth(), 
-				m_vecRenderPos.y - (float)m_pImage->GetHeight(),
-				(float)m_pImage->GetWidth(),
-				(float)m_pImage->GetHeight());
+				m_vecPos.x - (float)m_pImage->GetWidth() * 0.5f,
+				m_vecPos.y + (float)m_pImage->GetHeight() * 0.5f,
+				m_vecPos.x + (float)m_pImage->GetWidth() * 0.5f,
+				m_vecPos.y - (float)m_pImage->GetHeight() * 0.5f);
+				
 		}
 		
 		else

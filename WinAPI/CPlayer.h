@@ -69,4 +69,4 @@ private:
 	void OnCollisionExit(CCollider* pOtherCollider) override;
 };
 
-#define PLAYERSTARTPOS Vector(200, WINSIZEY*0.75f)
+#define PLAYERSTARTPOS Vector(200, WINSIZEY*0.72f)

@@ -108,8 +108,8 @@ void CPlayer::Init()
 	m_pAnimator->CreateAnimation(L"DashLeft", m_pDashImage, Vector(0.f, 200.f), Vector(500.f, 200.f), Vector(500.f, 0.f), 0.05f, 8, false);
 	m_pAnimator->CreateAnimation(L"DuckRight", m_pDuckImage, Vector(0.f, 0.f), Vector(200.f, 200.f), Vector(200.f, 0.f), 0.1f, 7, false);
 	m_pAnimator->CreateAnimation(L"DuckLeft", m_pDuckImage, Vector(0.f, 200.f), Vector(200.f, 200.f), Vector(200.f, 0.f), 0.1f, 7, false);
-	m_pAnimator->CreateAnimation(L"DuckRightIdle", m_pDuckIdleImage, Vector(0.f, 0.f), Vector(200.f, 200.f), Vector(200.f, 0.f), 0.1f, 5);
-	m_pAnimator->CreateAnimation(L"DuckLeftIdle", m_pDuckIdleImage, Vector(0.f, 200.f), Vector(200.f, 200.f), Vector(200.f, 0.f), 0.1f, 5);
+	m_pAnimator->CreateAnimation(L"DuckRightIdle", m_pDuckIdleImage, Vector(0.f, 0.f), Vector(200.f, 200.f), Vector(200.f, 0.f), 0.1f, 8);
+	m_pAnimator->CreateAnimation(L"DuckLeftIdle", m_pDuckIdleImage, Vector(0.f, 200.f), Vector(200.f, 200.f), Vector(200.f, 0.f), 0.1f, 8);
 	m_pAnimator->CreateAnimation(L"AimRightUp", m_pAimImage, Vector(0.f, 0.f), Vector(200.f, 200.f), Vector(200.f, 0.f), 0.1f, 8);
 	m_pAnimator->CreateAnimation(L"AimRightDiagonalUp", m_pAimImage, Vector(0.f, 200.f), Vector(200.f, 200.f), Vector(200.f, 0.f), 0.1f, 8);
 	m_pAnimator->CreateAnimation(L"AimRight", m_pAimImage, Vector(0.f, 400.f), Vector(200.f, 200.f), Vector(200.f, 0.f), 0.1f, 8);

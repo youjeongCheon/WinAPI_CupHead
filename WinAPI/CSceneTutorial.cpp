@@ -31,11 +31,11 @@ void CSceneTutorial::Init()
 	pBackground->SetScreenFixed(true);
 	AddGameObject(pBackground);
 
-#pragma region Object
+#pragma region Tutorial_Object
 	CImage* pArrowDuck = RESOURCE->LoadImg(L"ArrowDuck", L"Image\\tutorial_arrow_duck.png");
 	CImageObject* pObjArrowDuck = new CImageObject();
 	pObjArrowDuck->SetImage(pArrowDuck);
-	pObjArrowDuck->SetPos(640, 360);
+	pObjArrowDuck->SetPos(640, 430);
 	AddGameObject(pObjArrowDuck);
 
 #pragma endregion 
@@ -48,7 +48,7 @@ void CSceneTutorial::Init()
 	pFrontground->SetImage(pFrontLayer);
 	pFrontground->SetLayer(Layer::FrontLayer);
 	pFrontground->ChangeScale(true, Vector(WINSIZEX, WINSIZEY));
-	pBackground->SetScreenFixed(true);
+	pFrontground->SetScreenFixed(true);
 	AddGameObject(pFrontground);
 
 
@@ -74,6 +74,7 @@ void CSceneTutorial::Update()
 
 void CSceneTutorial::Render()
 {
+	//RENDER->Image(pFrontLayer, CAMERALOOKAT.x - WINSIZEX * CAMERALOOKAT.y + WINSIZEY * 0.5f, 0, CAMERALOOKAT.x + WINSIZEX * 0.5f, CAMERALOOKAT.y - WINSIZEY * 0.5f);
 }
 
 void CSceneTutorial::Exit()
