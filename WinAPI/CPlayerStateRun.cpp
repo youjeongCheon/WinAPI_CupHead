@@ -19,6 +19,10 @@ void CPlayerStateRun::Update()
 {
 	wstring str = L"Run";
 	
+	if (!pPlayer->isGround())
+	{
+		pPlayer->ChangeState(PlayerState::Idle);
+	}
 	if (BUTTONSTAY('C'))
 	{
 		// RunShooT
@@ -31,6 +35,7 @@ void CPlayerStateRun::Update()
 	}
 	if (BUTTONSTAY(VK_RIGHT))
 	{
+		pPlayer->SetMoveDir(Vector (+1,0));
 		m_vecPos = pPlayer->GetPos();
 		m_vecPos.x += 400 * DT;
 		pPlayer->SetPos(m_vecPos);
@@ -38,6 +43,7 @@ void CPlayerStateRun::Update()
 	}
 	else if (BUTTONSTAY(VK_LEFT))
 	{
+		pPlayer->SetMoveDir(Vector(-1, 0));
 		m_vecPos = pPlayer->GetPos();
 		m_vecPos.x -= 400 * DT;
 		pPlayer->SetPos(m_vecPos);

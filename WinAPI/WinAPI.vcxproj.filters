@@ -49,17 +49,17 @@
     <Filter Include="GameObject\Common">
       <UniqueIdentifier>{9e45e506-939f-4c97-8f87-6146ebb42d5f}</UniqueIdentifier>
     </Filter>
-    <Filter Include="GameObject\Player">
-      <UniqueIdentifier>{bfda7133-269f-42ed-84d4-a5bb70793eac}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="GameObject\Player\PlayerState">
-      <UniqueIdentifier>{4091405f-b243-4403-a42f-dc58fe0b2684}</UniqueIdentifier>
-    </Filter>
     <Filter Include="GameObject\Stage">
       <UniqueIdentifier>{f2ad0501-d505-4b88-af0d-880a4673ef5b}</UniqueIdentifier>
     </Filter>
     <Filter Include="GameObject\Stage\Missile">
       <UniqueIdentifier>{e1469eed-e30f-40da-ae08-b7f2c93fd2af}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GameObject\Player">
+      <UniqueIdentifier>{bfda7133-269f-42ed-84d4-a5bb70793eac}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GameObject\Player\PlayerState">
+      <UniqueIdentifier>{4091405f-b243-4403-a42f-dc58fe0b2684}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -238,7 +238,13 @@
       <Filter>Engine\Asset</Filter>
     </ClInclude>
     <ClInclude Include="CBlock.h">
-      <Filter>GameObject\Player</Filter>
+      <Filter>GameObject\Stage</Filter>
+    </ClInclude>
+    <ClInclude Include="CGround.h">
+      <Filter>GameObject\Stage</Filter>
+    </ClInclude>
+    <ClInclude Include="CObstacle.h">
+      <Filter>GameObject\Stage</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -399,7 +405,13 @@
       <Filter>Engine\Asset</Filter>
     </ClCompile>
     <ClCompile Include="CBlock.cpp">
-      <Filter>GameObject\Player</Filter>
+      <Filter>GameObject\Stage</Filter>
+    </ClCompile>
+    <ClCompile Include="CGround.cpp">
+      <Filter>GameObject\Stage</Filter>
+    </ClCompile>
+    <ClCompile Include="CObstacle.cpp">
+      <Filter>GameObject\Stage</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

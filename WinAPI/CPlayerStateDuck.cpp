@@ -24,7 +24,11 @@ void CPlayerStateDuck::Update()
 
 	if (BUTTONSTAY(VK_DOWN))
 	{
-		if (fCooltime > 0.7f)
+		if (BUTTONDOWN('Z'))
+		{
+			pPlayer->SetPassBlock(true);
+		}
+		else if (fCooltime > 0.7f)
 		{
 			str += L"Idle";
 		}
@@ -35,7 +39,8 @@ void CPlayerStateDuck::Update()
 	 if (BUTTONSTAY(VK_RIGHT) || BUTTONSTAY(VK_LEFT))
 		pPlayer->ChangeState(PlayerState::Run);
 	 if (BUTTONDOWN('Z'))
-		pPlayer->ChangeState(PlayerState::Jump);
+		 if(!pPlayer->GetPassBlock())
+			 pPlayer->ChangeState(PlayerState::Jump);
 	 if (BUTTONDOWN(VK_SHIFT))
 		pPlayer->ChangeState(PlayerState::Dash);
 	 if (BUTTONDOWN('C'))

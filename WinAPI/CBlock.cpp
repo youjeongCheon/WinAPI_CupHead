@@ -2,6 +2,7 @@
 #include "CBlock.h"
 
 #include "CGameObject.h"
+#include "CCollider.h"
 
 CBlock::CBlock()
 {
@@ -26,51 +27,32 @@ void CBlock::SetBlockType(BlockType blockType)
 
 void CBlock::Init()
 {
-	m_pCube =				RESOURCE->LoadImg(L"BlockCube", L"Image\\tutorial_cube.png");
-	m_pCylinder_platform =	RESOURCE->LoadImg(L"BlockCylinder_platform", L"Image\\tutorial_cylinder_and_platform.png");
-	m_pPyramid =			RESOURCE->LoadImg(L"BlockPyramid", L"Image\\tutorial_pyramid_topper.png");
-	m_pPlinth =				RESOURCE->LoadImg(L"BlockPlinth", L"Image\\tutorial_plynth.png");
+	m_pCube = RESOURCE->LoadImg(L"BlockCube", L"Image\\tutorial_cube.png");
+	m_pCylinder_platform = RESOURCE->LoadImg(L"BlockCylinder_platform", L"Image\\tutorial_cylinder_and_platform.png");
+	m_pPyramid = RESOURCE->LoadImg(L"BlockPyramid", L"Image\\tutorial_pyramid_topper.png");
+	m_pPlinth = RESOURCE->LoadImg(L"BlockPlinth", L"Image\\tutorial_plynth.png");
 
 	switch (m_blockType)
 	{
 	case BlockType::Cube:
 		m_pBlock = m_pCube;
 		SetPos(1388, 505);
-		AddCollider(ColliderType::Rect, Vector(140, 148), Vector(0, 0));
 		break;
 	case BlockType::Cylinder_platform:
 	{
 		m_pBlock = m_pCylinder_platform;
-		SetPos(2137, 267);
-		AddCollider(ColliderType::Rect, Vector(400, 43), Vector(0, 0));
-		CBlock* pNullBlock1 = new CBlock();
-		pNullBlock1->SetBlockType(BlockType::Null);
-		pNullBlock1->SetPos(2391, 424);
-		pNullBlock1->AddCollider(ColliderType::Rect, Vector(123, 332), Vector(0, 0));
-		
-		CBlock* pNullBlock2 = new CBlock();
-		pNullBlock2->SetBlockType(BlockType::Null);
-		pNullBlock2->SetPos(2859, 150);
-		pNullBlock2->AddCollider(ColliderType::Rect, Vector(135, 298), Vector(0, 0));
+		SetPos(2111, 321);
 		break;
 	}
 	case BlockType::Pyramid:
-		AddCollider(ColliderType::Rect, Vector(182.98, 147.61), Vector(0, 0));
+		m_pBlock = m_pPyramid;
 		SetPos(1388, 505);
 		break;
 	case BlockType::Plinth:
-		AddCollider(ColliderType::Rect, Vector(182.98, 147.61), Vector(0, 0));
+		m_pBlock = m_pPlinth;
 		SetPos(1388, 505);
 		break;
-	case BlockType::Null:
-
-		break;
-
 	}
-
-
-	
-
 }
 
 void CBlock::Update()
@@ -80,22 +62,14 @@ void CBlock::Update()
 
 void CBlock::Render()
 {
-	if (!(BlockType::Null == m_blockType))
-	{
-		RENDER->Image(m_pBlock,
-			m_vecPos.x - m_pBlock->GetWidth() * 0.5f,
-			m_vecPos.y - m_pBlock->GetHeight() * 0.5f,
-			m_vecPos.x + m_pBlock->GetWidth() * 0.5f,
-			m_vecPos.y + m_pBlock->GetHeight() * 0.5f
-		);
-	}
+	RENDER->Image(m_pBlock,
+		m_vecPos.x - m_pBlock->GetWidth() * 0.5f,
+		m_vecPos.y - m_pBlock->GetHeight() * 0.5f,
+		m_vecPos.x + m_pBlock->GetWidth() * 0.5f,
+		m_vecPos.y + m_pBlock->GetHeight() * 0.5f);
 }
 
 void CBlock::Release()
-{
-}
-
-void CBlock::AnimatorUpdate()
 {
 }
 

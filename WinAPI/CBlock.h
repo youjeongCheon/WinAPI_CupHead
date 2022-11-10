@@ -3,7 +3,7 @@
 
 class CImage;
 
-enum class BlockType { Cube, Cylinder_platform, Pyramid, Plinth, Null};
+enum class BlockType { Cube, Cylinder_platform, Pyramid, Plinth};
 class CBlock : public CGameObject
 {
 public:
@@ -27,8 +27,6 @@ private:
 	void Update() override;
 	void Render() override;
 	void Release() override;
-
-	void AnimatorUpdate();
 
 	void OnCollisionEnter(CCollider* pOtherCollider) override;
 	void OnCollisionStay(CCollider* pOtherCollider) override;

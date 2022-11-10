@@ -6,6 +6,8 @@
 #include "CCameraController.h"
 #include "CImageObject.h"
 #include "CBlock.h"
+#include "CGround.h"
+#include "CObstacle.h"
 
 CSceneTutorial::CSceneTutorial()
 {
@@ -32,6 +34,10 @@ void CSceneTutorial::Init()
 	pBackground->SetScreenFixed(true);
 	AddGameObject(pBackground);
 
+	CGround* pGround = new CGround();
+	pGround->SetPos(GROUNDPOS);
+	AddGameObject(pGround);
+
 #pragma region Tutorial_Object
 	CImage* pArrowDuck = RESOURCE->LoadImg(L"ArrowDuck", L"Image\\tutorial_arrow_duck.png");
 	CImageObject* pObjArrowDuck = new CImageObject();
@@ -46,8 +52,6 @@ void CSceneTutorial::Init()
 	CBlock* pBlockCP = new CBlock();
 	pBlockCP->SetBlockType(BlockType::Cylinder_platform);
 	AddGameObject(pBlockCP);
-	
-
 
 #pragma endregion 
 

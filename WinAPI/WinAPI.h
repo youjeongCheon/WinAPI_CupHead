@@ -44,6 +44,8 @@ enum class Layer
 {
 	Default,
 	Tile,
+	Ground,
+	Obstacle,
 	Block,
 	Player,
 	Missile,

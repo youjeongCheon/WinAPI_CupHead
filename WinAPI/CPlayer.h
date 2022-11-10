@@ -13,6 +13,8 @@ enum class PlayerState
 
 class CPlayer : public CGameObject
 {
+	friend CState;
+
 public:
 	CPlayer();
 	virtual ~CPlayer();
@@ -42,9 +44,11 @@ private:
 	Vector m_vecMoveDir;
 	Vector m_vecLookDir;
 
-	bool bIsGround;
-	bool bIsOnBlock;
-	int num; // 1 : 왼쪽에서 충돌, 2 : 위쪽에 충돌, 3 : 오른쪽에서 충돌
+	Vector	m_vecColliderScale;
+	bool	bIsGround;
+	bool	bIsOnBlock;
+	int		num; // 1 : 왼쪽에서 충돌, 2 : 위쪽에 충돌, 3 : 오른쪽에서 충돌, 4 : 아래쪽에서 충돌
+	bool	bPassBlock;
 
 public:
 
@@ -54,8 +58,12 @@ public:
 
 	Vector GetLookDir();
 	void SetLookDir(Vector vecLookDir);
+	void SetMoveDir(Vector vecMoveDir);
+	bool GetPassBlock();
+	void SetPassBlock(bool passBlock);
 	
 	bool isGround();
+	void SetGround(bool ground);
 
 	void CreateMissile(Vector pos, Vector direction, bool ExMissile= false);
 
