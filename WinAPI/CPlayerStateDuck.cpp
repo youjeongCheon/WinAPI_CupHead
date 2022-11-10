@@ -11,6 +11,7 @@ CPlayerStateDuck::~CPlayerStateDuck()
 void CPlayerStateDuck::Enter()
 {
 	fCooltime = 0;
+	bPassBlock = false;
 }
 
 void CPlayerStateDuck::Update()
@@ -22,12 +23,15 @@ void CPlayerStateDuck::Update()
 	else if (pPlayer->GetLookDir().x == -1)
 		str += L"Left";
 
-	if(BUTTONSTAY(VK_DOWN)&& (BUTTONDOWN('Z')))
+	
+	if (BUTTONSTAY(VK_DOWN)&&!bPassBlock)
 	{
-		pPlayer->SetPassBlock(true);
-	}
-	else if (BUTTONSTAY(VK_DOWN))
-	{
+		if (BUTTONDOWN('Z'))
+		{
+			bPassBlock==true;
+			pPlayer->SetPassBlock(true);
+			pPlayer->ChangeState(PlayerState::Idle);
+		}
 		if (fCooltime > 0.7f)
 		{
 			str += L"Idle";
