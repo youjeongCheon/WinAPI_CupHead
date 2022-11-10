@@ -49,6 +49,7 @@ private:
 public:
 
 	void ChangeState(PlayerState state);
+	PlayerState GetCurState();
 	void SetStateName(wstring strState);
 
 	Vector GetLookDir();

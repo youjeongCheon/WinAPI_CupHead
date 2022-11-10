@@ -46,6 +46,8 @@ void CSceneTutorial::Init()
 	CBlock* pBlockCP = new CBlock();
 	pBlockCP->SetBlockType(BlockType::Cylinder_platform);
 	AddGameObject(pBlockCP);
+	
+
 
 #pragma endregion 
 

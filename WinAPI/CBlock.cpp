@@ -43,9 +43,15 @@ void CBlock::Init()
 		m_pBlock = m_pCylinder_platform;
 		SetPos(2137, 267);
 		AddCollider(ColliderType::Rect, Vector(400, 43), Vector(0, 0));
-		/*CBlock* pNullBlock1 = new CBlock();
+		CBlock* pNullBlock1 = new CBlock();
 		pNullBlock1->SetBlockType(BlockType::Null);
-		pNullBlock1->GetCollider()->S*/
+		pNullBlock1->SetPos(2391, 424);
+		pNullBlock1->AddCollider(ColliderType::Rect, Vector(123, 332), Vector(0, 0));
+		
+		CBlock* pNullBlock2 = new CBlock();
+		pNullBlock2->SetBlockType(BlockType::Null);
+		pNullBlock2->SetPos(2859, 150);
+		pNullBlock2->AddCollider(ColliderType::Rect, Vector(135, 298), Vector(0, 0));
 		break;
 	}
 	case BlockType::Pyramid:

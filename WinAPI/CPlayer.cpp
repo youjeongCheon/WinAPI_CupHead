@@ -88,6 +88,11 @@ bool CPlayer::isGround()
 	return bIsGround;
 }
 
+PlayerState CPlayer::GetCurState()
+{
+	return m_curState;
+}
+
 void CPlayer::Init()
 {
 #pragma region ImageLoad
@@ -203,14 +208,29 @@ void CPlayer::OnCollisionEnter(CCollider* pOtherCollider)
 	if (pOtherCollider->GetObjName() == L"block")
 	{
 		Logger::Debug(L"플레이어가 block과 충돌진입");
-		if ((m_vecPos.x < pOtherCollider->GetPos().x) &&
-			!(abs((int)GetCollider()->GetPos().y - pOtherCollider->GetPos().y) == (GetCollider()->GetScale().y + pOtherCollider->GetScale().y) * 0.5f))
-			num = 1;
-		else if ((m_vecPos.x > pOtherCollider->GetPos().x) &&
-			!(abs((int)GetCollider()->GetPos().y - pOtherCollider->GetPos().y)== (GetCollider()->GetScale().y + pOtherCollider->GetScale().y) * 0.5f))
-			num = 3;
-		else if (m_vecPos.y < pOtherCollider->GetPos().y)
+		if (abs((int)GetCollider()->GetPos().y - pOtherCollider->GetPos().y) >= (GetCollider()->GetScale().y + pOtherCollider->GetScale().y) * 0.5f)
+		{
 			num = 2;
+			Logger::Debug(L"num=2");
+		}
+		else if ((m_vecPos.x < pOtherCollider->GetPos().x) &&
+			(abs((int)GetCollider()->GetPos().y - pOtherCollider->GetPos().y) >= (GetCollider()->GetScale().y + pOtherCollider->GetScale().y) * 0.5f))
+		{
+			num = 2;
+			Logger::Debug(L"num=2");
+		}
+		else if ((m_vecPos.x < pOtherCollider->GetPos().x) &&
+			(abs((int)GetCollider()->GetPos().y - pOtherCollider->GetPos().y) < (GetCollider()->GetScale().y + pOtherCollider->GetScale().y) * 0.5f))
+		{
+			num = 1;
+			Logger::Debug(L"num=1");
+		}
+		else if ((m_vecPos.x > pOtherCollider->GetPos().x) &&
+			!(abs((int)GetCollider()->GetPos().y - pOtherCollider->GetPos().y) >= (GetCollider()->GetScale().y + pOtherCollider->GetScale().y) * 0.5f))
+		{
+			Logger::Debug(L"num=3");
+			num = 3;
+		}
 	}
 	
 }
@@ -219,7 +239,6 @@ void CPlayer::OnCollisionStay(CCollider* pOtherCollider)
 {
 	if (pOtherCollider->GetObjName() == L"block")
 	{
-		Logger::Debug(L"플레이어가 block과 충돌");
 		switch (num)
 		{
 		case 1:
