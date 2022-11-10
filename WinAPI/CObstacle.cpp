@@ -106,53 +106,56 @@ void CObstacle::OnCollisionStay(CCollider* pOther)
 		CPlayer* pPlayer = static_cast<CPlayer*>(pOther->GetOwner());
 
 		dir = GetCollisionDir(pOther);
+		if (!pPlayer->GetPassBlock())
+		{
+			switch (GetCollisionDir(pOther))
+			{
+			case CollisionDir::Up:
+			{
+				pPlayer->SetPos(
+					pPlayer->GetPos().x,
+					GetCollider()->GetPos().y
+					- (GetCollider()->GetScale().y + pOther->GetScale().y) * 0.5f + offset
+					- pOther->GetOffsetPos().y
+				);
+				pPlayer->SetGround(true);
+			}
+			break;
 
-		switch (GetCollisionDir(pOther))
-		{
-		case CollisionDir::Up:
-		{
-			pPlayer->SetPos(
-				pPlayer->GetPos().x,
-				GetCollider()->GetPos().y
-				- (GetCollider()->GetScale().y + pOther->GetScale().y) * 0.5f + offset
-				- pOther->GetOffsetPos().y
-			);
-			pPlayer->SetGround(true);
-		}
-		break;
+			case CollisionDir::Down:
+			{
+				/*pPlayer->SetPos(
+					pPlayer->GetPos().x,
+					GetCollider()->GetPos().y
+					+ (GetCollider()->GetScale().y + pOther->GetScale().y) * 0.5f - offset
+					- pOther->GetOffsetPos().y
+				);*/
+				pPlayer->ChangeState(PlayerState::Idle);
+			}
+			break;
 
-		case CollisionDir::Down:
-		{
-			pPlayer->SetPos(
-				pPlayer->GetPos().x,
-				GetCollider()->GetPos().y
-				+ (GetCollider()->GetScale().y + pOther->GetScale().y) * 0.5f - offset
-				- pOther->GetOffsetPos().y
-			);
-		}
-		break;
+			case CollisionDir::Left:
+			{
+				pPlayer->SetPos(
+					GetCollider()->GetPos().x
+					- (GetCollider()->GetScale().x + pOther->GetScale().x) * 0.5f + offset
+					- pOther->GetOffsetPos().x,
+					pPlayer->GetPos().y
+				);
+			}
+			break;
 
-		case CollisionDir::Left:
-		{
-			pPlayer->SetPos(
-				GetCollider()->GetPos().x
-				- (GetCollider()->GetScale().x + pOther->GetScale().x) * 0.5f + offset
-				- pOther->GetOffsetPos().x,
-				pPlayer->GetPos().y
-			);
-		}
-		break;
-
-		case CollisionDir::Right:
-		{
-			pPlayer->SetPos(
-				GetCollider()->GetPos().x
-				+ (GetCollider()->GetScale().x + pOther->GetScale().x) * 0.5f - offset
-				- pOther->GetOffsetPos().x,
-				pPlayer->GetPos().y
-			);
-		}
-		break;
+			case CollisionDir::Right:
+			{
+				pPlayer->SetPos(
+					GetCollider()->GetPos().x
+					+ (GetCollider()->GetScale().x + pOther->GetScale().x) * 0.5f - offset
+					- pOther->GetOffsetPos().x,
+					pPlayer->GetPos().y
+				);
+			}
+			break;
+			}
 		}
 	}
 }
@@ -161,6 +164,7 @@ void CObstacle::OnCollisionExit(CCollider* pOther)
 {
 	CPlayer* pPlayer = static_cast<CPlayer*>(pOther->GetOwner());
 	pPlayer->SetGround(false);
+	pPlayer->SetPassBlock(false);
 }
 
 

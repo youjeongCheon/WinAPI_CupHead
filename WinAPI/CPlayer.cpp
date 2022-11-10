@@ -92,10 +92,9 @@ void CPlayer::SetPassBlock(bool passBlock)
 bool CPlayer::isGround()
 {
 	if (bIsOnBlock)
-	{
 		bIsGround = true;
-	}
-
+	if (bPassBlock)
+		bIsGround = false;
 	return bIsGround;
 }
 

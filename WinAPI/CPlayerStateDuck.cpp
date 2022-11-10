@@ -22,13 +22,13 @@ void CPlayerStateDuck::Update()
 	else if (pPlayer->GetLookDir().x == -1)
 		str += L"Left";
 
-	if (BUTTONSTAY(VK_DOWN))
+	if(BUTTONSTAY(VK_DOWN)&& (BUTTONDOWN('Z')))
 	{
-		if (BUTTONDOWN('Z'))
-		{
-			pPlayer->SetPassBlock(true);
-		}
-		else if (fCooltime > 0.7f)
+		pPlayer->SetPassBlock(true);
+	}
+	else if (BUTTONSTAY(VK_DOWN))
+	{
+		if (fCooltime > 0.7f)
 		{
 			str += L"Idle";
 		}
