@@ -103,6 +103,11 @@ void CPlayer::SetGround(bool ground)
 	bIsGround = ground;
 }
 
+void CPlayer::SetOnBlock(bool onBlock)
+{
+	bIsOnBlock = onBlock;
+}
+
 PlayerState CPlayer::GetCurState()
 {
 	return m_curState;
@@ -184,7 +189,7 @@ void CPlayer::Init()
 void CPlayer::Update()
 {
 	m_mapState[m_curState]->Update();
-
+	
 	if (m_vecPos.x < 70)
 		m_vecPos.x = 70;
 	AnimatorUpdate();
@@ -222,14 +227,8 @@ void CPlayer::OnCollisionEnter(CCollider* pOtherCollider)
 
 void CPlayer::OnCollisionStay(CCollider* pOtherCollider)
 {
-	if (pOtherCollider->GetObjName() == L"플레이어")
-	{
-		bIsOnBlock = true;
-	}
 }
 
 void CPlayer::OnCollisionExit(CCollider* pOtherCollider)
 {
-	bIsOnBlock = false;
-	bIsGround = false;
 }

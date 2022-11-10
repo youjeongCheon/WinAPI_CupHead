@@ -50,6 +50,7 @@ void CGround::OnCollisionStay(CCollider* pOther)
 				GetCollider()->GetPos().y
 				- (GetCollider()->GetScale().y + pOther->GetScale().y) * 0.5f + offset
 				- pOther->GetOffsetPos().y);
+			pPlayer->SetPassBlock(false);
 			pPlayer->SetGround(true);
 		}
 		else

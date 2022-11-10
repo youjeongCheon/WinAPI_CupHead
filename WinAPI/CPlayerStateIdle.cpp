@@ -38,6 +38,8 @@ void CPlayerStateIdle::Update()
 			pPlayer->SetPos(m_vecPos);
 			pPlayer->SetLookDir(Vector(-1, 0));
 		}
+		if (BUTTONSTAY(VK_SHIFT))
+			pPlayer->ChangeState(PlayerState::Dash);
 	}
 	else
 	{

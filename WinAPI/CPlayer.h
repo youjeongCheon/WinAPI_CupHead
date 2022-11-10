@@ -64,6 +64,7 @@ public:
 	
 	bool isGround();
 	void SetGround(bool ground);
+	void SetOnBlock(bool onBlock);
 
 	void CreateMissile(Vector pos, Vector direction, bool ExMissile= false);
 
