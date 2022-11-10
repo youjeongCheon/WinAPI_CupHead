@@ -46,7 +46,6 @@ enum class Layer
 	Tile,
 	Ground,
 	Obstacle,
-	Block,
 	Player,
 	Missile,
 	Monster,
@@ -69,4 +68,9 @@ enum class TypeTile
 
 	Size,
 };
+
+//========================================
+//##				∞‘¿”¡¬«•             ##
+//========================================
+#define GROUNDPOSY 590 
 

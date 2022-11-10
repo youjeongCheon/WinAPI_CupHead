@@ -101,6 +101,7 @@ void CObstacle::OnCollisionStay(CCollider* pOther)
 {
 	if (pOther->GetObjName() == L"플레이어")
 	{
+		
 		// 플레이어가 충돌 중일 경우 밀어내기 연산
 		CPlayer* pPlayer = static_cast<CPlayer*>(pOther->GetOwner());
 
@@ -116,6 +117,7 @@ void CObstacle::OnCollisionStay(CCollider* pOther)
 				- (GetCollider()->GetScale().y + pOther->GetScale().y) * 0.5f + offset
 				- pOther->GetOffsetPos().y
 			);
+			pPlayer->SetGround(true);
 		}
 		break;
 
@@ -157,6 +159,8 @@ void CObstacle::OnCollisionStay(CCollider* pOther)
 
 void CObstacle::OnCollisionExit(CCollider* pOther)
 {
+	CPlayer* pPlayer = static_cast<CPlayer*>(pOther->GetOwner());
+	pPlayer->SetGround(false);
 }
 
 
@@ -211,4 +215,9 @@ typename CObstacle::CollisionDir CObstacle::GetCollisionDir(CCollider* pOther)
 	}
 
 	return CollisionDir::None;
+}
+
+float CObstacle::GetOnGroundPosY()
+{
+	return GROUNDPOSY - 0.5 * m_vecScale.y;
 }

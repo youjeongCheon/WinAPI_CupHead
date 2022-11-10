@@ -35,7 +35,7 @@ void CSceneTutorial::Init()
 	AddGameObject(pBackground);
 
 	CGround* pGround = new CGround();
-	pGround->SetPos(GROUNDPOS);
+	pGround->SetPos(0, GROUNDPOSY);
 	AddGameObject(pGround);
 
 #pragma region Tutorial_Object
@@ -49,9 +49,38 @@ void CSceneTutorial::Init()
 	pBlockCube->SetBlockType(BlockType::Cube);
 	AddGameObject(pBlockCube);
 
+	CObstacle* pObstacleCube = new CObstacle();
+	pObstacleCube->SetScale(132, 147);
+	pObstacleCube->SetPos(1381.f, pObstacleCube->GetOnGroundPosY());
+	AddGameObject(pObstacleCube);
+
 	CBlock* pBlockCP = new CBlock();
 	pBlockCP->SetBlockType(BlockType::Cylinder_platform);
 	AddGameObject(pBlockCP);
+
+	CObstacle* pObstacleCP1 = new CObstacle();
+	pObstacleCP1->SetScale(78, 266);
+	pObstacleCP1->SetPos(1898, pObstacleCP1->GetOnGroundPosY());
+	AddGameObject(pObstacleCP1);
+
+	CObstacle* pObstacleCP2 = new CObstacle();
+	pObstacleCP2->SetScale(405, 20);
+	pObstacleCP2->SetPos(2152, 334);
+	AddGameObject(pObstacleCP2);
+
+	CObstacle* pObstacleCP3 = new CObstacle();
+	pObstacleCP3->SetScale(114, 287);
+	pObstacleCP3->SetPos(2321, 174);
+	AddGameObject(pObstacleCP3);
+
+
+	CBlock* pBlockPyramid = new CBlock();
+	pBlockPyramid->SetBlockType(BlockType::Pyramid);
+	AddGameObject(pBlockPyramid);
+
+	CBlock* pBlockPlinth = new CBlock();
+	pBlockPlinth->SetBlockType(BlockType::Plinth);
+	AddGameObject(pBlockPlinth);
 
 #pragma endregion 
 

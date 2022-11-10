@@ -19,5 +19,3 @@ private:
 	void OnCollisionStay(CCollider* pOther)		override;
 	void OnCollisionExit(CCollider* pOther)		override;
 };
-
-#define GROUNDPOS Vector(0, WINSIZEY*0.82f)

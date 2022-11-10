@@ -13,7 +13,6 @@ CBlock::CBlock()
 	m_pPlinth = nullptr;
 	m_blockType = BlockType::Cube;
 	m_strName = L"block";
-	m_layer = Layer::Block;
 }
 
 CBlock::~CBlock()
@@ -46,11 +45,11 @@ void CBlock::Init()
 	}
 	case BlockType::Pyramid:
 		m_pBlock = m_pPyramid;
-		SetPos(1388, 505);
+		SetPos(4006, 289);
 		break;
 	case BlockType::Plinth:
 		m_pBlock = m_pPlinth;
-		SetPos(1388, 505);
+		SetPos(4026, 460);
 		break;
 	}
 }

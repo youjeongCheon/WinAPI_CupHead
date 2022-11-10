@@ -10,6 +10,8 @@ public:
 	CObstacle();
 	virtual ~CObstacle();
 
+	float GetOnGroundPosY();
+
 private:
 	CollisionDir dir;
 	float		 offset;
@@ -27,4 +29,5 @@ private:
 private:
 	CollisionDir GetCollisionDir(CCollider* pOther);
 };
+
 

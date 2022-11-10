@@ -219,72 +219,18 @@ void CPlayer::CreateMissile(Vector pos, Vector direction, bool ExMissile )
 
 void CPlayer::OnCollisionEnter(CCollider* pOtherCollider)
 {
-
-	if (pOtherCollider->GetObjName() == L"block")
-	{
-		Logger::Debug(L"플레이어가 block과 충돌진입");
-		if (bPassBlock == true)
-			num = 0;
-		else if ((m_vecPos.y < pOtherCollider->GetPos().y) &&
-			(abs((int)GetCollider()->GetPos().y - pOtherCollider->GetPos().y) >= (GetCollider()->GetScale().y + pOtherCollider->GetScale().y) * 0.5f-5))
-		{
-			num = 2;
-			Logger::Debug(L"num=2");
-		}
-		else if ((m_vecPos.y > pOtherCollider->GetPos().y)&&
-			(abs((int)GetCollider()->GetPos().y - pOtherCollider->GetPos().y) >= (GetCollider()->GetScale().y + pOtherCollider->GetScale().y) * 0.5f - 5))
-		{
-			Logger::Debug(L"num=4");
-			num = 4;
-		}
-		else if ((m_vecPos.x < pOtherCollider->GetPos().x) &&
-			(abs((int)GetCollider()->GetPos().y - pOtherCollider->GetPos().y) <= (GetCollider()->GetScale().y + pOtherCollider->GetScale().y) * 0.5f-5))
-		{
-			num = 1;
-			Logger::Debug(L"num=1");
-		}
-		else if ((m_vecPos.x > pOtherCollider->GetPos().x) &&
-			(abs((int)GetCollider()->GetPos().y - pOtherCollider->GetPos().y) < (GetCollider()->GetScale().y + pOtherCollider->GetScale().y) * 0.5f-5))
-		{
-			Logger::Debug(L"num=3");
-			num = 3;
-		}
-
-	}
-	
 }
 
 void CPlayer::OnCollisionStay(CCollider* pOtherCollider)
 {
-	if (pOtherCollider->GetObjName() == L"block")
+	if (pOtherCollider->GetObjName() == L"플레이어")
 	{
-		switch (num)
-		{
-		case 1:
-			m_vecPos.x = pOtherCollider->GetPos().x - 0.5f * (GetCollider()->GetScale().x + pOtherCollider->GetScale().x);
-			break;
-
-		case 2:
-			bIsOnBlock = true;
-			m_vecPos.y = 1 + pOtherCollider->GetPos().y - 0.5f * (GetCollider()->GetScale().y + pOtherCollider->GetScale().y);
-			break;
-
-		case 3:
-			m_vecPos.x = pOtherCollider->GetPos().x + 0.5f * (GetCollider()->GetScale().x + pOtherCollider->GetScale().x);
-			break;
-		case 4:
-			m_vecPos.y = pOtherCollider->GetPos().y + 0.5f * (GetCollider()->GetScale().y + pOtherCollider->GetScale().y);
-		default:
-			Logger::Debug(L"플레이어가 block과 충돌 이상");
-			break;
-		}
+		bIsOnBlock = true;
 	}
 }
 
 void CPlayer::OnCollisionExit(CCollider* pOtherCollider)
 {
-	Logger::Debug(L"플레이어가 block과 충돌해제");
 	bIsOnBlock = false;
 	bIsGround = false;
-	bPassBlock = false;
 }
