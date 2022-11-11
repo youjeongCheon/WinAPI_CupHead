@@ -2,6 +2,7 @@
 #include "CSceneTutorial.h"
 
 #include "CPlayer.h"
+#include "CMonserPyrimid.h"
 #include "CMonster.h"
 #include "CCameraController.h"
 #include "CImageObject.h"
@@ -73,15 +74,17 @@ void CSceneTutorial::Init()
 	pObstacleCP3->SetPos(2321, 174);
 	AddGameObject(pObstacleCP3);
 
-
-	CBlock* pBlockPyramid = new CBlock();
-	pBlockPyramid->SetBlockType(BlockType::Pyramid);
-	AddGameObject(pBlockPyramid);
-
 	CBlock* pBlockPlinth = new CBlock();
 	pBlockPlinth->SetBlockType(BlockType::Plinth);
 	AddGameObject(pBlockPlinth);
 
+	CObstacle* pObstaclePlinth = new CObstacle();
+	pObstaclePlinth->SetScale(141, 214);
+	pObstaclePlinth->SetPos(2994, pObstaclePlinth->GetOnGroundPosY());
+	AddGameObject(pObstaclePlinth);
+
+	CMonserPyrimid* pMonserPyrimid = new CMonserPyrimid();
+	AddGameObject(pMonserPyrimid);
 #pragma endregion 
 
 	pPlayer = new CPlayer();
@@ -118,7 +121,7 @@ void CSceneTutorial::Update()
 
 void CSceneTutorial::Render()
 {
-	
+	RENDER->Text(L"THE TUTORIAL", 0, 300, 500, 300,Color(),30.0F);
 }
 
 void CSceneTutorial::Exit()

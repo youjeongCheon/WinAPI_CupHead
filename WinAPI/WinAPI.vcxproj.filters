@@ -61,6 +61,9 @@
     <Filter Include="GameObject\Player\PlayerState">
       <UniqueIdentifier>{4091405f-b243-4403-a42f-dc58fe0b2684}</UniqueIdentifier>
     </Filter>
+    <Filter Include="GameObject\Tutorial">
+      <UniqueIdentifier>{63d352a1-b169-45df-817c-29b3099a0cce}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="framework.h">
@@ -237,14 +240,17 @@
     <ClInclude Include="CLayer.h">
       <Filter>Engine\Asset</Filter>
     </ClInclude>
-    <ClInclude Include="CBlock.h">
-      <Filter>GameObject\Stage</Filter>
-    </ClInclude>
     <ClInclude Include="CGround.h">
       <Filter>GameObject\Stage</Filter>
     </ClInclude>
     <ClInclude Include="CObstacle.h">
       <Filter>GameObject\Stage</Filter>
+    </ClInclude>
+    <ClInclude Include="CBlock.h">
+      <Filter>GameObject\Tutorial</Filter>
+    </ClInclude>
+    <ClInclude Include="CMonserPyrimid.h">
+      <Filter>GameObject\Tutorial</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -404,14 +410,17 @@
     <ClCompile Include="CLayer.cpp">
       <Filter>Engine\Asset</Filter>
     </ClCompile>
-    <ClCompile Include="CBlock.cpp">
-      <Filter>GameObject\Stage</Filter>
-    </ClCompile>
     <ClCompile Include="CGround.cpp">
       <Filter>GameObject\Stage</Filter>
     </ClCompile>
     <ClCompile Include="CObstacle.cpp">
       <Filter>GameObject\Stage</Filter>
+    </ClCompile>
+    <ClCompile Include="CBlock.cpp">
+      <Filter>GameObject\Tutorial</Filter>
+    </ClCompile>
+    <ClCompile Include="CMonserPyrimid.cpp">
+      <Filter>GameObject\Tutorial</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

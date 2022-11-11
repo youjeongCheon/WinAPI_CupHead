@@ -9,7 +9,6 @@ CBlock::CBlock()
 	m_pBlock = nullptr;
 	m_pCube = nullptr;
 	m_pCylinder_platform = nullptr;
-	m_pPyramid = nullptr;
 	m_pPlinth = nullptr;
 	m_blockType = BlockType::Cube;
 	m_strName = L"block";
@@ -28,7 +27,6 @@ void CBlock::Init()
 {
 	m_pCube = RESOURCE->LoadImg(L"BlockCube", L"Image\\tutorial_cube.png");
 	m_pCylinder_platform = RESOURCE->LoadImg(L"BlockCylinder_platform", L"Image\\tutorial_cylinder_and_platform.png");
-	m_pPyramid = RESOURCE->LoadImg(L"BlockPyramid", L"Image\\tutorial_pyramid_topper.png");
 	m_pPlinth = RESOURCE->LoadImg(L"BlockPlinth", L"Image\\tutorial_plynth.png");
 
 	switch (m_blockType)
@@ -43,13 +41,9 @@ void CBlock::Init()
 		SetPos(2111, 321);
 		break;
 	}
-	case BlockType::Pyramid:
-		m_pBlock = m_pPyramid;
-		SetPos(4006, 289);
-		break;
 	case BlockType::Plinth:
 		m_pBlock = m_pPlinth;
-		SetPos(4026, 460);
+		SetPos(3019, 453);
 		break;
 	}
 }

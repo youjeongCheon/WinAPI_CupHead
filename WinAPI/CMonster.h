@@ -1,10 +1,18 @@
 #pragma once
 #include "CGameObject.h"
+
 class CMonster : public CGameObject
 {
 public:
 	CMonster();
 	virtual ~CMonster();
+
+protected:
+	int m_HP;
+	
+public:
+	void SetHP(int hp);
+	int GetHP();
 
 private:
 	void Init() override;
