@@ -3,7 +3,7 @@
 
 class CImage;
 
-enum class BlockType { Cube, Cylinder_platform, Plinth};
+enum class BlockType { Cube, Cylinder_platform, Plinth,Exit_Door};
 class CBlock : public CGameObject
 {
 public:
@@ -17,6 +17,7 @@ private:
 	CImage* m_pCube;
 	CImage* m_pCylinder_platform;
 	CImage* m_pPlinth;
+	CImage* m_pEixitDoor;
 
 public:
 	void SetBlockType(BlockType blockType);

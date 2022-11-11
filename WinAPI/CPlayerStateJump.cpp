@@ -49,7 +49,6 @@ void CPlayerStateJump::Update()
 				pPlayer->SetLookDir(Vector(-1, 0));
 			}
 		}
-		
 	}
 	else
 		pPlayer->ChangeState(PlayerState::Idle);

@@ -39,8 +39,7 @@ void CPlayerStateDash::Update()
 			if (BUTTONSTAY('X'))
 				pPlayer->ChangeState(PlayerState::Shoot);
 		}
-		else
-			pPlayer->ChangeState(PlayerState::Idle);
+		pPlayer->ChangeState(PlayerState::Idle);
 	}
 	
 

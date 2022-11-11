@@ -44,7 +44,7 @@ void CPlayerStateIdle::Update()
 	else
 	{
 		str += L"Idle";
-		if ( (VK_RIGHT) || BUTTONSTAY(VK_LEFT))
+		if (BUTTONSTAY(VK_RIGHT) || BUTTONSTAY(VK_LEFT))
 			pPlayer->ChangeState(PlayerState::Run);
 		if (BUTTONSTAY('Z'))
 			pPlayer->ChangeState(PlayerState::Jump);

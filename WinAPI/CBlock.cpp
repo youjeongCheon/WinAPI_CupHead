@@ -10,7 +10,9 @@ CBlock::CBlock()
 	m_pCube = nullptr;
 	m_pCylinder_platform = nullptr;
 	m_pPlinth = nullptr;
+	m_pEixitDoor = nullptr;
 	m_blockType = BlockType::Cube;
+	m_layer = Layer::Obstacle;
 	m_strName = L"block";
 }
 
@@ -28,7 +30,7 @@ void CBlock::Init()
 	m_pCube = RESOURCE->LoadImg(L"BlockCube", L"Image\\tutorial_cube.png");
 	m_pCylinder_platform = RESOURCE->LoadImg(L"BlockCylinder_platform", L"Image\\tutorial_cylinder_and_platform.png");
 	m_pPlinth = RESOURCE->LoadImg(L"BlockPlinth", L"Image\\tutorial_plynth.png");
-
+	m_pEixitDoor = RESOURCE->LoadImg(L"BlockExitDoor", L"Image\\tutorial_exit_door.png");
 	switch (m_blockType)
 	{
 	case BlockType::Cube:
@@ -36,16 +38,22 @@ void CBlock::Init()
 		SetPos(1388, 505);
 		break;
 	case BlockType::Cylinder_platform:
-	{
 		m_pBlock = m_pCylinder_platform;
 		SetPos(2111, 321);
 		break;
-	}
 	case BlockType::Plinth:
 		m_pBlock = m_pPlinth;
 		SetPos(3019, 453);
 		break;
+	case BlockType::Exit_Door:
+		m_pBlock = m_pEixitDoor;
+		SetPos(3800,487);
+		m_strName = L"ExitDoor";
+		AddCollider(ColliderType::Rect, Vector(120, 171), Vector(0, 0));
+		break;
 	}
+
+
 }
 
 void CBlock::Update()
@@ -68,15 +76,19 @@ void CBlock::Release()
 
 void CBlock::OnCollisionEnter(CCollider* pOtherCollider)
 {
-	if (pOtherCollider->GetObjName() == L"플레이어")
-	{
-		Logger::Debug(L"충돌진입");
-	}
 	
 }
 
 void CBlock::OnCollisionStay(CCollider* pOtherCollider)
 {
+	if (pOtherCollider->GetObjName() == L"플레이어")
+	{
+		if (BUTTONDOWN('Z'))
+		{
+			CAMERA->FadeOut(0.25f);
+			CHANGESCENE(GroupScene::Stage01);
+		}
+	}
 }
 
 void CBlock::OnCollisionExit(CCollider* pOtherCollider)

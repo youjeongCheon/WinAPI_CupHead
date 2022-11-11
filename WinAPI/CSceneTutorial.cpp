@@ -85,6 +85,10 @@ void CSceneTutorial::Init()
 
 	CMonserPyrimid* pMonserPyrimid = new CMonserPyrimid();
 	AddGameObject(pMonserPyrimid);
+
+	CBlock* pExitDoor = new CBlock;
+	pExitDoor->SetBlockType(BlockType::Exit_Door);
+	AddGameObject(pExitDoor);
 #pragma endregion 
 
 	pPlayer = new CPlayer();

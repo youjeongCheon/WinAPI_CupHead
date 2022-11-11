@@ -46,9 +46,9 @@ enum class Layer
 	Tile,
 	Ground,
 	Obstacle,
+	Monster,
 	Player,
 	Missile,
-	Monster,
 	FrontLayer,
 
 	Ui,
