@@ -7,6 +7,7 @@ public:
 	virtual ~CMonserPyrimid();
 private:
 	CImage* m_pPyramid;
+	CImage* m_pHitPyramid;
 
 private:
 	void Init() override;

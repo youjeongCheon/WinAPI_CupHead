@@ -21,6 +21,7 @@ CPlayer::CPlayer()
 	m_layer = Layer::Player;
 	m_strName = L"플레이어";
 	m_curState = PlayerState::Idle;
+	m_preState = PlayerState::Idle;
 
 	m_pIdleImage = nullptr;
 	m_pRunImage = nullptr;
@@ -51,6 +52,7 @@ CPlayer::~CPlayer()
 
 void CPlayer::ChangeState(PlayerState state)
 {
+	m_preState = m_curState;
 	m_mapState[m_curState]->Exit();
 	m_curState = state;
 	m_mapState[m_curState]->Enter();
@@ -111,6 +113,11 @@ void CPlayer::SetOnBlock(bool onBlock)
 PlayerState CPlayer::GetCurState()
 {
 	return m_curState;
+}
+
+PlayerState CPlayer::GetPreState()
+{
+	return m_preState;
 }
 
 void CPlayer::Init()

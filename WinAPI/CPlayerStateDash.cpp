@@ -18,7 +18,7 @@ void CPlayerStateDash::Update()
 	fCooltime += DT;
 	wstring str = L"Dash";
 
-	if (fCooltime <= 0.4f)
+	if (fCooltime <= 0.4f&& !(pPlayer->GetPreState() == PlayerState::Dash))
 	{
 		m_vecPos = pPlayer->GetPos();
 		m_vecPos.x += 1000 *pPlayer->GetLookDir().x *DT;
@@ -26,16 +26,19 @@ void CPlayerStateDash::Update()
 	}
 	else
 	{
-		if (BUTTONSTAY(VK_RIGHT) || BUTTONSTAY(VK_LEFT))
-			pPlayer->ChangeState(PlayerState::Run);
-		if (BUTTONSTAY('Z'))
-			pPlayer->ChangeState(PlayerState::Jump);
-		if (BUTTONSTAY(VK_DOWN))
-			pPlayer->ChangeState(PlayerState::Duck);
-		if (BUTTONSTAY('C'))
-			pPlayer->ChangeState(PlayerState::Aim);
-		if (BUTTONSTAY('X'))
-			pPlayer->ChangeState(PlayerState::Shoot);
+		if (pPlayer->isGround())
+		{
+			if (BUTTONSTAY(VK_RIGHT) || BUTTONSTAY(VK_LEFT))
+				pPlayer->ChangeState(PlayerState::Run);
+			if (BUTTONSTAY('Z'))
+				pPlayer->ChangeState(PlayerState::Jump);
+			if (BUTTONSTAY(VK_DOWN))
+				pPlayer->ChangeState(PlayerState::Duck);
+			if (BUTTONSTAY('C'))
+				pPlayer->ChangeState(PlayerState::Aim);
+			if (BUTTONSTAY('X'))
+				pPlayer->ChangeState(PlayerState::Shoot);
+		}
 		else
 			pPlayer->ChangeState(PlayerState::Idle);
 	}

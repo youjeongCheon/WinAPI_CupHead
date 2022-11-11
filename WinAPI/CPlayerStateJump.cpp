@@ -19,7 +19,7 @@ void CPlayerStateJump::Update()
 	wstring str = L"Jump";
 	if (fCooltime <= 0.5f)
 	{
-		if (BUTTONDOWN(VK_SHIFT))
+		if (BUTTONDOWN(VK_SHIFT)&& !(pPlayer->GetPreState() == PlayerState::Dash))
 		{
 			pPlayer->ChangeState(PlayerState::Dash);
 		}
@@ -30,24 +30,26 @@ void CPlayerStateJump::Update()
 			if (fCooltime > 0.3f)
 				m_vecPos.y -= 200 * DT;
 			else
-				m_vecPos.y -= 500 * DT;
+				m_vecPos.y -= 600 * DT;
 			
 			pPlayer->SetPos(m_vecPos);
+
+			if (BUTTONSTAY(VK_RIGHT))
+			{
+				m_vecPos = pPlayer->GetPos();
+				m_vecPos.x += 200 * DT;
+				pPlayer->SetPos(m_vecPos);
+				pPlayer->SetLookDir(Vector(+1, 0));
+			}
+			else if (BUTTONSTAY(VK_LEFT))
+			{
+				m_vecPos = pPlayer->GetPos();
+				m_vecPos.x -= 200 * DT;
+				pPlayer->SetPos(m_vecPos);
+				pPlayer->SetLookDir(Vector(-1, 0));
+			}
 		}
-		if (BUTTONSTAY(VK_RIGHT))
-		{
-			m_vecPos = pPlayer->GetPos();
-			m_vecPos.x += 200 * DT;
-			pPlayer->SetPos(m_vecPos);
-			pPlayer->SetLookDir(Vector(+1, 0));
-		}
-		else if (BUTTONSTAY(VK_LEFT))
-		{
-			m_vecPos = pPlayer->GetPos();
-			m_vecPos.x -= 200 * DT;
-			pPlayer->SetPos(m_vecPos);
-			pPlayer->SetLookDir(Vector(-1, 0));
-		}
+		
 	}
 	else
 		pPlayer->ChangeState(PlayerState::Idle);

@@ -38,13 +38,13 @@ void CPlayerStateIdle::Update()
 			pPlayer->SetPos(m_vecPos);
 			pPlayer->SetLookDir(Vector(-1, 0));
 		}
-		if (BUTTONSTAY(VK_SHIFT))
+		if (BUTTONSTAY(VK_SHIFT)&&!(pPlayer->GetPreState()==PlayerState::Dash))
 			pPlayer->ChangeState(PlayerState::Dash);
 	}
 	else
 	{
 		str += L"Idle";
-		if (BUTTONSTAY(VK_RIGHT) || BUTTONSTAY(VK_LEFT))
+		if ( (VK_RIGHT) || BUTTONSTAY(VK_LEFT))
 			pPlayer->ChangeState(PlayerState::Run);
 		if (BUTTONSTAY('Z'))
 			pPlayer->ChangeState(PlayerState::Jump);

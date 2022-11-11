@@ -9,6 +9,8 @@ CMonster::CMonster()
 	m_vecScale = Vector(100, 100);
 	m_layer = Layer::Monster;
 	m_HP = 5;
+	bTakeHit = false;
+	fImageCoolTime = 0;
 }
 
 CMonster::~CMonster()
@@ -23,6 +25,11 @@ void CMonster::SetHP(int hp)
 int CMonster::GetHP()
 {
 	return m_HP;
+}
+
+bool CMonster::GetTakeHit()
+{
+	return bTakeHit;
 }
 
 void CMonster::Init()
@@ -54,7 +61,9 @@ void CMonster::OnCollisionEnter(CCollider* pOtherCollider)
 	{
 		Logger::Debug(L"몬스터가 미사일과 충돌진입");
 		m_HP -= 1;
+		bTakeHit = true;
 	}
+	
 }
 
 void CMonster::OnCollisionStay(CCollider* pOtherCollider)

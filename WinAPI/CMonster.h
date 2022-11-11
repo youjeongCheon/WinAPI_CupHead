@@ -9,10 +9,13 @@ public:
 
 protected:
 	int m_HP;
-	
+	bool bTakeHit;
+	 
+	float fImageCoolTime;
 public:
 	void SetHP(int hp);
 	int GetHP();
+	bool GetTakeHit();
 
 private:
 	void Init() override;

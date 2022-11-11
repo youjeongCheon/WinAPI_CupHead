@@ -23,6 +23,7 @@ private:
 	map< PlayerState, CState*> m_mapState;
 
 	PlayerState m_curState;
+	PlayerState m_preState;
 	
 	wstring m_strState;
 
@@ -54,6 +55,7 @@ public:
 
 	void ChangeState(PlayerState state);
 	PlayerState GetCurState();
+	PlayerState GetPreState();
 	void SetStateName(wstring strState);
 
 	Vector GetLookDir();
