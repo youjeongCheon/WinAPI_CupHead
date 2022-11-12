@@ -2,7 +2,6 @@
 #include "CPlayerStateIdle.h"
 
 #include "CPlayer.h"
-#include "CState.h"
 
 CPlayerStateIdle::~CPlayerStateIdle()
 {
@@ -14,36 +13,15 @@ void CPlayerStateIdle::Enter()
 
 void CPlayerStateIdle::Update()
 {
-	wstring str = L"";
+	wstring str = L"Idle";
 
 	// 땅에 있지 않는다면
 	if (!pPlayer->isGround())
 	{
-		m_vecPos = pPlayer->GetPos();
-		m_vecPos.y += 500 * DT;
-		pPlayer->SetPos(m_vecPos);
-		str += L"Jump";
-
-		if (BUTTONSTAY(VK_RIGHT))
-		{
-			m_vecPos = pPlayer->GetPos();
-			m_vecPos.x += 200 * DT;
-			pPlayer->SetPos(m_vecPos);
-			pPlayer->SetLookDir(Vector(+1, 0));
-		}
-		else if (BUTTONSTAY(VK_LEFT))
-		{
-			m_vecPos = pPlayer->GetPos();
-			m_vecPos.x -= 200 * DT;
-			pPlayer->SetPos(m_vecPos);
-			pPlayer->SetLookDir(Vector(-1, 0));
-		}
-		if (BUTTONSTAY(VK_SHIFT)&&!(pPlayer->GetPreState()==PlayerState::Dash))
-			pPlayer->ChangeState(PlayerState::Dash);
+		pPlayer->ChangeState(PlayerState::Fall);
 	}
 	else
 	{
-		str += L"Idle";
 		if (BUTTONSTAY(VK_RIGHT) || BUTTONSTAY(VK_LEFT))
 			pPlayer->ChangeState(PlayerState::Run);
 		if (BUTTONSTAY('Z'))

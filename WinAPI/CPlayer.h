@@ -8,7 +8,7 @@ class CState;
 
 enum class PlayerState
 {
-	Idle, Run, Jump, Dash, Duck, Aim, Shoot, SpecialAttack, TakeHit
+	Idle, Run, Jump, Fall,Dash, Duck, Aim, Shoot, SpecialAttack, TakeHit
 };
 
 class CPlayer : public CGameObject

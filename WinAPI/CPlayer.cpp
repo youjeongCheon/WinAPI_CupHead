@@ -4,6 +4,7 @@
 #include "CPlayerStateIdle.h"
 #include "CPlayerStateRun.h"
 #include "CPlayerStateJump.h"
+#include "CPlayerStateFall.h"
 #include "CPlayerStateDash.h"
 #include "CPlayerStateDuck.h"
 #include "CPlayerStateAim.h"
@@ -56,6 +57,21 @@ void CPlayer::ChangeState(PlayerState state)
 	m_mapState[m_curState]->Exit();
 	m_curState = state;
 	m_mapState[m_curState]->Enter();
+	switch (m_curState)
+	{
+	case PlayerState::Duck:
+		SetColliderScale(Vector(140, 80));
+		break;
+	case PlayerState::Jump:
+		SetColliderScale(Vector(70, 70));
+		break;
+	case PlayerState::Fall:
+		SetColliderScale(Vector(70, 70));
+		break;
+	default:
+		SetColliderScale(Vector(100, 140));
+		break;
+	}
 }
 
 void CPlayer::SetStateName(wstring strState)
@@ -95,7 +111,7 @@ bool CPlayer::isGround()
 {
 	if (bIsOnBlock)
 		bIsGround = true;
-	if (bPassBlock)
+	if (bIsOnBlock&&bPassBlock)
 		bIsGround = false;
 	return bIsGround;
 }
@@ -185,6 +201,7 @@ void CPlayer::Init()
 	m_mapState.insert(make_pair(PlayerState::Idle, new CPlayerStateIdle(this)));
 	m_mapState.insert(make_pair(PlayerState::Run, new CPlayerStateRun(this)));
 	m_mapState.insert(make_pair(PlayerState::Jump, new CPlayerStateJump(this)));
+	m_mapState.insert(make_pair(PlayerState::Fall, new CPlayerStateFall(this)));
 	m_mapState.insert(make_pair(PlayerState::Dash, new CPlayerStateDash(this)));
 	m_mapState.insert(make_pair(PlayerState::Duck, new CPlayerStateDuck(this)));
 	m_mapState.insert(make_pair(PlayerState::Aim, new CPlayerStateAim(this)));

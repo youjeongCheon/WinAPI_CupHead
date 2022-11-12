@@ -169,6 +169,7 @@
     <ClInclude Include="CPlayerStateAim.h" />
     <ClInclude Include="CPlayerStateDash.h" />
     <ClInclude Include="CPlayerStateDuck.h" />
+    <ClInclude Include="CPlayerStateFall.h" />
     <ClInclude Include="CPlayerStateIdle.h" />
     <ClInclude Include="CPlayerStateJump.h" />
     <ClInclude Include="CPlayerStateRun.h" />
@@ -233,6 +234,7 @@
     <ClCompile Include="CPlayerStateAim.cpp" />
     <ClCompile Include="CPlayerStateDash.cpp" />
     <ClCompile Include="CPlayerStateDuck.cpp" />
+    <ClCompile Include="CPlayerStateFall.cpp" />
     <ClCompile Include="CPlayerStateIdle.cpp" />
     <ClCompile Include="CPlayerStateJump.cpp" />
     <ClCompile Include="CPlayerStateRun.cpp" />

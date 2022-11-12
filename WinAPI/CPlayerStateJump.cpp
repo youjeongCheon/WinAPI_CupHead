@@ -51,8 +51,12 @@ void CPlayerStateJump::Update()
 		}
 	}
 	else
-		pPlayer->ChangeState(PlayerState::Idle);
-
+	{
+		if(!pPlayer->isGround())
+			pPlayer->ChangeState(PlayerState::Fall);
+		else
+			pPlayer->ChangeState(PlayerState::Idle);
+	}
 	if (pPlayer->GetLookDir().x == +1)
 		str += L"Right";
 	else if (pPlayer->GetLookDir().x == -1)

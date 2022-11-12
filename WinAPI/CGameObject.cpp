@@ -115,6 +115,11 @@ void CGameObject::AddCollider(ColliderType type, Vector scale, Vector offsetPos)
 	AddComponent(m_pCollider);
 }
 
+void CGameObject::SetColliderScale(Vector scale)
+{
+	m_pCollider->SetScale(scale);
+}
+
 void CGameObject::RemoveCollider()
 {
 	if (nullptr == m_pCollider)
