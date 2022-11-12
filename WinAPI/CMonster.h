@@ -12,6 +12,9 @@ protected:
 	bool bTakeHit;
 	 
 	float fImageCoolTime;
+
+	virtual bool CollisionRange( Vector pos);
+
 public:
 	void SetHP(int hp);
 	int GetHP();

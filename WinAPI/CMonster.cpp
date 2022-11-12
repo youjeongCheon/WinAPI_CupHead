@@ -17,6 +17,11 @@ CMonster::~CMonster()
 {
 }
 
+bool CMonster::CollisionRange(Vector pos)
+{
+	return true;
+}
+
 void CMonster::SetHP(int hp)
 {
 	m_HP = hp;
@@ -59,9 +64,15 @@ void CMonster::OnCollisionEnter(CCollider* pOtherCollider)
 	}
 	else if (pOtherCollider->GetObjName() == L"미사일")
 	{
-		Logger::Debug(L"몬스터가 미사일과 충돌진입");
-		m_HP -= 1;
-		bTakeHit = true;
+		if (CollisionRange(pOtherCollider->GetPos()))
+		{
+			Logger::Debug(L"몬스터가 미사일과 충돌진입");
+			m_HP -= 1;
+			bTakeHit = true;
+			DELETEOBJECT(pOtherCollider->GetOwner());
+		}
+		else
+			Logger::Debug(L"충돌범위 밖");
 	}
 	
 }
@@ -78,7 +89,10 @@ void CMonster::OnCollisionExit(CCollider* pOtherCollider)
 	}
 	else if (pOtherCollider->GetObjName() == L"미사일")
 	{
-		Logger::Debug(L"몬스터가 미사일과 충돌해제");
+		if (CollisionRange(pOtherCollider->GetPos()))
+		{
+			Logger::Debug(L"몬스터가 미사일과 충돌해제");
+		}
 	}
 	if (m_HP == 0)
 	{

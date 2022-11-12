@@ -47,7 +47,7 @@ void CBlock::Init()
 		break;
 	case BlockType::Exit_Door:
 		m_pBlock = m_pEixitDoor;
-		SetPos(3800,487);
+		SetPos(5000,487);
 		m_strName = L"ExitDoor";
 		AddCollider(ColliderType::Rect, Vector(120, 171), Vector(0, 0));
 		break;

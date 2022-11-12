@@ -5,6 +5,8 @@ class CMonserPyrimid : public CMonster
 public:
 	CMonserPyrimid();
 	virtual ~CMonserPyrimid();
+
+	bool CollisionRange( Vector pos) override;
 private:
 	CImage* m_pPyramid;
 	CImage* m_pHitPyramid;
