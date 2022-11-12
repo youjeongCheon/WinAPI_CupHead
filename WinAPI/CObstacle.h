@@ -15,6 +15,7 @@ public:
 private:
 	CollisionDir dir;
 	float		 offset;
+	bool bpass;
 
 private:
 	void Init()		override;

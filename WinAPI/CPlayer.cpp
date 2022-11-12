@@ -44,7 +44,7 @@ CPlayer::CPlayer()
 	bIsGround = false;
 	bIsOnBlock = false;
 	bPassBlock = false;
-	num = 0;
+	m_ColliderCount = 0;
 }
 
 CPlayer::~CPlayer()
@@ -60,7 +60,7 @@ void CPlayer::ChangeState(PlayerState state)
 	switch (m_curState)
 	{
 	case PlayerState::Duck:
-		SetColliderScale(Vector(140, 80));
+		SetColliderScale(Vector(140, 140));
 		break;
 	case PlayerState::Jump:
 		SetColliderScale(Vector(70, 70));
@@ -94,25 +94,19 @@ void CPlayer::SetMoveDir(Vector vecMoveDir)
 	m_vecMoveDir = vecMoveDir;
 }
 
+
+void CPlayer::SetPassBlock(bool passBlock)
+{
+	bPassBlock = passBlock;
+}
+
 bool CPlayer::GetPassBlock()
 {
 	return bPassBlock;
 }
 
-void CPlayer::SetPassBlock(bool passBlock)
-{
-	bPassBlock = passBlock;
-	if (bPassBlock == true)
-		Logger::Debug(L"bPassBlock==true");
-
-}
-
 bool CPlayer::isGround()
 {
-	if (bIsOnBlock)
-		bIsGround = true;
-	if (bIsOnBlock&&bPassBlock)
-		bIsGround = false;
 	return bIsGround;
 }
 
@@ -124,6 +118,30 @@ void CPlayer::SetGround(bool ground)
 void CPlayer::SetOnBlock(bool onBlock)
 {
 	bIsOnBlock = onBlock;
+}
+
+bool CPlayer::GetOnBlock()
+{
+	
+	return bIsOnBlock;
+}
+
+void CPlayer::SetColliderCount(int count)
+{
+	m_ColliderCount = count;
+}
+
+int CPlayer::GetColliderCount()
+{
+	return m_ColliderCount;
+}
+
+bool CPlayer::ActGravity()
+{
+	if (isGround()|| GetOnBlock())
+		return false;
+	else
+		return true;
 }
 
 PlayerState CPlayer::GetCurState()
@@ -213,7 +231,6 @@ void CPlayer::Init()
 void CPlayer::Update()
 {
 	m_mapState[m_curState]->Update();
-	
 	if (m_vecPos.x < 70)
 		m_vecPos.x = 70;
 	AnimatorUpdate();

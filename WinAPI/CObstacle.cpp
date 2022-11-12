@@ -8,6 +8,7 @@ CObstacle::CObstacle()
 	m_layer = Layer::Obstacle;
 	dir = CollisionDir::None;
 	offset = 0.25f;
+	bpass = false;
 }
 
 CObstacle::~CObstacle()
@@ -95,6 +96,17 @@ void CObstacle::Release()
 
 void CObstacle::OnCollisionEnter(CCollider* pOther)
 {
+	if (pOther->GetObjName() == L"플레이어")
+	{
+		CPlayer* pPlayer = static_cast<CPlayer*>(pOther->GetOwner());
+		int count = pPlayer->GetColliderCount();
+		if(!bpass)
+			count++;
+		pPlayer->SetColliderCount(count);
+		wstring str = to_wstring(count);
+		Logger::Debug(str);
+		Logger::Debug(L"count++");
+	}
 }
 
 void CObstacle::OnCollisionStay(CCollider* pOther)
@@ -104,71 +116,89 @@ void CObstacle::OnCollisionStay(CCollider* pOther)
 		
 		// 플레이어가 충돌 중일 경우 밀어내기 연산
 		CPlayer* pPlayer = static_cast<CPlayer*>(pOther->GetOwner());
-
+		int count = pPlayer->GetColliderCount();
 		dir = GetCollisionDir(pOther);
 
-		switch (GetCollisionDir(pOther))
+		if ( pPlayer->GetPassBlock()  && (m_vecScale.y * 0.5f + m_vecPos.y) < GROUNDPOSY) // 블럭 뚫고 지나가는 조건
 		{
-		case CollisionDir::Up:
+			int count = pPlayer->GetColliderCount();
+			bpass = true;
+			pPlayer->SetColliderCount(count);
+
+			pPlayer->ChangeState(PlayerState::Fall);
+			pPlayer->SetOnBlock(false);
+		}
+		else if(count>0)
 		{
-			if (!(pPlayer->GetPassBlock() && (m_vecScale.y * 0.5f + m_vecPos.y)<GROUNDPOSY))
+			switch (GetCollisionDir(pOther))
 			{
+			case CollisionDir::Up:
+			{
+				pPlayer->SetOnBlock(true);
 				pPlayer->SetPos(
 					pPlayer->GetPos().x,
 					GetCollider()->GetPos().y
 					- (GetCollider()->GetScale().y + pOther->GetScale().y) * 0.5f + offset
 					- pOther->GetOffsetPos().y
 				);
-				pPlayer->SetPassBlock(false);
-				pPlayer->SetOnBlock(true);
 			}
-			
-		}
-		break;
+			break;
 
-		case CollisionDir::Down:
-		{
-			/*pPlayer->SetPos(
-				pPlayer->GetPos().x,
-				GetCollider()->GetPos().y
-				+ (GetCollider()->GetScale().y + pOther->GetScale().y) * 0.5f - offset
-				- pOther->GetOffsetPos().y
-			);*/
-			pPlayer->ChangeState(PlayerState::Idle);
-		}
-		break;
+			case CollisionDir::Down:
+			{
+				/*pPlayer->SetPos(
+					pPlayer->GetPos().x,
+					GetCollider()->GetPos().y
+					+ (GetCollider()->GetScale().y + pOther->GetScale().y) * 0.5f - offset
+					- pOther->GetOffsetPos().y
+				);*/
+				pPlayer->ChangeState(PlayerState::Idle);
+			}
+			break;
 
-		case CollisionDir::Left:
-		{
-			pPlayer->SetPos(
-				GetCollider()->GetPos().x
-				- (GetCollider()->GetScale().x + pOther->GetScale().x) * 0.5f + offset
-				- pOther->GetOffsetPos().x,
-				pPlayer->GetPos().y
-			);
-		}
-		break;
+			case CollisionDir::Left:
+			{
+				pPlayer->SetPos(
+					GetCollider()->GetPos().x
+					- (GetCollider()->GetScale().x + pOther->GetScale().x) * 0.5f + offset
+					- pOther->GetOffsetPos().x,
+					pPlayer->GetPos().y
+				);
+			}
+			break;
 
-		case CollisionDir::Right:
-		{
-			pPlayer->SetPos(
-				GetCollider()->GetPos().x
-				+ (GetCollider()->GetScale().x + pOther->GetScale().x) * 0.5f - offset
-				- pOther->GetOffsetPos().x,
-				pPlayer->GetPos().y
-			);
-		}
-		break;
+			case CollisionDir::Right:
+			{
+				pPlayer->SetPos(
+					GetCollider()->GetPos().x
+					+ (GetCollider()->GetScale().x + pOther->GetScale().x) * 0.5f - offset
+					- pOther->GetOffsetPos().x,
+					pPlayer->GetPos().y
+				);
+			}
+			break;
+			}
 		}
 	}
 }
 
 void CObstacle::OnCollisionExit(CCollider* pOther)
 {
-	CPlayer* pPlayer = static_cast<CPlayer*>(pOther->GetOwner());
-	pPlayer->SetGround(false);
-	pPlayer->SetOnBlock(false);
-	pPlayer->SetPassBlock(false);
+	if (pOther->GetObjName() == L"플레이어")
+	{
+		CPlayer* pPlayer = static_cast<CPlayer*>(pOther->GetOwner());
+		int count = pPlayer->GetColliderCount();
+		if(count>0)
+			count--;
+		pPlayer->SetColliderCount(count);
+		wstring str = to_wstring(count);
+		Logger::Debug(str);
+		if (count == 0)
+		{
+			pPlayer->SetOnBlock(false);
+			pPlayer->SetPassBlock(false);
+		}
+	}
 }
 
 

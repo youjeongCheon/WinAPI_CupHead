@@ -16,7 +16,7 @@ void CPlayerStateIdle::Update()
 	wstring str = L"Idle";
 
 	// 땅에 있지 않는다면
-	if (!pPlayer->isGround())
+	if (pPlayer->ActGravity())
 	{
 		pPlayer->ChangeState(PlayerState::Fall);
 	}

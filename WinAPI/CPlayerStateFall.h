@@ -9,6 +9,8 @@ private:
 	CPlayer* pPlayer;
 	Vector m_vecPos;
 
+	
+
 public:
 	CPlayerStateFall(CPlayer* pPlayer) { this->pPlayer = pPlayer; }
 	virtual ~CPlayerStateFall();

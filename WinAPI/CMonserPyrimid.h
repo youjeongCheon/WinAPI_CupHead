@@ -9,6 +9,8 @@ private:
 	CImage* m_pPyramid;
 	CImage* m_pHitPyramid;
 
+	CImage* m_pImage;
+
 private:
 	void Init() override;
 	void Update() override;

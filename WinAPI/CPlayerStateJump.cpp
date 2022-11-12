@@ -52,7 +52,7 @@ void CPlayerStateJump::Update()
 	}
 	else
 	{
-		if(!pPlayer->isGround())
+		if(pPlayer->ActGravity())
 			pPlayer->ChangeState(PlayerState::Fall);
 		else
 			pPlayer->ChangeState(PlayerState::Idle);

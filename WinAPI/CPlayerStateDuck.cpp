@@ -11,30 +11,27 @@ CPlayerStateDuck::~CPlayerStateDuck()
 void CPlayerStateDuck::Enter()
 {
 	fCooltime = 0;
-	bPassBlock = false;
 }
 
 void CPlayerStateDuck::Update()
 {
-	fCooltime += DT;
+	
 	wstring str = L"Duck";
 	if (pPlayer->GetLookDir().x == +1)
 		str += L"Right";
 	else if (pPlayer->GetLookDir().x == -1)
 		str += L"Left";
 
-	
-	if (BUTTONSTAY(VK_DOWN)&&!bPassBlock)
+	if (BUTTONSTAY(VK_DOWN))
 	{
-		if (BUTTONDOWN('Z'))
-		{
-			bPassBlock==true;
-			pPlayer->SetPassBlock(true);
-			pPlayer->ChangeState(PlayerState::Idle);
-		}
+		fCooltime += DT;
 		if (fCooltime > 0.7f)
 		{
 			str += L"Idle";
+		}
+		if (BUTTONSTAY(VK_DOWN) && BUTTONDOWN('Z')&&pPlayer->GetOnBlock())
+		{
+			pPlayer->SetPassBlock(true);
 		}
 	}
 	else 
@@ -51,7 +48,6 @@ void CPlayerStateDuck::Update()
 		pPlayer->ChangeState(PlayerState::Aim);
 	 if (BUTTONDOWN('X'))
 		pPlayer->ChangeState(PlayerState::Shoot);
-
 	 pPlayer->SetStateName(str);
 }
 

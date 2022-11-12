@@ -3,19 +3,19 @@
 
 class CPlayer;
 
-class CPlayerStateDuck : public CState
+class CPlayerStateParry :  public CState
 {
 private:
 	CPlayer* pPlayer;
+	Vector m_vecPos;
 	float fCooltime;
 
 public:
-	CPlayerStateDuck(CPlayer* pPlayer) { this->pPlayer = pPlayer; }
-	virtual ~CPlayerStateDuck();
+	CPlayerStateParry(CPlayer* pPlayer) { this->pPlayer = pPlayer; }
+	virtual ~CPlayerStateParry();
 
 	void Enter() override;
 	void Update() override;
 	void Exit() override;
-
-
 };
+

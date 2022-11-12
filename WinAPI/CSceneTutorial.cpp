@@ -65,7 +65,7 @@ void CSceneTutorial::Init()
 	AddGameObject(pObstacleCP1);
 
 	CObstacle* pObstacleCP2 = new CObstacle();
-	pObstacleCP2->SetScale(405, 20);
+	pObstacleCP2->SetScale(400, 20);
 	pObstacleCP2->SetPos(2152, 334);
 	AddGameObject(pObstacleCP2);
 

@@ -48,8 +48,9 @@ private:
 	Vector	m_vecColliderScale;
 	bool	bIsGround;
 	bool	bIsOnBlock;
-	int		num; // 1 : 왼쪽에서 충돌, 2 : 위쪽에 충돌, 3 : 오른쪽에서 충돌, 4 : 아래쪽에서 충돌
 	bool	bPassBlock;
+
+	int		m_ColliderCount;
 
 public:
 
@@ -61,12 +62,17 @@ public:
 	Vector GetLookDir();
 	void SetLookDir(Vector vecLookDir);
 	void SetMoveDir(Vector vecMoveDir);
-	bool GetPassBlock();
-	void SetPassBlock(bool passBlock);
 	
+	void SetColliderCount(int count);
+	int GetColliderCount();
 	bool isGround();
 	void SetGround(bool ground);
 	void SetOnBlock(bool onBlock);
+	bool GetOnBlock();
+	void SetPassBlock(bool passBlock);
+	bool GetPassBlock();
+
+	bool ActGravity();
 
 	void CreateMissile(Vector pos, Vector direction, bool ExMissile= false);
 

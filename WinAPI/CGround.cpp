@@ -33,6 +33,8 @@ void CGround::Release()
 
 void CGround::OnCollisionEnter(CCollider* pOther)
 {
+	CPlayer* pPlayer = static_cast<CPlayer*>(pOther->GetOwner());
+	pPlayer->SetGround(true);
 }
 
 void CGround::OnCollisionStay(CCollider* pOther)
@@ -42,20 +44,11 @@ void CGround::OnCollisionStay(CCollider* pOther)
 		// 플레이어가 충돌 중일 경우 밀어내기 연산
 		// 위로 밀어내기
 		CPlayer* pPlayer = static_cast<CPlayer*>(pOther->GetOwner());
-
-		if (pPlayer->GetCurState() != PlayerState::Jump)
-		{
-			pPlayer->SetPos(
-				pPlayer->GetPos().x,
-				GetCollider()->GetPos().y
-				- (GetCollider()->GetScale().y + pOther->GetScale().y) * 0.5f + offset
-				- pOther->GetOffsetPos().y);
-			pPlayer->SetPassBlock(false);
-			pPlayer->SetGround(true);
-		}
-		else
-			pPlayer->SetGround(false);
-		
+		pPlayer->SetPos(
+			pPlayer->GetPos().x,
+			GetCollider()->GetPos().y
+			- (GetCollider()->GetScale().y + pOther->GetScale().y) * 0.5f + offset
+			- pOther->GetOffsetPos().y);
 		
 	}
 }
@@ -63,7 +56,7 @@ void CGround::OnCollisionStay(CCollider* pOther)
 void CGround::OnCollisionExit(CCollider* pOther)
 {
 	CPlayer* pPlayer = static_cast<CPlayer*>(pOther->GetOwner());
-
 	pPlayer->SetGround(false);
+	Logger::Debug(L"땅에서 벗어남");
 }
 

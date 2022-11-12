@@ -26,7 +26,15 @@ void CPlayerStateDash::Update()
 	}
 	else
 	{
-		if (pPlayer->isGround())
+		if (pPlayer->ActGravity())
+		{
+			pPlayer->ChangeState(PlayerState::Fall);
+		}
+		else if (!pPlayer->ActGravity())
+		{
+			pPlayer->ChangeState(PlayerState::Idle);
+		}
+		/*else
 		{
 			if (BUTTONSTAY(VK_RIGHT) || BUTTONSTAY(VK_LEFT))
 				pPlayer->ChangeState(PlayerState::Run);
@@ -38,8 +46,7 @@ void CPlayerStateDash::Update()
 				pPlayer->ChangeState(PlayerState::Aim);
 			if (BUTTONSTAY('X'))
 				pPlayer->ChangeState(PlayerState::Shoot);
-		}
-		pPlayer->ChangeState(PlayerState::Idle);
+		}*/
 	}
 	
 
