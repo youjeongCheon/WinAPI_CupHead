@@ -3,6 +3,7 @@
 class CPlayer;
 class CImage;
 class CImageObject;
+class CParryObject;
 
 class CSceneTutorial : public CScene
 {
@@ -19,6 +20,11 @@ private:
 	CImageObject* pBackground;
 	CImageObject* pFrontground;
 
+	int parryNum;
+
+public:
+	int GetParryNum();
+	void SetParryNum(int num);
 
 private:
 	void Init()		override;

@@ -9,6 +9,7 @@
 #include "CBlock.h"
 #include "CGround.h"
 #include "CObstacle.h"
+#include "CParryObject.h"
 
 CSceneTutorial::CSceneTutorial()
 {
@@ -18,10 +19,24 @@ CSceneTutorial::CSceneTutorial()
 
 	pBackground = nullptr;
 	pFrontground = nullptr;
+	parryNum = 0;
+	pParryObject1=nullptr;
+	pParryObject2=nullptr;
+	pParryObject3=nullptr;
 }
 
 CSceneTutorial::~CSceneTutorial()
 {
+}
+
+int CSceneTutorial::GetParryNum()
+{
+	return parryNum;
+}
+
+void CSceneTutorial::SetParryNum(int num)
+{
+	parryNum = num;
 }
 
 void CSceneTutorial::Init()
@@ -86,9 +101,28 @@ void CSceneTutorial::Init()
 	CMonserPyrimid* pMonserPyrimid = new CMonserPyrimid();
 	AddGameObject(pMonserPyrimid);
 
-	CBlock* pExitDoor = new CBlock;
+	CParryObject* pParryObject1 = new CParryObject();
+	pParryObject1->SetPos(3400, 300);
+	pParryObject1->SetNum(0);
+	pParryObject1->SetScene(this);
+	AddGameObject(pParryObject1);
+
+	CParryObject* pParryObject2 = new CParryObject();
+	pParryObject2->SetPos(3550, 300);
+	pParryObject2->SetNum(1);
+	pParryObject2->SetScene(this);
+	AddGameObject(pParryObject2);
+
+	CParryObject* pParryObject3 = new CParryObject();
+	pParryObject3->SetPos(3700, 300);
+	pParryObject3->SetNum(2);
+	pParryObject3->SetScene(this);
+	AddGameObject(pParryObject3);
+
+	CBlock* pExitDoor = new CBlock();
 	pExitDoor->SetBlockType(BlockType::Exit_Door);
 	AddGameObject(pExitDoor);
+
 #pragma endregion 
 
 	pPlayer = new CPlayer();

@@ -258,6 +258,9 @@
     <ClInclude Include="CPlayerStateParry.h">
       <Filter>GameObject\Player\PlayerState</Filter>
     </ClInclude>
+    <ClInclude Include="CParryObject.h">
+      <Filter>GameObject\Tutorial</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="WinAPI.cpp">
@@ -433,6 +436,9 @@
     </ClCompile>
     <ClCompile Include="CPlayerStateParry.cpp">
       <Filter>GameObject\Player\PlayerState</Filter>
+    </ClCompile>
+    <ClCompile Include="CParryObject.cpp">
+      <Filter>GameObject\Tutorial</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

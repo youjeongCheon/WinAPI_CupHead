@@ -4,6 +4,7 @@
 #include "CPlayerStateIdle.h"
 #include "CPlayerStateRun.h"
 #include "CPlayerStateJump.h"
+#include "CPlayerStateParry.h"
 #include "CPlayerStateFall.h"
 #include "CPlayerStateDash.h"
 #include "CPlayerStateDuck.h"
@@ -205,8 +206,8 @@ void CPlayer::Init()
 	m_pAnimator->CreateAnimation(L"ShootLeftDown", m_pShootImage, Vector(0.f, 1800.f), Vector(200.f, 200.f), Vector(200.f, 0.f), 0.05f, 3, false);
 	m_pAnimator->CreateAnimation(L"RunShootRight", m_pRunShootImage, Vector(0.f, 0.f), Vector(200.f, 200.f), Vector(200.f, 0.f), 0.05f, 16);
 	m_pAnimator->CreateAnimation(L"RunShootLeft", m_pRunShootImage, Vector(0.f, 200.f), Vector(200.f, 200.f), Vector(200.f, 0.f), 0.05f, 16);
-	m_pAnimator->CreateAnimation(L"ParryRight", m_pParryImage, Vector(0.f, 0.f), Vector(200.f, 200.f), Vector(200.f, 0.f), 0.1f, 16, false);
-	m_pAnimator->CreateAnimation(L"ParryLeft", m_pParryImage, Vector(0.f, 200.f), Vector(200.f, 200.f), Vector(200.f, 0.f), 0.1f, 16, false);
+	m_pAnimator->CreateAnimation(L"ParryRight", m_pParryImage, Vector(0.f, 0.f), Vector(200.f, 200.f), Vector(200.f, 0.f), 0.03f, 16, false);
+	m_pAnimator->CreateAnimation(L"ParryLeft", m_pParryImage, Vector(0.f, 200.f), Vector(200.f, 200.f), Vector(200.f, 0.f), 0.03f, 16, false);
 	m_pAnimator->CreateAnimation(L"SpecialAttackRight", m_pSpecialAttackImage, Vector(0.f, 0.f), Vector(400.f, 400.f), Vector(200.f, 0.f), 0.1f, 15, false);
 	m_pAnimator->CreateAnimation(L"SpecialAttackLeft", m_pSpecialAttackImage, Vector(0.f, 400.f), Vector(400.f, 400.f), Vector(200.f, 0.f), 0.1f, 15, false);
 	m_pAnimator->CreateAnimation(L"TakeHitRight", m_pTakeHitImage, Vector(0.f, 0.f), Vector(200.f, 300.f), Vector(200.f, 0.f), 0.1f, 6, false);
@@ -219,6 +220,7 @@ void CPlayer::Init()
 	m_mapState.insert(make_pair(PlayerState::Idle, new CPlayerStateIdle(this)));
 	m_mapState.insert(make_pair(PlayerState::Run, new CPlayerStateRun(this)));
 	m_mapState.insert(make_pair(PlayerState::Jump, new CPlayerStateJump(this)));
+	m_mapState.insert(make_pair(PlayerState::Parry, new CPlayerStateParry(this)));
 	m_mapState.insert(make_pair(PlayerState::Fall, new CPlayerStateFall(this)));
 	m_mapState.insert(make_pair(PlayerState::Dash, new CPlayerStateDash(this)));
 	m_mapState.insert(make_pair(PlayerState::Duck, new CPlayerStateDuck(this)));
