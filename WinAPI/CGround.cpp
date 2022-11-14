@@ -16,7 +16,7 @@ CGround::~CGround()
 
 void CGround::Init()
 {
-	AddCollider(ColliderType::Rect, Vector(10000, 1), Vector(0, 0));
+	AddCollider(ColliderType::Rect, Vector(7000, 1), Vector(0, 0));
 }
 
 void CGround::Update()

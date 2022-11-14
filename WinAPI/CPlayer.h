@@ -51,6 +51,7 @@ private:
 	bool	bPassBlock;
 
 	int		m_ColliderCount;
+	int		m_SpecialAttackCount;
 
 public:
 
@@ -75,6 +76,9 @@ public:
 	bool ActGravity();
 
 	void CreateMissile(Vector pos, Vector direction, bool ExMissile= false);
+
+	void SetSpecialAttackCount(int count);
+	int GetSpecialAttackCount();
 
 private:
 	void Init() override;

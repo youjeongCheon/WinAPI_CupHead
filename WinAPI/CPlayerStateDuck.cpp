@@ -48,6 +48,8 @@ void CPlayerStateDuck::Update()
 		pPlayer->ChangeState(PlayerState::Aim);
 	 if (BUTTONDOWN('X'))
 		pPlayer->ChangeState(PlayerState::Shoot);
+	 if (BUTTONDOWN('Y'))
+		 pPlayer->ChangeState(PlayerState::SpecialAttack);
 	 pPlayer->SetStateName(str);
 }
 

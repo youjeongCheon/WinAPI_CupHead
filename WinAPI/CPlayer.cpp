@@ -46,6 +46,7 @@ CPlayer::CPlayer()
 	bIsOnBlock = false;
 	bPassBlock = false;
 	m_ColliderCount = 0;
+	m_SpecialAttackCount = 0;
 }
 
 CPlayer::~CPlayer()
@@ -155,6 +156,18 @@ PlayerState CPlayer::GetPreState()
 	return m_preState;
 }
 
+void CPlayer::SetSpecialAttackCount(int count)
+{
+	if (count > 6)
+		count = 5;
+	m_SpecialAttackCount = count;
+}
+
+int CPlayer::GetSpecialAttackCount()
+{
+	return m_SpecialAttackCount;
+}
+
 void CPlayer::Init()
 {
 #pragma region ImageLoad
@@ -208,8 +221,8 @@ void CPlayer::Init()
 	m_pAnimator->CreateAnimation(L"RunShootLeft", m_pRunShootImage, Vector(0.f, 200.f), Vector(200.f, 200.f), Vector(200.f, 0.f), 0.05f, 16);
 	m_pAnimator->CreateAnimation(L"ParryRight", m_pParryImage, Vector(0.f, 0.f), Vector(200.f, 200.f), Vector(200.f, 0.f), 0.03f, 16, false);
 	m_pAnimator->CreateAnimation(L"ParryLeft", m_pParryImage, Vector(0.f, 200.f), Vector(200.f, 200.f), Vector(200.f, 0.f), 0.03f, 16, false);
-	m_pAnimator->CreateAnimation(L"SpecialAttackRight", m_pSpecialAttackImage, Vector(0.f, 0.f), Vector(400.f, 400.f), Vector(200.f, 0.f), 0.1f, 15, false);
-	m_pAnimator->CreateAnimation(L"SpecialAttackLeft", m_pSpecialAttackImage, Vector(0.f, 400.f), Vector(400.f, 400.f), Vector(200.f, 0.f), 0.1f, 15, false);
+	m_pAnimator->CreateAnimation(L"SpecialAttackRight", m_pSpecialAttackImage, Vector(0.f, 0.f), Vector(400.f, 400.f), Vector(400.f, 0.f), 0.05f, 15, false);
+	m_pAnimator->CreateAnimation(L"SpecialAttackLeft", m_pSpecialAttackImage, Vector(0.f, 400.f), Vector(400.f, 400.f), Vector(400.f, 0.f), 0.05f, 15, false);
 	m_pAnimator->CreateAnimation(L"TakeHitRight", m_pTakeHitImage, Vector(0.f, 0.f), Vector(200.f, 300.f), Vector(200.f, 0.f), 0.1f, 6, false);
 	m_pAnimator->CreateAnimation(L"TakeHitLeft", m_pTakeHitImage, Vector(0.f, 300.f), Vector(200.f, 300.f), Vector(200.f, 0.f), 0.1f, 6, false);
 

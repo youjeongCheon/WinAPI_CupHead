@@ -20,9 +20,6 @@ CSceneTutorial::CSceneTutorial()
 	pBackground = nullptr;
 	pFrontground = nullptr;
 	parryNum = 0;
-	pParryObject1=nullptr;
-	pParryObject2=nullptr;
-	pParryObject3=nullptr;
 }
 
 CSceneTutorial::~CSceneTutorial()
@@ -51,7 +48,7 @@ void CSceneTutorial::Init()
 	AddGameObject(pBackground);
 
 	CGround* pGround = new CGround();
-	pGround->SetPos(0, GROUNDPOSY);
+	pGround->SetPos(2500, GROUNDPOSY);
 	AddGameObject(pGround);
 
 #pragma region Tutorial_Object
@@ -119,6 +116,20 @@ void CSceneTutorial::Init()
 	pParryObject3->SetScene(this);
 	AddGameObject(pParryObject3);
 
+	CBlock* pBlockCylinder2 = new CBlock();
+	pBlockCylinder2->SetBlockType(BlockType::Cylinder2);
+	AddGameObject(pBlockCylinder2);
+
+	CObstacle* pObstacleCylinder1 = new CObstacle();
+	pObstacleCylinder1->SetScale(128, 266);
+	pObstacleCylinder1->SetPos(3925, pObstacleCylinder1->GetOnGroundPosY());
+	AddGameObject(pObstacleCylinder1);
+
+	CObstacle* pObstaclCylinder2 = new CObstacle();
+	pObstaclCylinder2->SetScale(135, 86);
+	pObstaclCylinder2->SetPos(4110, pObstaclCylinder2->GetOnGroundPosY());
+	AddGameObject(pObstaclCylinder2);
+
 	CBlock* pExitDoor = new CBlock();
 	pExitDoor->SetBlockType(BlockType::Exit_Door);
 	AddGameObject(pExitDoor);
@@ -149,6 +160,8 @@ void CSceneTutorial::Enter()
 
 void CSceneTutorial::Update()
 {
+	if (pPlayer->GetPos().x > 5080)
+		pPlayer->SetPos(5100, pPlayer->GetPos().y);
 
 	if (BUTTONDOWN(VK_ESCAPE))
 	{

@@ -7,7 +7,11 @@ class CPlayerStateSpecialAttack : public CState
 {
 private:
 	CPlayer* pPlayer;
-	Vector m_vecPos;
+	Vector m_LookDir;
+	float fCooltime;
+
+	Vector m_vecMissilePos;
+	bool bShoot;
 
 public:
 	CPlayerStateSpecialAttack(CPlayer* pPlayer) { this->pPlayer = pPlayer; }

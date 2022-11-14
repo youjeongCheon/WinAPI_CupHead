@@ -34,6 +34,8 @@ void CPlayerStateIdle::Update()
 			pPlayer->ChangeState(PlayerState::Aim);
 		if (BUTTONSTAY('X'))
 			pPlayer->ChangeState(PlayerState::Shoot);
+		if (BUTTONDOWN('Y'))
+			pPlayer->ChangeState(PlayerState::SpecialAttack);
 	}
 
 	if (pPlayer->GetLookDir().x == +1)

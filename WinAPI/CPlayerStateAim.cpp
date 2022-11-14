@@ -39,6 +39,8 @@ void CPlayerStateAim::Update()
 
 		if (BUTTONDOWN('X'))
 			pPlayer->ChangeState(PlayerState::Shoot);
+		if(BUTTONDOWN('Y'))
+			pPlayer->ChangeState(PlayerState::SpecialAttack);
 	}
 	
 	switch (result)

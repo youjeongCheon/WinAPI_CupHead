@@ -59,6 +59,8 @@ void CPlayerStateRun::Update()
 			pPlayer->ChangeState(PlayerState::Dash);
 		if (BUTTONDOWN(VK_DOWN))
 			pPlayer->ChangeState(PlayerState::Duck);
+		if (BUTTONDOWN('Y'))
+			pPlayer->ChangeState(PlayerState::SpecialAttack);
 	}
 
 	 if (pPlayer->GetLookDir().x == +1)

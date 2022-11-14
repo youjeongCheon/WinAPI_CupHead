@@ -10,6 +10,7 @@ CBlock::CBlock()
 	m_pCube = nullptr;
 	m_pCylinder_platform = nullptr;
 	m_pPlinth = nullptr;
+	m_pCylinder2 = nullptr;
 	m_pEixitDoor = nullptr;
 	m_blockType = BlockType::Cube;
 	m_layer = Layer::Obstacle;
@@ -30,6 +31,7 @@ void CBlock::Init()
 	m_pCube = RESOURCE->LoadImg(L"BlockCube", L"Image\\tutorial_cube.png");
 	m_pCylinder_platform = RESOURCE->LoadImg(L"BlockCylinder_platform", L"Image\\tutorial_cylinder_and_platform.png");
 	m_pPlinth = RESOURCE->LoadImg(L"BlockPlinth", L"Image\\tutorial_plynth.png");
+	m_pCylinder2 = RESOURCE->LoadImg(L"BlockCylinder2", L"Image\\tutorial_cylinder_2.png");
 	m_pEixitDoor = RESOURCE->LoadImg(L"BlockExitDoor", L"Image\\tutorial_exit_door.png");
 	switch (m_blockType)
 	{
@@ -44,6 +46,10 @@ void CBlock::Init()
 	case BlockType::Plinth:
 		m_pBlock = m_pPlinth;
 		SetPos(3019, 453);
+		break;
+	case BlockType::Cylinder2:
+		m_pBlock = m_pCylinder2;
+		SetPos(4020, 431);
 		break;
 	case BlockType::Exit_Door:
 		m_pBlock = m_pEixitDoor;
