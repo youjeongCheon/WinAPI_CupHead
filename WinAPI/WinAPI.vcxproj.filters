@@ -267,6 +267,9 @@
     <ClInclude Include="COverWorldPlayer.h">
       <Filter>GameObject\Player</Filter>
     </ClInclude>
+    <ClInclude Include="CTitleObject.h">
+      <Filter>GameObject</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="WinAPI.cpp">
@@ -451,6 +454,9 @@
     </ClCompile>
     <ClCompile Include="COverWorldPlayer.cpp">
       <Filter>GameObject\Player</Filter>
+    </ClCompile>
+    <ClCompile Include="CTitleObject.cpp">
+      <Filter>GameObject</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

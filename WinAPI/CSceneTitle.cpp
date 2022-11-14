@@ -1,14 +1,13 @@
 #include "framework.h"
 #include "CSceneTitle.h"
 
-#include "WinAPI.h"
-#include "CRenderManager.h"
-#include "CInputManager.h"
-#include "CEventManager.h"
-#include "CCameraManager.h"
+#include "CImageObject.h"
+#include "CTitleObject.h"
 
 CSceneTitle::CSceneTitle()
 {
+	pBackLayer = nullptr;
+	pBackground = nullptr;
 }
 
 CSceneTitle::~CSceneTitle()
@@ -17,10 +16,21 @@ CSceneTitle::~CSceneTitle()
 
 void CSceneTitle::Init()
 {
+	pBackLayer = RESOURCE->LoadImg(L"title_screen_background", L"Image\\title_screen_background.png");
+	pBackground = new CImageObject();
+	pBackground->SetImage(pBackLayer);
+	pBackground->ChangeScale(true, Vector(WINSIZEX, WINSIZEY));
+	pBackground->SetPos(WINSIZEX * 0.5f, WINSIZEY * 0.5f);
+	AddGameObject(pBackground);
+
+	CTitleObject* pObject = new CTitleObject();
+	pObject->SetPos(WINSIZEX * 0.5f, WINSIZEY * 0.55f);
+	AddGameObject(pObject);
+	
 }
 
 void CSceneTitle::Enter()
-{
+{	
 	CAMERA->FadeIn(0.25f);
 }
 
@@ -28,7 +38,8 @@ void CSceneTitle::Update()
 {
 	if (BUTTONDOWN(VK_F1))
 	{
-		CHANGESCENE(GroupScene::OverWorld);
+		CAMERA->FadeOut(0.25f);
+		DELAYCHANGESCENE(GroupScene::OverWorld,0.25f);
 	}
 	if (BUTTONDOWN(VK_SPACE))
 	{
@@ -39,6 +50,8 @@ void CSceneTitle::Update()
 	{
 		CHANGESCENE(GroupScene::TileTool);
 	}
+
+	
 }
 
 void CSceneTitle::Render()
@@ -54,6 +67,7 @@ void CSceneTitle::Render()
 
 void CSceneTitle::Exit()
 {
+
 }
 
 void CSceneTitle::Release()
