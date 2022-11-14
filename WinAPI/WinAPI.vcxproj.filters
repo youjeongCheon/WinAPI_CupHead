@@ -261,6 +261,12 @@
     <ClInclude Include="CParryObject.h">
       <Filter>GameObject\Tutorial</Filter>
     </ClInclude>
+    <ClInclude Include="CSceneOverWorld.h">
+      <Filter>Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="COverWorldPlayer.h">
+      <Filter>GameObject\Player</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="WinAPI.cpp">
@@ -439,6 +445,12 @@
     </ClCompile>
     <ClCompile Include="CParryObject.cpp">
       <Filter>GameObject\Tutorial</Filter>
+    </ClCompile>
+    <ClCompile Include="CSceneOverWorld.cpp">
+      <Filter>Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="COverWorldPlayer.cpp">
+      <Filter>GameObject\Player</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

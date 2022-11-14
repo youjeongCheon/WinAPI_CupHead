@@ -16,28 +16,40 @@ void CPlayerStateSpecialAttack::Enter()
 
 void CPlayerStateSpecialAttack::Update()
 {
-	fCooltime += DT;
+	wstring str = L"SpecialAttack";
 	m_LookDir = pPlayer->GetLookDir();
-	m_vecMissilePos = pPlayer->GetPos();
-	if (bShoot == false)
+
+	int count = pPlayer->GetSpecialAttackCount();
+	if (count <= 0)
+		pPlayer->ChangeState(PlayerState::Idle);
+	else
 	{
-		if (fCooltime >= 0.4f)
+		fCooltime += DT;
+		
+		m_vecMissilePos = pPlayer->GetPos();
+		if (bShoot == false)
 		{
-			pPlayer->CreateMissile(m_vecMissilePos, m_LookDir, true);
-			bShoot = true;
+			if (fCooltime >= 0.4f)
+			{
+				pPlayer->CreateMissile(m_vecMissilePos, m_LookDir, true);
+				count--;
+				pPlayer->SetSpecialAttackCount(count);
+				bShoot = true;
+			}
+		}
+		if (fCooltime > 0.75f)
+		{
+			pPlayer->ChangeState(PlayerState::Idle);
 		}
 	}
-	wstring str = L"SpecialAttack";
-	if (fCooltime > 0.75f)
-	{
-		pPlayer->ChangeState(PlayerState::Idle);
-	}
+	
 	if (m_LookDir.x == +1)
 		str += L"Right";
 	else if (m_LookDir.x == -1)
 		str += L"Left";
-
 	pPlayer->SetStateName(str);
+
+	
 }
 
 void CPlayerStateSpecialAttack::Exit()

@@ -163,6 +163,7 @@
     <ClInclude Include="CMonserPyrimid.h" />
     <ClInclude Include="CMonster.h" />
     <ClInclude Include="CObstacle.h" />
+    <ClInclude Include="COverWorldPlayer.h" />
     <ClInclude Include="CPanel.h" />
     <ClInclude Include="CParryObject.h" />
     <ClInclude Include="CPathManager.h" />
@@ -183,6 +184,7 @@
     <ClInclude Include="CResourceManager.h" />
     <ClInclude Include="CScene.h" />
     <ClInclude Include="CSceneManager.h" />
+    <ClInclude Include="CSceneOverWorld.h" />
     <ClInclude Include="CSceneStage01.h" />
     <ClInclude Include="CSceneTileTool.h" />
     <ClInclude Include="CSceneTitle.h" />
@@ -230,6 +232,7 @@
     <ClCompile Include="CMonserPyrimid.cpp" />
     <ClCompile Include="CMonster.cpp" />
     <ClCompile Include="CObstacle.cpp" />
+    <ClCompile Include="COverWorldPlayer.cpp" />
     <ClCompile Include="CPanel.cpp" />
     <ClCompile Include="CParryObject.cpp" />
     <ClCompile Include="CPathManager.cpp" />
@@ -250,6 +253,7 @@
     <ClCompile Include="CResourceManager.cpp" />
     <ClCompile Include="CScene.cpp" />
     <ClCompile Include="CSceneManager.cpp" />
+    <ClCompile Include="CSceneOverWorld.cpp" />
     <ClCompile Include="CSceneStage01.cpp" />
     <ClCompile Include="CSceneTileTool.cpp" />
     <ClCompile Include="CSceneTitle.cpp" />

@@ -5,6 +5,7 @@
 #include "CSceneTitle.h"
 #include "CSceneTutorial.h"
 #include "CSceneTileTool.h"
+#include "CSceneOverWorld.h"
 #include "CSceneStage01.h"
 
 CSceneManager::CSceneManager()
@@ -24,6 +25,8 @@ void CSceneManager::Init()
 	m_mapScene.insert(make_pair(GroupScene::Title, pSceneTitle));
 	CScene* pSceneTutorial = new CSceneTutorial();
 	m_mapScene.insert(make_pair(GroupScene::Tutorial, pSceneTutorial));
+	CScene* pSceneOverWorld = new CSceneOverWorld();
+	m_mapScene.insert(make_pair(GroupScene::OverWorld, pSceneOverWorld));
 	CSceneTileTool* pSceneTileTool = new CSceneTileTool;
 	m_mapScene.insert(make_pair(GroupScene::TileTool, pSceneTileTool));
 	CScene* pSceneStage01 = new CSceneStage01();

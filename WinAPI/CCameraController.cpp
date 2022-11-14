@@ -6,8 +6,22 @@
 
 #include "CPlayer.h"
 
+CCameraController::CCameraController()
+{
+}
+
 CCameraController::~CCameraController()
 {
+}
+
+void CCameraController::Setplayer(CPlayer* pPlayer)
+{
+	this->pPlayer = pPlayer;
+}
+
+void CCameraController::SetOverWorldPlayer(COverWorldPlayer* pPlayer)
+{
+	this->pOverWorldPlayer = pPlayer;
 }
 
 void CCameraController::Init()
@@ -16,11 +30,7 @@ void CCameraController::Init()
 
 void CCameraController::Update()
 {
-	if (pPlayer->GetPos().x > +WINSIZEX*0.5f && pPlayer->GetPos().x < 5200-WINSIZEX * 0.5f)
-	{
-		CAMERA->SetTargetPos(Vector(pPlayer->GetPos().x, WINSIZEY * 0.5f), 0);
-	}
-
+	
 	Vector dir;
 	if (BUTTONSTAY('A'))
 	{

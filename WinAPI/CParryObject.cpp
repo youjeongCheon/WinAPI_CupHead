@@ -120,6 +120,9 @@ void CParryObject::OnCollisionStay(CCollider* pOtherCollider)
 			{
 				bParryExit = true;
 				CreateSpikle();
+				int count = pPlayer->GetSpecialAttackCount();
+				count++;
+				pPlayer->SetSpecialAttackCount(count);
 				pPlayer->ChangeState(PlayerState::Parry);
 			}
 		}

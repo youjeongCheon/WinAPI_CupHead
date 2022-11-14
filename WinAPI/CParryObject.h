@@ -22,7 +22,7 @@ private:
 	CSceneTutorial* pSceneTutorial;
 
 	int m_num;
-	int parryNum;
+	int parryNum; // Tutorial parryObject ¹øÈ£ 
 	bool bParry;
 	bool bParryExit;
 

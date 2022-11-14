@@ -28,12 +28,16 @@ void CSceneTitle::Update()
 {
 	if (BUTTONDOWN(VK_F1))
 	{
-		CHANGESCENE(GroupScene::TileTool);
+		CHANGESCENE(GroupScene::OverWorld);
 	}
 	if (BUTTONDOWN(VK_SPACE))
 	{
 		CAMERA->FadeOut(0.25f);
 		DELAYCHANGESCENE(GroupScene::Tutorial, 0.25f);
+	}
+	if (BUTTONDOWN(VK_F5))
+	{
+		CHANGESCENE(GroupScene::TileTool);
 	}
 }
 

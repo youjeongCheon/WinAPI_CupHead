@@ -149,7 +149,8 @@ void CSceneTutorial::Init()
 
 
 
-	CCameraController* pCamController = new CCameraController(pPlayer);
+	CCameraController* pCamController = new CCameraController();
+	pCamController->Setplayer(pPlayer);
 	AddGameObject(pCamController);
 }
 
@@ -161,7 +162,13 @@ void CSceneTutorial::Enter()
 void CSceneTutorial::Update()
 {
 	if (pPlayer->GetPos().x > 5080)
-		pPlayer->SetPos(5100, pPlayer->GetPos().y);
+		pPlayer->SetPos(5080, pPlayer->GetPos().y);
+
+	if (pPlayer->GetPos().x > +WINSIZEX * 0.5f && pPlayer->GetPos().x < 5200 - WINSIZEX * 0.5f)
+	{
+		CAMERA->SetTargetPos(Vector(pPlayer->GetPos().x, WINSIZEY * 0.5f), 0);
+	}
+
 
 	if (BUTTONDOWN(VK_ESCAPE))
 	{
@@ -177,6 +184,7 @@ void CSceneTutorial::Render()
 
 void CSceneTutorial::Exit()
 {
+	CAMERA->FadeOut(0.25f);
 }
 
 void CSceneTutorial::Release()

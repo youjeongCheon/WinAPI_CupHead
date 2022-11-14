@@ -34,7 +34,7 @@ void CSceneStage01::Init()
 	pMonster->SetPos(1000, WINSIZEY * 0.5f);
 	AddGameObject(pMonster);
 
-	CCameraController* pCamController = new CCameraController(pPlayer);
+	CCameraController* pCamController = new CCameraController();
 	AddGameObject(pCamController);
 }
 

@@ -31,6 +31,8 @@ enum class GroupScene
 
 	TileTool,
 
+	OverWorld,
+
 	Stage01,
 
 	Size,
