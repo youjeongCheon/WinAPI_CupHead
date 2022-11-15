@@ -6,8 +6,11 @@
 
 CSceneTitle::CSceneTitle()
 {
+	pTitleText = nullptr;
 	pBackLayer = nullptr;
 	pBackground = nullptr;
+
+	fCoolTime = 0;
 }
 
 CSceneTitle::~CSceneTitle()
@@ -16,6 +19,8 @@ CSceneTitle::~CSceneTitle()
 
 void CSceneTitle::Init()
 {
+	pTitleText = RESOURCE->LoadImg(L"title_text", L"Image\\Title_Text.png");
+	
 	pBackLayer = RESOURCE->LoadImg(L"title_screen_background", L"Image\\title_screen_background.png");
 	pBackground = new CImageObject();
 	pBackground->SetImage(pBackLayer);
@@ -26,7 +31,7 @@ void CSceneTitle::Init()
 	CTitleObject* pObject = new CTitleObject();
 	pObject->SetPos(WINSIZEX * 0.5f, WINSIZEY * 0.55f);
 	AddGameObject(pObject);
-	
+
 }
 
 void CSceneTitle::Enter()
@@ -51,18 +56,16 @@ void CSceneTitle::Update()
 		CHANGESCENE(GroupScene::TileTool);
 	}
 
+	fCoolTime += DT;
+	if (fCoolTime > 1.6f)
+		fCoolTime = 0;
 	
 }
 
 void CSceneTitle::Render()
 {
-	RENDER->Text(L"press space to start",
-		WINSIZEX * 0.5f - 100,
-		WINSIZEY * 0.5f - 10,
-		WINSIZEX * 0.5f + 100,
-		WINSIZEY * 0.5f + 10,
-		Color(0, 0, 0, 1.f),
-		20.f);
+	if(fCoolTime<0.8f)
+		RENDER->Image(pTitleText, WINSIZEX * 0.5f-300, WINSIZEY * 0.8f, WINSIZEX * 0.5f+300, WINSIZEY * 0.8f+200);
 }
 
 void CSceneTitle::Exit()

@@ -12,9 +12,11 @@ public:
 	virtual ~CSceneTitle();
 
 private:
+	CImage* pTitleText;
 	CImage* pBackLayer;
 	CImageObject* pBackground;
 
+	float fCoolTime;
 private:
 	void Init()		override;
 	void Enter()	override;

@@ -22,7 +22,7 @@ void CTitleObject::Init()
 	m_pAnimator->CreateAnimation(L"cupheads_title_movement4", m_pImage, Vector(0, 2100), Vector(1093, 700), Vector(1093, 0.f), 0.08f, 5);
 	m_pAnimator->CreateAnimation(L"cupheads_title_movement5", m_pImage, Vector(0, 2800), Vector(1093, 700), Vector(1093, 0.f), 0.08f, 5);
 	m_pAnimator->CreateAnimation(L"cupheads_title_movement6", m_pImage, Vector(0, 3500), Vector(1093, 700), Vector(1093, 0.f), 0.08f, 5);
-	m_pAnimator->CreateAnimation(L"cupheads_title_movement7", m_pImage, Vector(0, 3500), Vector(1093, 700), Vector(1093, 0.f), 0.08f, 4);
+	m_pAnimator->CreateAnimation(L"cupheads_title_movement7", m_pImage, Vector(0, 4200), Vector(1093, 700), Vector(1093, 0.f), 0.08f, 4);
 
 	AddComponent(m_pAnimator);
 }
@@ -31,6 +31,8 @@ void CTitleObject::Update()
 {
 	fCoolTime += DT;
 	wstring str = L"cupheads_title_movement";
+	if (fCoolTime >= 2.72f)
+		fCoolTime = 0;
 	if (fCoolTime < 0.4f)
 		str += L"1";
 	else if(fCoolTime >= 0.4f && fCoolTime < 0.8f)
@@ -43,15 +45,10 @@ void CTitleObject::Update()
 		str += L"5";
 	else if (fCoolTime >= 2.0f && fCoolTime < 2.4f)
 		str += L"6";
-	else if (fCoolTime >= 2.4f && fCoolTime < 2.8f)
+	else if (fCoolTime >= 2.4f && fCoolTime < 2.72f)
 		str += L"7";
-	else
-	{
-		fCoolTime = 0;
-		str += L"1";
-	}
+	
 	m_pAnimator->Play(str, false);
-	Logger::Debug(str);
 }
 
 void CTitleObject::Render()
