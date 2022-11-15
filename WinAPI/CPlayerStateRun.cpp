@@ -59,7 +59,7 @@ void CPlayerStateRun::Update()
 			pPlayer->ChangeState(PlayerState::Dash);
 		if (BUTTONDOWN(VK_DOWN))
 			pPlayer->ChangeState(PlayerState::Duck);
-		if (BUTTONDOWN('Y'))
+		if (BUTTONDOWN('V'))
 			pPlayer->ChangeState(PlayerState::SpecialAttack);
 	}
 
