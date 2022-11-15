@@ -53,6 +53,11 @@ void CSceneTitle::Update()
 	}
 	if (BUTTONDOWN(VK_F5))
 	{
+		CAMERA->FadeOut(0.25f);
+		DELAYCHANGESCENE(GroupScene::BossStage, 0.25f);
+	}
+	if (BUTTONDOWN(VK_F9))
+	{
 		CHANGESCENE(GroupScene::TileTool);
 	}
 

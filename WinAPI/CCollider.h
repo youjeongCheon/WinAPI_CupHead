@@ -26,6 +26,8 @@ private:
 	void SetPos(Vector pos);
 	void SetScale(Vector scale);
 
+	bool bChange;
+
 private:
 	void SetType(ColliderType type);
 	void SetOffsetPos(Vector offset);
@@ -37,6 +39,7 @@ public:
 	Vector GetPos();
 	Vector GetOffsetPos();
 	Vector GetScale();
+	void SetChangePos(Vector pos);
 	
 
 

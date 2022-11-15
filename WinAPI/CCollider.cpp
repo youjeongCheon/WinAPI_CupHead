@@ -15,6 +15,8 @@ CCollider::CCollider()
 	m_vecPos = Vector(0, 0);
 	m_vecOffsetPos = Vector(0, 0);
 	m_vecScale = Vector(0, 0);
+
+	bChange = false;
 }
 
 CCollider::~CCollider()
@@ -66,6 +68,13 @@ Vector CCollider::GetScale()
 	return m_vecScale;
 }
 
+void CCollider::SetChangePos(Vector pos)
+{
+	bChange = true;
+	m_vecPos = pos;
+	
+}
+
 void CCollider::SetScale(Vector scale)
 {
 	m_vecScale = scale;
@@ -81,7 +90,10 @@ void CCollider::Update()
 
 void CCollider::PhysicsUpdate()
 {
-	m_vecPos = m_vecOffsetPos + GetOwner()->GetPos();
+	if (bChange == false)
+		m_vecPos = m_vecOffsetPos + GetOwner()->GetPos();
+	else
+		m_vecPos = m_vecOffsetPos + m_vecPos;
 }
 
 void CCollider::Render()

@@ -3,7 +3,6 @@
 
 #include "CPlayer.h"
 #include "CMonserPyrimid.h"
-#include "CMonster.h"
 #include "CCameraController.h"
 #include "CImageObject.h"
 #include "CBlock.h"

@@ -162,6 +162,7 @@
     <ClInclude Include="CMissileSpawn.h" />
     <ClInclude Include="CMonserPyrimid.h" />
     <ClInclude Include="CMonster.h" />
+    <ClInclude Include="CMonsterPotato.h" />
     <ClInclude Include="CObstacle.h" />
     <ClInclude Include="COverWorldPlayer.h" />
     <ClInclude Include="CPanel.h" />
@@ -183,6 +184,7 @@
     <ClInclude Include="CResource.h" />
     <ClInclude Include="CResourceManager.h" />
     <ClInclude Include="CScene.h" />
+    <ClInclude Include="CSceneBossStage.h" />
     <ClInclude Include="CSceneManager.h" />
     <ClInclude Include="CSceneOverWorld.h" />
     <ClInclude Include="CSceneStage01.h" />
@@ -232,6 +234,7 @@
     <ClCompile Include="CMissileSpawn.cpp" />
     <ClCompile Include="CMonserPyrimid.cpp" />
     <ClCompile Include="CMonster.cpp" />
+    <ClCompile Include="CMonsterPotato.cpp" />
     <ClCompile Include="CObstacle.cpp" />
     <ClCompile Include="COverWorldPlayer.cpp" />
     <ClCompile Include="CPanel.cpp" />
@@ -253,6 +256,7 @@
     <ClCompile Include="CResource.cpp" />
     <ClCompile Include="CResourceManager.cpp" />
     <ClCompile Include="CScene.cpp" />
+    <ClCompile Include="CSceneBossStage.cpp" />
     <ClCompile Include="CSceneManager.cpp" />
     <ClCompile Include="CSceneOverWorld.cpp" />
     <ClCompile Include="CSceneStage01.cpp" />

@@ -64,6 +64,9 @@
     <Filter Include="GameObject\Tutorial">
       <UniqueIdentifier>{63d352a1-b169-45df-817c-29b3099a0cce}</UniqueIdentifier>
     </Filter>
+    <Filter Include="GameObject\BossStage">
+      <UniqueIdentifier>{c53eb3db-8115-4f4f-af48-57b31f54cce7}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="framework.h">
@@ -270,6 +273,12 @@
     <ClInclude Include="CTitleObject.h">
       <Filter>GameObject</Filter>
     </ClInclude>
+    <ClInclude Include="CSceneBossStage.h">
+      <Filter>Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="CMonsterPotato.h">
+      <Filter>GameObject\BossStage</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="WinAPI.cpp">
@@ -457,6 +466,12 @@
     </ClCompile>
     <ClCompile Include="CTitleObject.cpp">
       <Filter>GameObject</Filter>
+    </ClCompile>
+    <ClCompile Include="CSceneBossStage.cpp">
+      <Filter>Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="CMonsterPotato.cpp">
+      <Filter>GameObject\BossStage</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

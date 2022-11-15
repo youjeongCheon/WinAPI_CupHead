@@ -33,6 +33,8 @@ enum class GroupScene
 
 	OverWorld,
 
+	BossStage,
+
 	Stage01,
 
 	Size,

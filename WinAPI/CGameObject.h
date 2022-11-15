@@ -66,6 +66,7 @@ protected:
 	CCollider* GetCollider();
 	void AddCollider(ColliderType type, Vector scale, Vector offsetPos);
 	void SetColliderScale(Vector scale);
+	void SetColliderPos(Vector pos);
 	void RemoveCollider();
 	
 
