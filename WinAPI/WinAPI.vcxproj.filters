@@ -261,7 +261,7 @@
     <ClInclude Include="CPlayerStateParry.h">
       <Filter>GameObject\Player\PlayerState</Filter>
     </ClInclude>
-    <ClInclude Include="CParryObject.h">
+    <ClInclude Include="CParrySphere.h">
       <Filter>GameObject\Tutorial</Filter>
     </ClInclude>
     <ClInclude Include="CSceneOverWorld.h">
@@ -278,6 +278,18 @@
     </ClInclude>
     <ClInclude Include="CMonsterPotato.h">
       <Filter>GameObject\BossStage</Filter>
+    </ClInclude>
+    <ClInclude Include="CPotatoMissile.h">
+      <Filter>GameObject\BossStage</Filter>
+    </ClInclude>
+    <ClInclude Include="CParryObject.h">
+      <Filter>GameObject\Stage</Filter>
+    </ClInclude>
+    <ClInclude Include="CPotatoParry.h">
+      <Filter>GameObject\BossStage</Filter>
+    </ClInclude>
+    <ClInclude Include="CMonsterMissile.h">
+      <Filter>GameObject\Stage</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -455,7 +467,7 @@
     <ClCompile Include="CPlayerStateParry.cpp">
       <Filter>GameObject\Player\PlayerState</Filter>
     </ClCompile>
-    <ClCompile Include="CParryObject.cpp">
+    <ClCompile Include="CParrySphere.cpp">
       <Filter>GameObject\Tutorial</Filter>
     </ClCompile>
     <ClCompile Include="CSceneOverWorld.cpp">
@@ -472,6 +484,18 @@
     </ClCompile>
     <ClCompile Include="CMonsterPotato.cpp">
       <Filter>GameObject\BossStage</Filter>
+    </ClCompile>
+    <ClCompile Include="CPotatoMissile.cpp">
+      <Filter>GameObject\BossStage</Filter>
+    </ClCompile>
+    <ClCompile Include="CParryObject.cpp">
+      <Filter>GameObject\Stage</Filter>
+    </ClCompile>
+    <ClCompile Include="CPotatoParry.cpp">
+      <Filter>GameObject\BossStage</Filter>
+    </ClCompile>
+    <ClCompile Include="CMonsterMissile.cpp">
+      <Filter>GameObject\Stage</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

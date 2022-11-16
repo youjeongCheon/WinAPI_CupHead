@@ -137,3 +137,8 @@ void CMissile::SetExMissile(bool bExMissile)
 {
 	m_bExMissile = bExMissile;
 }
+
+bool CMissile::GetExMissile()
+{
+	return m_bExMissile;
+}

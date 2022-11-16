@@ -1,8 +1,7 @@
 #include "framework.h"
 #include "CMonster.h"
 
-#include "CRenderManager.h"
-#include "CCollider.h"
+#include "CMissile.h"
 
 CMonster::CMonster()
 {
@@ -66,8 +65,12 @@ void CMonster::OnCollisionEnter(CCollider* pOtherCollider)
 	{
 		if (CollisionRange(pOtherCollider->GetPos()))
 		{
+			CMissile* pMissile = static_cast<CMissile*>(pOtherCollider->GetOwner());
 			Logger::Debug(L"몬스터가 미사일과 충돌진입");
-			m_HP -= 1;
+			if (pMissile->GetExMissile())
+				m_HP -= 5;
+			else
+				m_HP -= 1;
 			bTakeHit = true;
 			DELETEOBJECT(pOtherCollider->GetOwner());
 		}

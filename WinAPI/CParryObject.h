@@ -1,46 +1,31 @@
 #pragma once
 #include "CGameObject.h"
 
-class CImage;
-class CAnimator;
-class CSceneTutorial;
-
-class CParryObject : public CGameObject
+class CParryObject :  public CGameObject
 {
 public:
 	CParryObject();
-	virtual ~CParryObject();
+	virtual~CParryObject();
 
+protected:
+	Vector m_vecDir;
+	float m_fVelocity;
+
+	void Init() override;
 private:
-	CImage* m_pImage;
-	CImage* m_pSphere;
-	CImage* m_pPinkSphere;
 	CImage* m_pParrySpikle;
-
 	CAnimator* m_pAnimator;
 
-	CSceneTutorial* pSceneTutorial;
-
-	int m_num;
-	int parryNum; // Tutorial parryObject ¹øÈ£ 
 	bool bParry;
 	bool bParryExit;
 
-private:
 	void CreateSpikle();
 public:
-	void SetNum(int num);
-	void SetParryNum();
-	void SelectNum();
-	void SetScene(CSceneTutorial* scene);
+	void SetDir(Vector dir);
+	void SetVelocity(float velocity);
 
 private:
-	void Init() override;
-	void Update() override;
-	void Render() override;
-	void Release() override;
 
-	void OnCollisionEnter(CCollider* pOtherCollider) override;
 	void OnCollisionStay(CCollider* pOtherCollider) override;
 	void OnCollisionExit(CCollider* pOtherCollider) override;
 

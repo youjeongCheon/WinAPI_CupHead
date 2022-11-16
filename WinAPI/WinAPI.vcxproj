@@ -162,11 +162,13 @@
     <ClInclude Include="CMissileSpawn.h" />
     <ClInclude Include="CMonserPyrimid.h" />
     <ClInclude Include="CMonster.h" />
+    <ClInclude Include="CMonsterMissile.h" />
     <ClInclude Include="CMonsterPotato.h" />
     <ClInclude Include="CObstacle.h" />
     <ClInclude Include="COverWorldPlayer.h" />
     <ClInclude Include="CPanel.h" />
     <ClInclude Include="CParryObject.h" />
+    <ClInclude Include="CParrySphere.h" />
     <ClInclude Include="CPathManager.h" />
     <ClInclude Include="CPlayer.h" />
     <ClInclude Include="CPlayerStateAim.h" />
@@ -180,6 +182,8 @@
     <ClInclude Include="CPlayerStateShoot.h" />
     <ClInclude Include="CPlayerStateSpecialAttack.h" />
     <ClInclude Include="CPlayerStateTakeHit.h" />
+    <ClInclude Include="CPotatoMissile.h" />
+    <ClInclude Include="CPotatoParry.h" />
     <ClInclude Include="CRenderManager.h" />
     <ClInclude Include="CResource.h" />
     <ClInclude Include="CResourceManager.h" />
@@ -234,11 +238,13 @@
     <ClCompile Include="CMissileSpawn.cpp" />
     <ClCompile Include="CMonserPyrimid.cpp" />
     <ClCompile Include="CMonster.cpp" />
+    <ClCompile Include="CMonsterMissile.cpp" />
     <ClCompile Include="CMonsterPotato.cpp" />
     <ClCompile Include="CObstacle.cpp" />
     <ClCompile Include="COverWorldPlayer.cpp" />
     <ClCompile Include="CPanel.cpp" />
     <ClCompile Include="CParryObject.cpp" />
+    <ClCompile Include="CParrySphere.cpp" />
     <ClCompile Include="CPathManager.cpp" />
     <ClCompile Include="CPlayer.cpp" />
     <ClCompile Include="CPlayerStateAim.cpp" />
@@ -252,6 +258,8 @@
     <ClCompile Include="CPlayerStateShoot.cpp" />
     <ClCompile Include="CPlayerStateSpecialAttack.cpp" />
     <ClCompile Include="CPlayerStateTakeHit.cpp" />
+    <ClCompile Include="CPotatoMissile.cpp" />
+    <ClCompile Include="CPotatoParry.cpp" />
     <ClCompile Include="CRenderManager.cpp" />
     <ClCompile Include="CResource.cpp" />
     <ClCompile Include="CResourceManager.cpp" />

@@ -8,7 +8,7 @@
 #include "CBlock.h"
 #include "CGround.h"
 #include "CObstacle.h"
-#include "CParryObject.h"
+#include "CParrySphere.h"
 
 CSceneTutorial::CSceneTutorial()
 {
@@ -97,19 +97,19 @@ void CSceneTutorial::Init()
 	CMonserPyrimid* pMonserPyrimid = new CMonserPyrimid();
 	AddGameObject(pMonserPyrimid);
 
-	CParryObject* pParryObject1 = new CParryObject();
+	CParrySphere* pParryObject1 = new CParrySphere();
 	pParryObject1->SetPos(3400, 300);
 	pParryObject1->SetNum(0);
 	pParryObject1->SetScene(this);
 	AddGameObject(pParryObject1);
 
-	CParryObject* pParryObject2 = new CParryObject();
+	CParrySphere* pParryObject2 = new CParrySphere();
 	pParryObject2->SetPos(3550, 300);
 	pParryObject2->SetNum(1);
 	pParryObject2->SetScene(this);
 	AddGameObject(pParryObject2);
 
-	CParryObject* pParryObject3 = new CParryObject();
+	CParrySphere* pParryObject3 = new CParrySphere();
 	pParryObject3->SetPos(3700, 300);
 	pParryObject3->SetNum(2);
 	pParryObject3->SetScene(this);

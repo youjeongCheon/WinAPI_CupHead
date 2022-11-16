@@ -36,4 +36,5 @@ public:
 	void SetDir(Vector dir);
 	void SetVelocity(float velocity);
 	void SetExMissile(bool bExMissile);
+	bool GetExMissile();
 };

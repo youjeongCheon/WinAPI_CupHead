@@ -67,6 +67,9 @@ void CPlayer::ChangeState(PlayerState state)
 	case PlayerState::Jump:
 		SetColliderScale(Vector(70, 70));
 		break;
+	case PlayerState::Parry:
+		SetColliderScale(Vector(70, 70));
+		break;
 	case PlayerState::Fall:
 		SetColliderScale(Vector(70, 70));
 		break;
@@ -279,6 +282,8 @@ void CPlayer::CreateMissile(Vector pos, Vector direction, bool ExMissile )
 
 void CPlayer::OnCollisionEnter(CCollider* pOtherCollider)
 {
+	if (pOtherCollider->GetObjName() == L"MonsterMissile")
+		Logger::Debug(L"플레이어와 MonsterMissile 충돌");
 }
 
 void CPlayer::OnCollisionStay(CCollider* pOtherCollider)

@@ -3,7 +3,7 @@
 class CPlayer;
 class CImage;
 class CImageObject;
-class CParryObject;
+class CParrySphere;
 
 class CSceneTutorial : public CScene
 {

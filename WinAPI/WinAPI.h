@@ -53,6 +53,7 @@ enum class Layer
 	Monster,
 	Player,
 	Missile,
+	MonsterMissile,
 	FrontLayer,
 
 	Ui,
