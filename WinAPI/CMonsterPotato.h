@@ -2,7 +2,7 @@
 #include "CMonster.h"
 
 class CAnimator;
-
+enum Class {Intro, Idle, Attack,TransIdle, Death};
 class CMonsterPotato : public CMonster
 {
 public:

@@ -46,7 +46,7 @@ void CSceneBossStage::Init()
 
 	// ¸ó½ºÅÍ
 	CMonsterPotato* pMonsterPotato = new CMonsterPotato();
-	pMonsterPotato->SetPos(WINSIZEX * 0.8, WINSIZEY * 0.5);
+	pMonsterPotato->SetPos(WINSIZEX * 0.8, WINSIZEY * 0.6);
 	AddGameObject(pMonsterPotato);
 
 	pPlayer = new CPlayer();
