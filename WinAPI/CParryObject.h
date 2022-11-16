@@ -23,6 +23,7 @@ private:
 public:
 	void SetDir(Vector dir);
 	void SetVelocity(float velocity);
+	bool GetParry();
 
 private:
 

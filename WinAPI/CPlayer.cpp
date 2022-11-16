@@ -47,6 +47,8 @@ CPlayer::CPlayer()
 	bPassBlock = false;
 	m_ColliderCount = 0;
 	m_SpecialAttackCount = 0;
+
+	m_HP = 3;
 }
 
 CPlayer::~CPlayer()
@@ -108,6 +110,16 @@ void CPlayer::SetPassBlock(bool passBlock)
 bool CPlayer::GetPassBlock()
 {
 	return bPassBlock;
+}
+
+void CPlayer::SetHP(int hp)
+{
+	m_HP = hp;
+}
+
+int CPlayer::GetHp()
+{
+	return m_HP;
 }
 
 bool CPlayer::isGround()
@@ -283,7 +295,14 @@ void CPlayer::CreateMissile(Vector pos, Vector direction, bool ExMissile )
 void CPlayer::OnCollisionEnter(CCollider* pOtherCollider)
 {
 	if (pOtherCollider->GetObjName() == L"MonsterMissile")
-		Logger::Debug(L"플레이어와 MonsterMissile 충돌");
+	{
+		if (m_curState != PlayerState::TakeHit)
+		{
+			Logger::Debug(L"플레이어와 MonsterMissile 충돌");
+			m_HP--;
+			ChangeState(PlayerState::TakeHit);
+		}
+	}
 }
 
 void CPlayer::OnCollisionStay(CCollider* pOtherCollider)
@@ -292,4 +311,6 @@ void CPlayer::OnCollisionStay(CCollider* pOtherCollider)
 
 void CPlayer::OnCollisionExit(CCollider* pOtherCollider)
 {
+	wstring str = to_wstring(m_HP);
+	Logger::Debug(str);
 }

@@ -36,6 +36,11 @@ void CParryObject::SetVelocity(float velocity)
 	m_fVelocity = velocity;
 }
 
+bool CParryObject::GetParry()
+{
+	return bParry;
+}
+
 void CParryObject::Init()
 {
 	m_pParrySpikle = RESOURCE->LoadImg(L"ParrySpikle", L"Image\\cuphead_parry_spikle.png");
@@ -74,7 +79,6 @@ void CParryObject::OnCollisionExit(CCollider* pOtherCollider)
 		if (bParryExit == true)
 		{
 			bParry = false;
-			bParryExit = false;
 			CreateSpikle();
 		}
 	}

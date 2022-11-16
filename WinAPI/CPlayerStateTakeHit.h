@@ -8,6 +8,7 @@ class CPlayerStateTakeHit : public CState
 private:
 	CPlayer* pPlayer;
 	Vector m_vecPos;
+	float fCooltime;
 
 public:
 	CPlayerStateTakeHit(CPlayer* pPlayer) { this->pPlayer = pPlayer; }

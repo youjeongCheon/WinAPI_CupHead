@@ -42,6 +42,9 @@ void CPotatoParry::Update()
 		DELETEOBJECT(this);
 		Logger::Debug(L"미사일이 화면밖으로 나가 삭제");
 	}
+
+	if (GetParry() == false)
+		DELETEOBJECT(this);
 }
 
 void CPotatoParry::Render()

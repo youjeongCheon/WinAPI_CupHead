@@ -53,6 +53,8 @@ private:
 	int		m_ColliderCount;
 	int		m_SpecialAttackCount;
 
+	int m_HP;
+
 public:
 
 	void ChangeState(PlayerState state);
@@ -72,6 +74,8 @@ public:
 	bool GetOnBlock();
 	void SetPassBlock(bool passBlock);
 	bool GetPassBlock();
+	void SetHP(int hp);
+	int GetHp();
 
 	bool ActGravity();
 
