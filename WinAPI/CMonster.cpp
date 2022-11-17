@@ -21,6 +21,12 @@ bool CMonster::CollisionRange(Vector pos)
 	return true;
 }
 
+void CMonster::ChangeState(MonsterState state)
+{
+	m_curState = state;
+	fCoolTime = 0;
+}
+
 void CMonster::SetHP(int hp)
 {
 	m_HP = hp;
@@ -100,6 +106,6 @@ void CMonster::OnCollisionExit(CCollider* pOtherCollider)
 	if (m_HP == 0)
 	{
 		Logger::Debug(L"Monster Die");
-		DELETEOBJECT(this);
+		m_curState = MonsterState::Death;
 	}
 }

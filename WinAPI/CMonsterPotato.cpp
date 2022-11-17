@@ -11,6 +11,7 @@ CMonsterPotato::CMonsterPotato()
 	m_pPotato= nullptr;
 	m_pHitPotato = nullptr;
 	fCoolTime = 0;
+	fEarthCoolTime = 0;
 	missileCount = 0;
 	m_pImage= nullptr;
 	m_pAnimator = nullptr;
@@ -34,6 +35,8 @@ void CMonsterPotato::Init()
 	CImage* pPotatoIdle = RESOURCE->LoadImg(L"PotatoIdle", L"Image\\Potato_Idle.png");
 	CImage* pPotatoAttack = RESOURCE->LoadImg(L"PotatoAttack", L"Image\\Potato_Attack.png");
 	CImage* pPotatoTransIdle = RESOURCE->LoadImg(L"PotatoTransIdle", L"Image\\Potato_TransIdle.png");
+	CImage* pPotatoDeath = RESOURCE->LoadImg(L"PotatoDeath", L"Image\\Potato_Death.png");
+	CImage* pPotatoDeathLeave = RESOURCE->LoadImg(L"PotatoDeathLeave", L"Image\\Potato_DeathLeave.png");
 
 	m_pAnimator = new CAnimator;
 	m_pAnimator->CreateAnimation(L"PotatoNull", pPotatoIntro, Vector(0, 0), Vector(10, 10), Vector(10, 0.f), 0.1f, 1, false);
@@ -41,7 +44,8 @@ void CMonsterPotato::Init()
 	m_pAnimator->CreateAnimation(L"PotatoIdle", pPotatoIdle, Vector(0, 0), Vector(600, 600), Vector(600, 0.f), 0.1f, 16);
 	m_pAnimator->CreateAnimation(L"PotatoAttack", pPotatoAttack, Vector(0, 0), Vector(600, 600), Vector(600, 0.f), 0.05f, 17);
 	m_pAnimator->CreateAnimation(L"PotatoTransIdle", pPotatoTransIdle, Vector(0, 0), Vector(600, 600), Vector(600, 0.f), 0.1f, 3, false);
-	m_pAnimator->CreateAnimation(L"PotatoDeath", m_pPotato, Vector(7, 5720), Vector(303, 439), Vector(308, 0.f), 0.1f, 9);
+	m_pAnimator->CreateAnimation(L"PotatoDeath", pPotatoDeath, Vector(0, 0), Vector(600, 600), Vector(600, 0.f), 0.05f, 16);
+	m_pAnimator->CreateAnimation(L"PotatoDeathLeave", pPotatoDeathLeave, Vector(0, 0), Vector(600, 600), Vector(600, 0.f), 0.05f, 16,false);
 	AddComponent(m_pAnimator);
 
 
@@ -57,15 +61,16 @@ void CMonsterPotato::Init()
 void CMonsterPotato::Update()
 {
 	fCoolTime += DT;
+	fEarthCoolTime += DT;
 
 	wstring strEarth = L"EarthIntro";
-	if (fCoolTime < 0.5f)
+	if (fEarthCoolTime < 0.5f)
 		strEarth += L"0";
-	else if (fCoolTime >= 0.5f && fCoolTime < 1.0f)
+	else if (fEarthCoolTime >= 0.5f && fEarthCoolTime < 1.0f)
 		strEarth += L"1";
-	else if (fCoolTime >= 1.0f && fCoolTime < 1.5f)
+	else if (fEarthCoolTime >= 1.0f && fEarthCoolTime < 1.5f)
 		strEarth += L"2";
-	else if(fCoolTime >= 1.5f)
+	else if(fEarthCoolTime >= 1.5f)
 		strEarth += L"3";
 	m_pAnimatorEarth->Play(strEarth);
 
@@ -76,84 +81,62 @@ void CMonsterPotato::Update()
 	case MonsterState::Null:
 		m_strState += L"Null";
 		if (fCoolTime >= 0.9f)
-			m_curState = MonsterState::Intro;
+			ChangeState(MonsterState::Intro);
 		break;
 	case MonsterState::Intro:
 		m_strState += L"Intro";
-		if(fCoolTime >= 2.5f)
-			m_curState = MonsterState::Idle;
+		if (fCoolTime > 1.6f)
+			ChangeState(MonsterState::Idle);
 		break;
 	case MonsterState::Idle:
 		m_strState += L"Idle";
-		if(fCoolTime >= 5.7f)
-			m_curState = MonsterState::Attack;
+		if(fCoolTime > 1.6f)
+			ChangeState(MonsterState::Attack);
 		break;
 	case MonsterState::Attack:
 		m_strState += L"Attack";
-		if (fCoolTime >= 6.45f && fCoolTime < 6.55f && missileCount == 0)
+		if (fCoolTime >= 0.75f && fCoolTime < 0.85f && missileCount == 0)
 		{
 			CreateMissile();
 			missileCount++;
 		}
-		else if (fCoolTime >= 7.3f && fCoolTime < 7.4f && missileCount == 1)
+		else if (fCoolTime >= 1.65f && fCoolTime < 1.7f && missileCount == 1)
 		{
 			CreateMissile();
 			missileCount++;
 		}
-		else if (fCoolTime >= 8.15f && fCoolTime < 8.25f && missileCount == 2)
+		else if (fCoolTime >= 2.5f && fCoolTime < 2.55f && missileCount == 2)
+		{
+			CreateMissile();
+			missileCount++;
+		}
+		else if (fCoolTime >= 3.35f && fCoolTime < 3.4f && missileCount == 3)
 		{
 			CreateParry();
+			missileCount++;
+		}
+		if (fCoolTime > 3.4f && missileCount == 4)
+		{
+			ChangeState(MonsterState::TransIdle);
 			missileCount = 0;
 		}
-		if (fCoolTime >= 8.25f)
-			m_curState = MonsterState::TransIdle;
 		break;
 	case MonsterState::TransIdle:
 		m_strState += L"TransIdle";
-		if (fCoolTime >= 8.55f)
-		{
-			m_curState = MonsterState::Idle;
-			fCoolTime = 2.5f;
-		}
+		if (fCoolTime > 0.3f)
+			ChangeState(MonsterState::Idle);
 		break;
 	case MonsterState::Death:
 		m_strState += L"Death";
-
+		if (fCoolTime > 1.6f)
+			ChangeState(MonsterState::DeathLeave);
+		break;
+	case MonsterState::DeathLeave:
+		m_strState += L"DeathLeave";
+		if (fCoolTime > 0.8f)
+			DELETEOBJECT(this);
 		break;
 	}
-	
-
-	/*if (fCoolTime >= 8.55f)
-		fCoolTime = 2.5f;
-
-	if(fCoolTime<0.9f)
-		m_strState += L"Null";
-	else if (fCoolTime >= 0.9f && fCoolTime < 2.5f)
-		m_strState += L"Intro";
-	else if (fCoolTime >= 2.5f && fCoolTime < 5.7f)
-		m_strState += L"Idle";
-	else if (fCoolTime >= 5.7f && fCoolTime < 8.25f)
-	{
-		m_strState += L"Attack";
-		if (fCoolTime >= 6.45f && fCoolTime < 6.55f && missileCount == 0)
-		{
-			CreateMissile();
-			missileCount++;
-		}
-		else if (fCoolTime >= 7.3f && fCoolTime < 7.4f && missileCount == 1)
-		{
-			CreateMissile();
-			missileCount++;
-		}
-		else if (fCoolTime >= 8.15f && fCoolTime < 8.25f && missileCount == 2)
-		{
-			CreateParry();
-			missileCount = 0;
-		}
-	}
-	else if (fCoolTime >= 8.25f && fCoolTime < 8.55f)
-		m_strState += L"TransIdle";*/
-	
 	AnimatorUpdate();
 }
 

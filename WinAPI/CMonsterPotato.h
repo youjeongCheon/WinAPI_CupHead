@@ -3,8 +3,6 @@
 
 class CAnimator;
 
-enum class MonsterState { Null, Intro, Idle, Attack, TransIdle, Death };
-
 class CMonsterPotato : public CMonster
 {
 public:
@@ -12,7 +10,6 @@ public:
 	~CMonsterPotato();
 
 private:
-	MonsterState m_curState;
 	wstring m_strState;
 
 	CImage* m_pPotato;
@@ -23,8 +20,8 @@ private:
 	CAnimator* m_pAnimator;
 	CAnimator* m_pAnimatorEarth;
 
-	float fCoolTime;
 	int missileCount;
+	float fEarthCoolTime;
 
 private:
 	void Init() override;
