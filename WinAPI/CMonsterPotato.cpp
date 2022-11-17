@@ -6,6 +6,8 @@
 
 CMonsterPotato::CMonsterPotato()
 {
+	m_curState = MonsterState::Null;
+	m_strState = L"";
 	m_pPotato= nullptr;
 	m_pHitPotato = nullptr;
 	fCoolTime = 0;
@@ -39,7 +41,7 @@ void CMonsterPotato::Init()
 	m_pAnimator->CreateAnimation(L"PotatoIdle", pPotatoIdle, Vector(0, 0), Vector(600, 600), Vector(600, 0.f), 0.1f, 16);
 	m_pAnimator->CreateAnimation(L"PotatoAttack", pPotatoAttack, Vector(0, 0), Vector(600, 600), Vector(600, 0.f), 0.05f, 17);
 	m_pAnimator->CreateAnimation(L"PotatoTransIdle", pPotatoTransIdle, Vector(0, 0), Vector(600, 600), Vector(600, 0.f), 0.1f, 3, false);
-
+	m_pAnimator->CreateAnimation(L"PotatoDeath", m_pPotato, Vector(7, 5720), Vector(303, 439), Vector(308, 0.f), 0.1f, 9);
 	AddComponent(m_pAnimator);
 
 
@@ -67,20 +69,72 @@ void CMonsterPotato::Update()
 		strEarth += L"3";
 	m_pAnimatorEarth->Play(strEarth);
 
-	wstring str = L"Potato";
 
-	if (fCoolTime >= 8.55f)
+	m_strState = L"Potato";
+	switch (m_curState)
+	{
+	case MonsterState::Null:
+		m_strState += L"Null";
+		if (fCoolTime >= 0.9f)
+			m_curState = MonsterState::Intro;
+		break;
+	case MonsterState::Intro:
+		m_strState += L"Intro";
+		if(fCoolTime >= 2.5f)
+			m_curState = MonsterState::Idle;
+		break;
+	case MonsterState::Idle:
+		m_strState += L"Idle";
+		if(fCoolTime >= 5.7f)
+			m_curState = MonsterState::Attack;
+		break;
+	case MonsterState::Attack:
+		m_strState += L"Attack";
+		if (fCoolTime >= 6.45f && fCoolTime < 6.55f && missileCount == 0)
+		{
+			CreateMissile();
+			missileCount++;
+		}
+		else if (fCoolTime >= 7.3f && fCoolTime < 7.4f && missileCount == 1)
+		{
+			CreateMissile();
+			missileCount++;
+		}
+		else if (fCoolTime >= 8.15f && fCoolTime < 8.25f && missileCount == 2)
+		{
+			CreateParry();
+			missileCount = 0;
+		}
+		if (fCoolTime >= 8.25f)
+			m_curState = MonsterState::TransIdle;
+		break;
+	case MonsterState::TransIdle:
+		m_strState += L"TransIdle";
+		if (fCoolTime >= 8.55f)
+		{
+			m_curState = MonsterState::Idle;
+			fCoolTime = 2.5f;
+		}
+		break;
+	case MonsterState::Death:
+		m_strState += L"Death";
+
+		break;
+	}
+	
+
+	/*if (fCoolTime >= 8.55f)
 		fCoolTime = 2.5f;
 
 	if(fCoolTime<0.9f)
-		str += L"Null";
+		m_strState += L"Null";
 	else if (fCoolTime >= 0.9f && fCoolTime < 2.5f)
-		str += L"Intro";
+		m_strState += L"Intro";
 	else if (fCoolTime >= 2.5f && fCoolTime < 5.7f)
-		str += L"Idle";
+		m_strState += L"Idle";
 	else if (fCoolTime >= 5.7f && fCoolTime < 8.25f)
 	{
-		str += L"Attack";
+		m_strState += L"Attack";
 		if (fCoolTime >= 6.45f && fCoolTime < 6.55f && missileCount == 0)
 		{
 			CreateMissile();
@@ -98,9 +152,9 @@ void CMonsterPotato::Update()
 		}
 	}
 	else if (fCoolTime >= 8.25f && fCoolTime < 8.55f)
-		str += L"TransIdle";
+		m_strState += L"TransIdle";*/
 	
-	m_pAnimator->Play(str, false);
+	AnimatorUpdate();
 }
 
 void CMonsterPotato::Render()
@@ -109,6 +163,12 @@ void CMonsterPotato::Render()
 
 void CMonsterPotato::Release()
 {
+}
+
+void CMonsterPotato::AnimatorUpdate()
+{
+	
+	m_pAnimator->Play(m_strState, false);
 }
 
 void CMonsterPotato::CreateMissile()

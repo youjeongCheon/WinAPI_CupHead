@@ -2,7 +2,8 @@
 #include "CMonster.h"
 
 class CAnimator;
-enum Class {Intro, Idle, Attack,TransIdle, Death};
+
+enum class MonsterState { Null, Intro, Idle, Attack, TransIdle, Death };
 
 class CMonsterPotato : public CMonster
 {
@@ -11,6 +12,9 @@ public:
 	~CMonsterPotato();
 
 private:
+	MonsterState m_curState;
+	wstring m_strState;
+
 	CImage* m_pPotato;
 	CImage* m_pHitPotato;
 	
@@ -27,6 +31,8 @@ private:
 	void Update() override;
 	void Render() override;
 	void Release() override;
+
+	void AnimatorUpdate();
 
 	void CreateMissile();
 	void CreateParry();
