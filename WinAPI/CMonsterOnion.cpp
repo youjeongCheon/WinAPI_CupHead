@@ -124,7 +124,8 @@ void CMonsterOnion::AnimatorUpdate()
 void CMonsterOnion::CreateMissile()
 {
 	COnionMissile* pMissile = new COnionMissile();
-	pMissile->SetPos(100 * (rand() % 11 + 1), 0);
+	// pMissile->SetPos(100 * (rand() % 11 + 1), 0);
+	pMissile->SetPos(100, 0);
 	ADDOBJECT(pMissile);
 }
 

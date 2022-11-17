@@ -3,6 +3,8 @@
 
 COnionMissileEffect::COnionMissileEffect()
 {
+	m_layer = Layer::MonsterMissile;
+	m_strName = L"미사일 이펙트";
 }
 
 COnionMissileEffect::~COnionMissileEffect()
