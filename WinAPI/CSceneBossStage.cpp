@@ -3,6 +3,7 @@
 
 #include "CPlayer.h"
 #include "CMonsterPotato.h"
+#include "CMonsterOnion.h"
 #include "CGround.h"
 #include "CImageObject.h"
 
@@ -45,9 +46,13 @@ void CSceneBossStage::Init()
 	AddGameObject(pObjGround);
 
 	// ¸ó½ºÅÍ
-	CMonsterPotato* pMonsterPotato = new CMonsterPotato();
+	/*CMonsterPotato* pMonsterPotato = new CMonsterPotato();
 	pMonsterPotato->SetPos(WINSIZEX * 0.8, WINSIZEY * 0.6);
-	AddGameObject(pMonsterPotato);
+	AddGameObject(pMonsterPotato);*/
+
+	CMonsterOnion* pMonsterOnion = new CMonsterOnion();
+	pMonsterOnion->SetPos(WINSIZEX * 0.5, WINSIZEY * 0.4);
+	AddGameObject(pMonsterOnion);
 
 	pPlayer = new CPlayer();
 	pPlayer->SetPos(PLAYERSTARTPOS);

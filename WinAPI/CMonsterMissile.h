@@ -13,8 +13,5 @@ protected:
 public:
 	void SetDir(Vector dir);
 	void SetVelocity(float velocity);
-
-private:
-	void OnCollisionEnter(CCollider* pOtherCollider) override;
 };
 

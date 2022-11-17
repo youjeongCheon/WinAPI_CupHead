@@ -23,6 +23,3 @@ void CMonsterMissile::SetVelocity(float velocity)
 	m_fVelocity = velocity;
 }
 
-void CMonsterMissile::OnCollisionEnter(CCollider* pOtherCollider)
-{
-}
