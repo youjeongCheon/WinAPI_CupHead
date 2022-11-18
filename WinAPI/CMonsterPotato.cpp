@@ -117,11 +117,11 @@ void CMonsterPotato::Update()
 		}
 		if (fCoolTime > 3.4f && missileCount == 4)
 		{
-			ChangeState(MonsterState::TransIdle);
+			ChangeState(MonsterState::Trans);
 			missileCount = 0;
 		}
 		break;
-	case MonsterState::TransIdle:
+	case MonsterState::Trans:
 		m_strState += L"TransIdle";
 		if (fCoolTime > 0.3f)
 			ChangeState(MonsterState::Idle);

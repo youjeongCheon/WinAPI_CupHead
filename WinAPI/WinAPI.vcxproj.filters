@@ -291,6 +291,18 @@
     <ClInclude Include="CMonsterMissile.h">
       <Filter>GameObject\Stage</Filter>
     </ClInclude>
+    <ClInclude Include="CMonsterOnion.h">
+      <Filter>GameObject\BossStage</Filter>
+    </ClInclude>
+    <ClInclude Include="COnionMissile.h">
+      <Filter>GameObject\BossStage</Filter>
+    </ClInclude>
+    <ClInclude Include="COnionParry.h">
+      <Filter>GameObject\BossStage</Filter>
+    </ClInclude>
+    <ClInclude Include="COnionMissileEffect.h">
+      <Filter>GameObject\BossStage</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="WinAPI.cpp">
@@ -496,6 +508,18 @@
     </ClCompile>
     <ClCompile Include="CMonsterMissile.cpp">
       <Filter>GameObject\Stage</Filter>
+    </ClCompile>
+    <ClCompile Include="CMonsterOnion.cpp">
+      <Filter>GameObject\BossStage</Filter>
+    </ClCompile>
+    <ClCompile Include="COnionMissile.cpp">
+      <Filter>GameObject\BossStage</Filter>
+    </ClCompile>
+    <ClCompile Include="COnionParry.cpp">
+      <Filter>GameObject\BossStage</Filter>
+    </ClCompile>
+    <ClCompile Include="COnionMissileEffect.cpp">
+      <Filter>GameObject\BossStage</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

@@ -1,7 +1,7 @@
 #pragma once
 #include "CGameObject.h"
 
-enum class MonsterState { Null, Intro, Idle, Attack, TransIdle, Death, DeathLeave };
+enum class MonsterState { Null, Intro, Idle, Attack, Trans, Death, DeathLeave };
 
 class CMonster : public CGameObject
 {
