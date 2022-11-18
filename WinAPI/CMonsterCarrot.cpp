@@ -115,7 +115,7 @@ void CMonsterCarrot::Update()
 		{
 			if (bBeamCreate == true)
 			{
-				m_vecBeamDir = PLAYERPOS;
+				m_vecBeamDir = PLAYERPOS-m_vecPos;
 				bBeamCreate=false;
 			}
 			CreateBeam();
@@ -170,7 +170,6 @@ void CMonsterCarrot::CreateMissile()
 void CMonsterCarrot::CreateBeam()
 {
 	CCarrotBeam* pBeam = new CCarrotBeam();
-	m_vecBeamDir -= m_vecPos;
 	pBeam->SetDir(m_vecBeamDir);
 	ADDOBJECT(pBeam);
 }
