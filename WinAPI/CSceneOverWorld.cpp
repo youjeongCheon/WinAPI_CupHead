@@ -1,6 +1,7 @@
 #include "framework.h"
 #include "CSceneOverWorld.h"
 
+#include "COverWorldObject.h"
 #include "COverWorldPlayer.h"
 #include "CCameraController.h"
 #include "CImageObject.h"
@@ -26,6 +27,10 @@ void CSceneOverWorld::Init()
 	pBackground->SetImage(pBackLayer);
 	pBackground->SetPos(1500, 500);
 	AddGameObject(pBackground);
+
+	COverWorldObject* pObjGoToBossStage = new COverWorldObject();
+	pObjGoToBossStage->SetPos(1366, 900);
+	AddGameObject(pObjGoToBossStage);
 
 	pPlayer = new COverWorldPlayer();
 	pPlayer->SetPos(OVERWORLDPLAYERSTARTPOS);
