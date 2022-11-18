@@ -2,6 +2,7 @@
 #include "CMonster.h"
 
 class CAnimator;
+class CMonsterEarthEffect;
 
 class CMonsterOnion :  public CMonster
 {
@@ -11,12 +12,10 @@ public:
 
 private:
 	wstring m_strState;
-
+	CMonsterEarthEffect* pEarthEffect;
 	CAnimator* m_pAnimator;
-	CAnimator* m_pAnimatorEarth;
 
 	int missileCount;
-	float fEarthCoolTime;
 
 private:
 	void Init() override;

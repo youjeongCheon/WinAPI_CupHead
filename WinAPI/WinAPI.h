@@ -54,6 +54,7 @@ enum class Layer
 	Player,
 	Missile,
 	MonsterMissile,
+	FrontObject,
 	FrontLayer,
 
 	Ui,

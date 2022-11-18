@@ -3,6 +3,8 @@
 
 #include "CPotatoMissile.h"
 #include "CPotatoParry.h"
+#include "CMonsterOnion.h"
+#include "CMonsterEarthEffect.h"
 
 CMonsterPotato::CMonsterPotato()
 {
@@ -11,10 +13,10 @@ CMonsterPotato::CMonsterPotato()
 	m_pPotato= nullptr;
 	m_pHitPotato = nullptr;
 	fCoolTime = 0;
-	fEarthCoolTime = 0;
 	missileCount = 0;
-	m_pImage= nullptr;
 	m_pAnimator = nullptr;
+
+	fEarthCoolTime = 0;
 	m_pAnimatorEarth = nullptr;
 }
 
@@ -28,7 +30,6 @@ void CMonsterPotato::Init()
 
 	m_pPotato = RESOURCE->LoadImg(L"Potato", L"Image\\Botanic_Panic_Potato.png");
 	m_pHitPotato = RESOURCE->LoadImg(L"HitPotato", L"Image\\Botanic_Panic_Potato_TakeHit.png");
-	m_pImage = m_pPotato;
 
 
 	CImage* pPotatoIntro = RESOURCE->LoadImg(L"PotatoIntro", L"Image\\Potato_Intro.png");
@@ -48,13 +49,14 @@ void CMonsterPotato::Init()
 	m_pAnimator->CreateAnimation(L"PotatoDeathLeave", pPotatoDeathLeave, Vector(0, 0), Vector(600, 600), Vector(600, 0.f), 0.05f, 16,false);
 	AddComponent(m_pAnimator);
 
-
+	CImage* pEarth = RESOURCE->LoadImg(L"Earth", L"Image\\Botanic_Panic_Potato.png");
 	m_pAnimatorEarth = new CAnimator;
-	m_pAnimatorEarth->CreateAnimation(L"EarthIntro0", m_pPotato, Vector(2, 61), Vector(557, 461), Vector(558, 0), 0.1f, 5, false);
-	m_pAnimatorEarth->CreateAnimation(L"EarthIntro1", m_pPotato, Vector(2, 523), Vector(557, 461), Vector(558, 0), 0.1f, 5, false);
-	m_pAnimatorEarth->CreateAnimation(L"EarthIntro2", m_pPotato, Vector(2, 985), Vector(557, 461), Vector(558, 0), 0.1f, 5, false);
-	m_pAnimatorEarth->CreateAnimation(L"EarthIntro3", m_pPotato, Vector(2, 1447), Vector(557, 461), Vector(558, 0), 0.1f, 3, false);
+	m_pAnimatorEarth->CreateAnimation(L"EarthIntro0", pEarth, Vector(2, 61), Vector(557, 461), Vector(558, 0), 0.1f, 5, false);
+	m_pAnimatorEarth->CreateAnimation(L"EarthIntro1", pEarth, Vector(2, 523), Vector(557, 461), Vector(558, 0), 0.1f, 5, false);
+	m_pAnimatorEarth->CreateAnimation(L"EarthIntro2", pEarth, Vector(2, 985), Vector(557, 461), Vector(558, 0), 0.1f, 5, false);
+	m_pAnimatorEarth->CreateAnimation(L"EarthIntro3", pEarth, Vector(2, 1447), Vector(557, 461), Vector(558, 0), 0.1f, 3, false);
 	AddComponent(m_pAnimatorEarth);
+
 	AddCollider(ColliderType::Rect, Vector(200, 300), Vector(0, 0));
 }
 
@@ -70,10 +72,9 @@ void CMonsterPotato::Update()
 		strEarth += L"1";
 	else if (fEarthCoolTime >= 1.0f && fEarthCoolTime < 1.5f)
 		strEarth += L"2";
-	else if(fEarthCoolTime >= 1.5f)
+	else if (fEarthCoolTime >= 1.5f)
 		strEarth += L"3";
 	m_pAnimatorEarth->Play(strEarth);
-
 
 	m_strState = L"Potato";
 	switch (m_curState)
@@ -134,7 +135,12 @@ void CMonsterPotato::Update()
 	case MonsterState::DeathLeave:
 		m_strState += L"DeathLeave";
 		if (fCoolTime > 0.8f)
+		{
 			DELETEOBJECT(this);
+			CMonsterOnion* pMonsterOnion = new CMonsterOnion();
+			pMonsterOnion->SetPos(WINSIZEX * 0.5, WINSIZEY * 0.4);
+			ADDOBJECT(pMonsterOnion);
+		}
 		break;
 	}
 	AnimatorUpdate();

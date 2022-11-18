@@ -303,6 +303,12 @@
     <ClInclude Include="COnionMissileEffect.h">
       <Filter>GameObject\BossStage</Filter>
     </ClInclude>
+    <ClInclude Include="CMonsterEarthEffect.h">
+      <Filter>GameObject\BossStage</Filter>
+    </ClInclude>
+    <ClInclude Include="CCloud.h">
+      <Filter>GameObject\BossStage</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="WinAPI.cpp">
@@ -491,9 +497,6 @@
     <ClCompile Include="CTitleObject.cpp">
       <Filter>GameObject</Filter>
     </ClCompile>
-    <ClCompile Include="CSceneBossStage.cpp">
-      <Filter>Scene</Filter>
-    </ClCompile>
     <ClCompile Include="CMonsterPotato.cpp">
       <Filter>GameObject\BossStage</Filter>
     </ClCompile>
@@ -519,6 +522,15 @@
       <Filter>GameObject\BossStage</Filter>
     </ClCompile>
     <ClCompile Include="COnionMissileEffect.cpp">
+      <Filter>GameObject\BossStage</Filter>
+    </ClCompile>
+    <ClCompile Include="CMonsterEarthEffect.cpp">
+      <Filter>GameObject\BossStage</Filter>
+    </ClCompile>
+    <ClCompile Include="CSceneBossStage.cpp">
+      <Filter>Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="CCloud.cpp">
       <Filter>GameObject\BossStage</Filter>
     </ClCompile>
   </ItemGroup>

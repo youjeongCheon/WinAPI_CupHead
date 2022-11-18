@@ -3,16 +3,16 @@
 
 #include "COnionMissile.h"
 #include "COnionParry.h"
+#include "CMonsterEarthEffect.h"
 
 CMonsterOnion::CMonsterOnion()
 {
 	m_curState = MonsterState::Null;
 	m_strState = L"";
 	fCoolTime = 0;
-	fEarthCoolTime = 0;
 	missileCount = 1;
 	m_pAnimator = nullptr;
-	m_pAnimatorEarth = nullptr;
+	pEarthEffect = nullptr;
 }
 
 CMonsterOnion::~CMonsterOnion()
@@ -38,8 +38,12 @@ void CMonsterOnion::Init()
 	m_pAnimator->CreateAnimation(L"OnionCry", pOnionCry, Vector(0, 0), Vector(700, 700), Vector(700, 0.f), 0.05f, 16);
 	m_pAnimator->CreateAnimation(L"OnionDeath1", pOnionDeath, Vector(0, 0), Vector(700, 700), Vector(700, 0.f), 0.1f, 19,false);
 	m_pAnimator->CreateAnimation(L"OnionDeath2", pOnionDeath, Vector(0, 700), Vector(700, 700), Vector(700, 0.f), 0.1f, 19, false);
-
 	AddComponent(m_pAnimator);
+
+	pEarthEffect = new CMonsterEarthEffect();
+	pEarthEffect->SetPos(m_vecPos.x,m_vecPos.y+150);
+	ADDOBJECT(pEarthEffect);
+
 	AddCollider(ColliderType::Rect, Vector(200, 300), Vector(0, 0));
 	GetCollider()->SetChangePos(Vector(m_vecPos.x, m_vecPos.y + 150));
 }
@@ -101,8 +105,11 @@ void CMonsterOnion::Update()
 			m_strState += L"1";
 		else if (fCoolTime >= 1.9f)
 			m_strState += L"2";
-		if(fCoolTime >= 3.8f)
+		if (fCoolTime >= 3.8f)
+		{
 			DELETEOBJECT(this);
+			DELETEOBJECT(pEarthEffect);
+		}
 		break;
 	}
 	AnimatorUpdate();
@@ -124,8 +131,7 @@ void CMonsterOnion::AnimatorUpdate()
 void CMonsterOnion::CreateMissile()
 {
 	COnionMissile* pMissile = new COnionMissile();
-	// pMissile->SetPos(100 * (rand() % 11 + 1), 0);
-	pMissile->SetPos(100, 0);
+	pMissile->SetPos(100 * (rand() % 11 + 1), 0);
 	ADDOBJECT(pMissile);
 }
 

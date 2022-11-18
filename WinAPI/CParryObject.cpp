@@ -8,7 +8,7 @@ CParryObject::CParryObject()
 	m_pParrySpikle = nullptr;
 	bParry = true;
 	bParryExit = false;
-
+	m_strName = L"ParryObject";
 	m_vecDir = Vector(0, 0);
 	m_fVelocity = 1000;
 	m_layer = Layer::Obstacle;
