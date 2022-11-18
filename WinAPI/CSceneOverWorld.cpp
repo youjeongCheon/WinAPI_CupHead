@@ -58,6 +58,11 @@ void CSceneOverWorld::Update()
 		CAMERA->FadeOut(0.25f);
 		DELAYCHANGESCENE(GroupScene::Title, 0.25f);
 	}
+
+	wstring strX = to_wstring(pPlayer->GetPos().x);
+	wstring strY = to_wstring(pPlayer->GetPos().y);
+
+	Logger::Debug(strX + L" " + strY);
 }
 
 void CSceneOverWorld::Render()

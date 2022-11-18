@@ -4,6 +4,7 @@
 #include "COnionMissile.h"
 #include "COnionParry.h"
 #include "CMonsterEarthEffect.h"
+#include "CMonsterCarrot.h"
 
 CMonsterOnion::CMonsterOnion()
 {
@@ -109,6 +110,9 @@ void CMonsterOnion::Update()
 		{
 			DELETEOBJECT(this);
 			DELETEOBJECT(pEarthEffect);
+			CMonsterCarrot* pMonsterCarrot = new CMonsterCarrot();
+			pMonsterCarrot->SetPos(WINSIZEX * 0.5, WINSIZEY * 0.4);
+			ADDOBJECT(pMonsterCarrot);
 		}
 		break;
 	}

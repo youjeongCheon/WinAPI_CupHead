@@ -48,6 +48,8 @@ void CMonserPyrimid::Update()
 		fImageCoolTime = 0;
 		m_pImage = m_pPyramid;
 	}
+	if (m_HP <= 0)
+		DELETEOBJECT(this);
 }
 
 void CMonserPyrimid::Render()
