@@ -10,11 +10,20 @@ class CGameManager : public SingleTon<CGameManager>
 private:
 	CGameManager();
 	virtual ~CGameManager();
-	
-	
+
+private:
+	CPlayer* pPlayer;
+
+public: 
+	void SetPlayer(CPlayer* player);
+	Vector GetPlayerPos();
+
+private:
 	void Init();
 	void Update();
+	void Render();
 	void Release();
-
 };
 
+#define SETPLAYER(pPlayer) CGameManager::GetInstance()->SetPlayer(pPlayer)
+#define PLAYERPOS CGameManager::GetInstance()->GetPlayerPos()

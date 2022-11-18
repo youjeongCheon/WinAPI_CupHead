@@ -16,6 +16,9 @@ private:
 
 	int missileCount;
 	int beamCount;
+	bool bBeamCreate;
+
+	Vector m_vecBeamDir;
 
 private:
 	void Init() override;

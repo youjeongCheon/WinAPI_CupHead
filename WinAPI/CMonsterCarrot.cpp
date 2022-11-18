@@ -1,6 +1,7 @@
 #include "framework.h"
 #include "CMonsterCarrot.h"
 
+#include "CGameManager.h"
 #include "CCarrotBeam.h"
 
 CMonsterCarrot::CMonsterCarrot()
@@ -11,6 +12,7 @@ CMonsterCarrot::CMonsterCarrot()
 	fCoolTime = 0;
 	missileCount = 1;
 	beamCount = 1;
+	bBeamCreate = true;
 	m_pAnimator = nullptr;
 	m_pAnimatorEarth = nullptr;
 	m_layer = Layer::MonsterCarrot;
@@ -108,15 +110,21 @@ void CMonsterCarrot::Update()
 		break;
 	case MonsterState::Attack:
 		m_strState += L"Attack";
-		// 빔 발사 한번에 6번, 4set
+		// 빔 발사 6회, 4set
 		if (fCoolTime > 0.1f && beamCount % 7 != 0)
 		{
+			if (bBeamCreate == true)
+			{
+				m_vecBeamDir = PLAYERPOS;
+				bBeamCreate=false;
+			}
 			CreateBeam();
 			fCoolTime = 0;
 			beamCount++;
 		}
 		else if (fCoolTime > 1.0f && beamCount % 7 == 0)
 		{
+			bBeamCreate = true;
 			if (beamCount == 21)
 			{
 				beamCount = 1;
@@ -162,6 +170,8 @@ void CMonsterCarrot::CreateMissile()
 void CMonsterCarrot::CreateBeam()
 {
 	CCarrotBeam* pBeam = new CCarrotBeam();
+	m_vecBeamDir -= m_vecPos;
+	pBeam->SetDir(m_vecBeamDir);
 	ADDOBJECT(pBeam);
 }
 

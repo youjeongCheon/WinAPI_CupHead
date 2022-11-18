@@ -1,6 +1,7 @@
 #include "framework.h"
 #include "CSceneBossStage.h"
 
+#include "CGameManager.h"
 #include "CPlayer.h"
 #include "CMonsterPotato.h"
 #include "CGround.h"
@@ -58,6 +59,7 @@ void CSceneBossStage::Init()
 	pPlayer = new CPlayer();
 	pPlayer->SetPos(PLAYERSTARTPOS);
 	AddGameObject(pPlayer);
+	SETPLAYER(pPlayer);
 
 	CImage* pImgFrontLayer = RESOURCE->LoadImg(L"BossStage_FrontLayer", L"Image\\Botianic-Panic_FrontLayer.png");
 	CImageObject* pObjFrontLayer = new CImageObject();
