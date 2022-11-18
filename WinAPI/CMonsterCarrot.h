@@ -15,6 +15,7 @@ private:
 	CAnimator* m_pAnimatorEarth;
 
 	int missileCount;
+	int beamCount;
 
 private:
 	void Init() override;

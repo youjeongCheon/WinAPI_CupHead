@@ -1,13 +1,16 @@
 #include "framework.h"
 #include "CMonsterCarrot.h"
 
+#include "CCarrotBeam.h"
+
 CMonsterCarrot::CMonsterCarrot()
 {
 	m_curState = MonsterState::Null;
 	m_strState = L"";
 	m_pCarrot = nullptr;
 	fCoolTime = 0;
-	missileCount = 0;
+	missileCount = 1;
+	beamCount = 1;
 	m_pAnimator = nullptr;
 	m_pAnimatorEarth = nullptr;
 	m_layer = Layer::MonsterCarrot;
@@ -105,9 +108,26 @@ void CMonsterCarrot::Update()
 		break;
 	case MonsterState::Attack:
 		m_strState += L"Attack";
-		// 빔 발사 4번
-		if(fCoolTime>4.2f)
-			ChangeState(MonsterState::Trans);
+		// 빔 발사 한번에 6번, 4set
+		if (fCoolTime > 0.1f && beamCount % 7 != 0)
+		{
+			CreateBeam();
+			fCoolTime = 0;
+			beamCount++;
+		}
+		else if (fCoolTime > 1.0f && beamCount % 7 == 0)
+		{
+			if (beamCount == 21)
+			{
+				beamCount = 1;
+				ChangeState(MonsterState::Trans);
+			}
+			else
+			{
+				beamCount++;
+				fCoolTime = 0;
+			}
+		}
 		break;
 	case MonsterState::Death:
 		m_strState += L"Death";
@@ -141,4 +161,7 @@ void CMonsterCarrot::CreateMissile()
 
 void CMonsterCarrot::CreateBeam()
 {
+	CCarrotBeam* pBeam = new CCarrotBeam();
+	ADDOBJECT(pBeam);
 }
+
