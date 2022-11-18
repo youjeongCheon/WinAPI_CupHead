@@ -11,6 +11,7 @@ public:
 
 protected:
 	MonsterState m_curState;
+	MonsterState m_PreState;
 	int m_HP;
 	bool bTakeHit;
 	 

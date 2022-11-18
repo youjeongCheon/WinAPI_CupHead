@@ -10,6 +10,8 @@ CMonster::CMonster()
 	m_HP = 5;
 	bTakeHit = false;
 	fImageCoolTime = 0;
+	m_curState = MonsterState::Null;
+	m_PreState = MonsterState::Null;
 }
 
 CMonster::~CMonster()
@@ -23,6 +25,7 @@ bool CMonster::CollisionRange(Vector pos)
 
 void CMonster::ChangeState(MonsterState state)
 {
+	m_PreState = m_curState;
 	m_curState = state;
 	fCoolTime = 0;
 }

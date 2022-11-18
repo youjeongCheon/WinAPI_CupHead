@@ -5,6 +5,7 @@ CMissileSpawn::CMissileSpawn()
 {
 	m_pSpawnImage = nullptr;
 	m_pAnimator = nullptr;
+	m_layer = Layer::Missile;
 }
 
 CMissileSpawn::~CMissileSpawn()

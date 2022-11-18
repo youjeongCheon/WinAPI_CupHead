@@ -306,7 +306,13 @@
     <ClInclude Include="CMonsterEarthEffect.h">
       <Filter>GameObject\BossStage</Filter>
     </ClInclude>
-    <ClInclude Include="CCloud.h">
+    <ClInclude Include="CMonsterCarrot.h">
+      <Filter>GameObject\BossStage</Filter>
+    </ClInclude>
+    <ClInclude Include="CCarrotMissile.h">
+      <Filter>GameObject\BossStage</Filter>
+    </ClInclude>
+    <ClInclude Include="CCarrotBeam.h">
       <Filter>GameObject\BossStage</Filter>
     </ClInclude>
   </ItemGroup>
@@ -530,7 +536,13 @@
     <ClCompile Include="CSceneBossStage.cpp">
       <Filter>Scene</Filter>
     </ClCompile>
-    <ClCompile Include="CCloud.cpp">
+    <ClCompile Include="CMonsterCarrot.cpp">
+      <Filter>GameObject\BossStage</Filter>
+    </ClCompile>
+    <ClCompile Include="CCarrotMissile.cpp">
+      <Filter>GameObject\BossStage</Filter>
+    </ClCompile>
+    <ClCompile Include="CCarrotBeam.cpp">
       <Filter>GameObject\BossStage</Filter>
     </ClCompile>
   </ItemGroup>

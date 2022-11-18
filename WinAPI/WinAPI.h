@@ -48,13 +48,14 @@ enum class Layer
 {
 	Default,
 	Tile,
+	MonsterCarrot,
 	Ground,
 	Obstacle,
 	Monster,
+	FrontObject,
 	Player,
 	Missile,
 	MonsterMissile,
-	FrontObject,
 	FrontLayer,
 
 	Ui,

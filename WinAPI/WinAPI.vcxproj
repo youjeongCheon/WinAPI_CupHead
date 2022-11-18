@@ -145,7 +145,8 @@
     <ClInclude Include="CButton.h" />
     <ClInclude Include="CCameraController.h" />
     <ClInclude Include="CCameraManager.h" />
-    <ClInclude Include="CCloud.h" />
+    <ClInclude Include="CCarrotBeam.h" />
+    <ClInclude Include="CCarrotMissile.h" />
     <ClInclude Include="CCollider.h" />
     <ClInclude Include="CCollisionManager.h" />
     <ClInclude Include="CComponent.h" />
@@ -163,6 +164,7 @@
     <ClInclude Include="CMissileSpawn.h" />
     <ClInclude Include="CMonserPyrimid.h" />
     <ClInclude Include="CMonster.h" />
+    <ClInclude Include="CMonsterCarrot.h" />
     <ClInclude Include="CMonsterEarthEffect.h" />
     <ClInclude Include="CMonsterMissile.h" />
     <ClInclude Include="CMonsterOnion.h" />
@@ -227,7 +229,8 @@
     <ClCompile Include="CButton.cpp" />
     <ClCompile Include="CCameraController.cpp" />
     <ClCompile Include="CCameraManager.cpp" />
-    <ClCompile Include="CCloud.cpp" />
+    <ClCompile Include="CCarrotBeam.cpp" />
+    <ClCompile Include="CCarrotMissile.cpp" />
     <ClCompile Include="CCollider.cpp" />
     <ClCompile Include="CCollisionManager.cpp" />
     <ClCompile Include="CComponent.cpp" />
@@ -245,6 +248,7 @@
     <ClCompile Include="CMissileSpawn.cpp" />
     <ClCompile Include="CMonserPyrimid.cpp" />
     <ClCompile Include="CMonster.cpp" />
+    <ClCompile Include="CMonsterCarrot.cpp" />
     <ClCompile Include="CMonsterEarthEffect.cpp" />
     <ClCompile Include="CMonsterMissile.cpp" />
     <ClCompile Include="CMonsterOnion.cpp" />
