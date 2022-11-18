@@ -92,7 +92,7 @@ void CBlock::OnCollisionStay(CCollider* pOtherCollider)
 		if (BUTTONDOWN('Z'))
 		{
 			CAMERA->FadeOut(0.25f);
-			CHANGESCENE(GroupScene::OverWorld);
+			DELAYCHANGESCENE(GroupScene::OverWorld, 0.25f);
 		}
 	}
 }

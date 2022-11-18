@@ -173,6 +173,7 @@
     <ClInclude Include="COnionMissile.h" />
     <ClInclude Include="COnionMissileEffect.h" />
     <ClInclude Include="COnionParry.h" />
+    <ClInclude Include="COverWorldObject.h" />
     <ClInclude Include="COverWorldPlayer.h" />
     <ClInclude Include="CPanel.h" />
     <ClInclude Include="CParryObject.h" />
@@ -257,6 +258,7 @@
     <ClCompile Include="COnionMissile.cpp" />
     <ClCompile Include="COnionMissileEffect.cpp" />
     <ClCompile Include="COnionParry.cpp" />
+    <ClCompile Include="COverWorldObject.cpp" />
     <ClCompile Include="COverWorldPlayer.cpp" />
     <ClCompile Include="CPanel.cpp" />
     <ClCompile Include="CParryObject.cpp" />

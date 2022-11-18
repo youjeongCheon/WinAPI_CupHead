@@ -67,6 +67,12 @@
     <Filter Include="GameObject\BossStage">
       <UniqueIdentifier>{c53eb3db-8115-4f4f-af48-57b31f54cce7}</UniqueIdentifier>
     </Filter>
+    <Filter Include="GameObject\Title">
+      <UniqueIdentifier>{c71e22b2-dfdf-4d47-9710-4ae12de20964}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GameObject\OverWorld">
+      <UniqueIdentifier>{4560b6a3-5e87-4c22-b6c3-853ab050ca85}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="framework.h">
@@ -270,9 +276,6 @@
     <ClInclude Include="COverWorldPlayer.h">
       <Filter>GameObject\Player</Filter>
     </ClInclude>
-    <ClInclude Include="CTitleObject.h">
-      <Filter>GameObject</Filter>
-    </ClInclude>
     <ClInclude Include="CSceneBossStage.h">
       <Filter>Scene</Filter>
     </ClInclude>
@@ -314,6 +317,12 @@
     </ClInclude>
     <ClInclude Include="CCarrotBeam.h">
       <Filter>GameObject\BossStage</Filter>
+    </ClInclude>
+    <ClInclude Include="CTitleObject.h">
+      <Filter>GameObject\Title</Filter>
+    </ClInclude>
+    <ClInclude Include="COverWorldObject.h">
+      <Filter>GameObject\OverWorld</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -500,9 +509,6 @@
     <ClCompile Include="COverWorldPlayer.cpp">
       <Filter>GameObject\Player</Filter>
     </ClCompile>
-    <ClCompile Include="CTitleObject.cpp">
-      <Filter>GameObject</Filter>
-    </ClCompile>
     <ClCompile Include="CMonsterPotato.cpp">
       <Filter>GameObject\BossStage</Filter>
     </ClCompile>
@@ -544,6 +550,12 @@
     </ClCompile>
     <ClCompile Include="CCarrotBeam.cpp">
       <Filter>GameObject\BossStage</Filter>
+    </ClCompile>
+    <ClCompile Include="CTitleObject.cpp">
+      <Filter>GameObject\Title</Filter>
+    </ClCompile>
+    <ClCompile Include="COverWorldObject.cpp">
+      <Filter>GameObject\OverWorld</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
