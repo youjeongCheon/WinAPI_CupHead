@@ -17,6 +17,7 @@ private:
 	int missileCount;
 	int beamCount;
 	bool bBeamCreate;
+	float fMissileCoolTime;
 
 	Vector m_vecBeamDir;
 

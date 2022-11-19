@@ -3,6 +3,7 @@
 
 #include "CGameManager.h"
 #include "CCarrotBeam.h"
+#include "CCarrotMissile.h"
 
 CMonsterCarrot::CMonsterCarrot()
 {
@@ -10,6 +11,7 @@ CMonsterCarrot::CMonsterCarrot()
 	m_strState = L"";
 	m_pCarrot = nullptr;
 	fCoolTime = 0;
+	fMissileCoolTime = 0;
 	missileCount = 1;
 	beamCount = 1;
 	bBeamCreate = true;
@@ -82,8 +84,20 @@ void CMonsterCarrot::Update()
 			ChangeState(MonsterState::Idle);
 		break;
 	case MonsterState::Idle:
-		// 미사일 발사
+		// 미사일 발사 3회
 		m_strState += L"Idle";
+		fMissileCoolTime += DT;
+		if (fMissileCoolTime > 1.0f && missileCount % 5 != 0)
+		{
+			CreateMissile();
+			missileCount++;
+			fMissileCoolTime = 0;
+			if (missileCount == 5)
+			{
+				ChangeState(MonsterState::Trans);
+				missileCount = 1;
+			}
+		}
 		if (fCoolTime <= 1.0f)
 			m_strState += L"1";
 		else if (fCoolTime > 1.0f && fCoolTime <= 2.0f)
@@ -91,7 +105,8 @@ void CMonsterCarrot::Update()
 		else if (fCoolTime > 2.0f )
 			m_strState += L"3";
 		if (fCoolTime > 2.2f)
-			ChangeState(MonsterState::Trans);
+			fCoolTime = 0;
+			//ChangeState(MonsterState::Trans);
 		break;
 	case MonsterState::Trans:
 		m_strState += L"Trans";
@@ -165,6 +180,12 @@ void CMonsterCarrot::AnimatorUpdate()
 
 void CMonsterCarrot::CreateMissile()
 {
+	CCarrotMissile* pMissile = new CCarrotMissile();
+	if (missileCount%2==0)
+		pMissile->SetPos(0, 0);
+	else
+		pMissile->SetPos(WINSIZEX, 0);
+	ADDOBJECT(pMissile);
 }
 
 void CMonsterCarrot::CreateBeam()
