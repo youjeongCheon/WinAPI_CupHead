@@ -25,6 +25,8 @@ void CCarrotMissile::Update()
 	m_vecDir = PLAYERPOS - m_vecPos;
 	SetDir(m_vecDir);
 	m_vecPos += m_vecDir * m_fVelocity * DT;
+	wstring str = to_wstring((int)(m_fAngle->GetAngle(m_vecPos, PLAYERPOS)));
+	Logger::Debug(str);
 }
 
 void CCarrotMissile::Render()
@@ -33,7 +35,9 @@ void CCarrotMissile::Render()
 		m_vecPos.x - 0.5f * pImgMissile->GetWidth(),
 		m_vecPos.y - 0.5f * pImgMissile->GetHeight(),
 		m_vecPos.x + 0.5f * pImgMissile->GetWidth(),
-		m_vecPos.y + 0.5f * pImgMissile->GetHeight());
+		m_vecPos.y + 0.5f * pImgMissile->GetHeight(),
+		m_fAngle->GetAngle(m_vecPos, PLAYERPOS)
+		);
 }
 
 void CCarrotMissile::Release()

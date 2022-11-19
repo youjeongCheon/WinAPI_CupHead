@@ -8,6 +8,7 @@ public:
 
 private:
 	CImage* pImgMissile;
+	Vector* m_fAngle;
 
 private:
 	void Init() override;

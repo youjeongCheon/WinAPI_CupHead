@@ -502,7 +502,7 @@ void CRenderManager::FillCircle(float pointX, float pointY, float radius, Color 
 	m_pRenderTarget->FillEllipse(ellipse, m_pCurBrush);
 }
 
-void CRenderManager::Image(CImage* pImg, float startX, float startY, float endX, float endY, float alpha)
+void CRenderManager::Image(CImage* pImg, float startX, float startY, float endX, float endY, float angle, float alpha)
 {
 	Vector start = CAMERA->WorldToScreenPoint(Vector(startX, startY));
 	startX = start.x;
@@ -512,7 +512,8 @@ void CRenderManager::Image(CImage* pImg, float startX, float startY, float endX,
 	endY = end.y;
 
 	D2D1_RECT_F imgRect = { startX, startY, endX, endY };
-	m_pRenderTarget->DrawBitmap(pImg->GetImage(), imgRect);
+	m_pRenderTarget->SetTransform(D2D1::Matrix3x2F::Rotation(angle, D2D1::Point2F(0.5f * (startX + endX), 0.5f * (startY + endY))));
+	m_pRenderTarget->DrawBitmap(pImg->GetImage(), imgRect, alpha, D2D1_BITMAP_INTERPOLATION_MODE_NEAREST_NEIGHBOR);
 }
 
 void CRenderManager::FrameImage(CImage* pImg, float dstX, float dstY, float dstW, float dstH, float srcX, float srcY, float srcW, float srcH, float alpha)

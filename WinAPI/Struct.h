@@ -1,5 +1,4 @@
 #pragma once
-
 //========================================
 //##				백터					##
 //========================================
@@ -130,6 +129,26 @@ struct Vector
 			return Vector(x / length, y / length);
 		}
 	}
+
+	// 벡터간의 각도 연산
+	float GetAngle(Vector pos, Vector targetPos)
+	{
+		/*double v1 = pos.Magnitude();
+		double v2 = targetPos.Magnitude();
+		double inner = (pos.x * targetPos.x) + (pos.y * targetPos.y);
+		double theta = acos(inner / (v1 * v2));
+		theta = (theta * 3.141592f) / 180;
+
+		return theta;*/
+
+		pos -= targetPos;
+		pos.Normalized();
+		float v = pos.x / pos.y;
+		float m_fAngle = atan(v);
+		m_fAngle *= (180.f / 3.141592f);
+		return -m_fAngle;
+	}
+	
 };
 
 //========================================

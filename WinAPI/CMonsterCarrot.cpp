@@ -130,7 +130,7 @@ void CMonsterCarrot::Update()
 		{
 			if (bBeamCreate == true)
 			{
-				m_vecBeamDir = PLAYERPOS-m_vecPos;
+				m_vecBeamDir = PLAYERPOS-Vector(WINSIZEX*0.5f,WINSIZEY*0.5f);
 				bBeamCreate=false;
 			}
 			CreateBeam();
