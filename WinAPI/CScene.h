@@ -23,6 +23,7 @@ public:
 protected:
 	UINT m_iTileSizeX;
 	UINT m_iTileSizeY;
+	void SceneRelease();
 
 private:
 	// 씬 부모 전용 함수들 :
@@ -33,7 +34,6 @@ private:
 	void ScenePhysicsUpdate();
 	void SceneRender();
 	void SceneExit();
-	void SceneRelease();
 
 	// 순수가상함수:
 	// 함수를 추상화하여 구체화하지 않을 경우 인스턴스 생성을 막음

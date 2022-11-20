@@ -79,6 +79,7 @@ void CSceneBossStage::Init()
 
 void CSceneBossStage::Enter()
 {
+	Init();
 	CAMERA->FadeIn(0.25f);
 }
 
@@ -103,6 +104,7 @@ void CSceneBossStage::Render()
 void CSceneBossStage::Exit()
 {
 	CAMERA->FadeOut(0.25f);
+	SceneRelease();
 }
 
 void CSceneBossStage::Release()

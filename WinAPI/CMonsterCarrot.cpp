@@ -12,6 +12,7 @@ CMonsterCarrot::CMonsterCarrot()
 	m_pCarrot = nullptr;
 	fCoolTime = 0;
 	fMissileCoolTime = 0;
+	fDeathCoolTime = 0;
 	missileCount = 1;
 	beamCount = 1;
 	bBeamCreate = true;
@@ -152,6 +153,13 @@ void CMonsterCarrot::Update()
 		}
 		break;
 	case MonsterState::Death:
+		fDeathCoolTime += DT;
+		if (fDeathCoolTime>5.0f)
+		{
+			CAMERA->FadeOut(0.25f);
+			fDeathCoolTime = 0;
+			DELAYCHANGESCENE(GroupScene::OverWorld, 0.25f);
+		}
 		m_strState += L"Death";
 		if (fCoolTime <= 0.6f)
 			m_strState += L"1";
