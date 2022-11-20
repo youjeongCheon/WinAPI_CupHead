@@ -6,6 +6,7 @@
 #include "CMonsterPotato.h"
 #include "CGround.h"
 #include "CImageObject.h"
+#include "CCloud.h"
 
 #include "CMonsterCarrot.h"
 #include "CCameraController.h"
@@ -28,22 +29,25 @@ void CSceneBossStage::Init()
 	pObjBackSky->SetPos(WINSIZEX * 0.5f, WINSIZEY * 0.5f);
 	AddGameObject(pObjBackSky);
 
-	CImage* pImgCloud = RESOURCE->LoadImg(L"BossStage_Cloud", L"Image\\Botanic-Panic_Cloud.png");
+	CCloud* pCloud1 = new CCloud();
+	pCloud1->SetPos(WINSIZEX * 0.5f, WINSIZEY * 0.5f);
+	AddGameObject(pCloud1);
+
+	CCloud* pCloud2 = new CCloud();
+	pCloud2->SetPos(WINSIZEX * 1.5f, WINSIZEY * 0.5f);
+	AddGameObject(pCloud2);
+
+	/*CImage* pImgCloud = RESOURCE->LoadImg(L"BossStage_Cloud", L"Image\\Botanic-Panic_Cloud.png");
 	CImageObject* pObjCloud = new CImageObject();
 	pObjCloud->SetImage(pImgCloud);
 	pObjCloud->SetPos(WINSIZEX * 0.5f, WINSIZEY * 0.5f);
-	AddGameObject(pObjCloud);
+	AddGameObject(pObjCloud);*/
 
 	CImage* pImgPlant = RESOURCE->LoadImg(L"BossStage_Plant", L"Image\\Botanic-Panic_PlantLayer.png");
 	CImageObject* pObjPlant = new CImageObject();
 	pObjPlant->SetImage(pImgPlant);
 	pObjPlant->SetPos(WINSIZEX * 0.5f, WINSIZEY * 0.5f);
 	AddGameObject(pObjPlant);
-
-	// 여기에 당근 몬스터 추가
-	/*CMonsterCarrot* pMonsterCarrot = new CMonsterCarrot();
-	pMonsterCarrot->SetPos(WINSIZEX * 0.5, WINSIZEY * 0.4);
-	AddGameObject(pMonsterCarrot);*/
 
 	CImage* pImgGround = RESOURCE->LoadImg(L"BossStage_Ground", L"Image\\Botanic-Panic_Ground.png");
 	CImageObject* pObjGround = new CImageObject();

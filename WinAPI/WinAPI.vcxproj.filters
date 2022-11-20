@@ -324,6 +324,9 @@
     <ClInclude Include="COverWorldObject.h">
       <Filter>GameObject\OverWorld</Filter>
     </ClInclude>
+    <ClInclude Include="CCloud.h">
+      <Filter>GameObject\BossStage</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="WinAPI.cpp">
@@ -556,6 +559,9 @@
     </ClCompile>
     <ClCompile Include="COverWorldObject.cpp">
       <Filter>GameObject\OverWorld</Filter>
+    </ClCompile>
+    <ClCompile Include="CCloud.cpp">
+      <Filter>GameObject\BossStage</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

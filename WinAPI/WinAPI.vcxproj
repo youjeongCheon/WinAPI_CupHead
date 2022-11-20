@@ -147,6 +147,7 @@
     <ClInclude Include="CCameraManager.h" />
     <ClInclude Include="CCarrotBeam.h" />
     <ClInclude Include="CCarrotMissile.h" />
+    <ClInclude Include="CCloud.h" />
     <ClInclude Include="CCollider.h" />
     <ClInclude Include="CCollisionManager.h" />
     <ClInclude Include="CComponent.h" />
@@ -232,6 +233,7 @@
     <ClCompile Include="CCameraManager.cpp" />
     <ClCompile Include="CCarrotBeam.cpp" />
     <ClCompile Include="CCarrotMissile.cpp" />
+    <ClCompile Include="CCloud.cpp" />
     <ClCompile Include="CCollider.cpp" />
     <ClCompile Include="CCollisionManager.cpp" />
     <ClCompile Include="CComponent.cpp" />
