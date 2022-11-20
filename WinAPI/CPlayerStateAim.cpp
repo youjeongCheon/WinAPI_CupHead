@@ -37,7 +37,7 @@ void CPlayerStateAim::Update()
 		else if (BUTTONSTAY(VK_LEFT))
 			result += left;
 
-		if (BUTTONDOWN('X'))
+		if (BUTTONSTAY('X'))
 			pPlayer->ChangeState(PlayerState::Shoot);
 		if(BUTTONDOWN('V'))
 			pPlayer->ChangeState(PlayerState::SpecialAttack);
