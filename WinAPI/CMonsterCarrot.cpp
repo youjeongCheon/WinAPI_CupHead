@@ -87,7 +87,7 @@ void CMonsterCarrot::Update()
 		// 미사일 발사 3회
 		m_strState += L"Idle";
 		fMissileCoolTime += DT;
-		if (fMissileCoolTime > 1.0f && missileCount % 5 != 0)
+		if (fMissileCoolTime > 1.5f && missileCount % 5 != 0)
 		{
 			CreateMissile();
 			missileCount++;
@@ -106,7 +106,6 @@ void CMonsterCarrot::Update()
 			m_strState += L"3";
 		if (fCoolTime > 2.2f)
 			fCoolTime = 0;
-			//ChangeState(MonsterState::Trans);
 		break;
 	case MonsterState::Trans:
 		m_strState += L"Trans";
@@ -130,7 +129,7 @@ void CMonsterCarrot::Update()
 		{
 			if (bBeamCreate == true)
 			{
-				m_vecBeamDir = PLAYERPOS-Vector(WINSIZEX*0.5f,WINSIZEY*0.5f);
+				m_vecBeamDir = PLAYERPOS-m_vecPos;
 				bBeamCreate=false;
 			}
 			CreateBeam();

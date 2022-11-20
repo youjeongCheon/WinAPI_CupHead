@@ -8,6 +8,7 @@
 #include "CImageObject.h"
 
 #include "CMonsterCarrot.h"
+#include "CCameraController.h"
 
 CSceneBossStage::CSceneBossStage()
 {
@@ -40,9 +41,9 @@ void CSceneBossStage::Init()
 	AddGameObject(pObjPlant);
 
 	// 여기에 당근 몬스터 추가
-	CMonsterCarrot* pMonsterCarrot = new CMonsterCarrot();
+	/*CMonsterCarrot* pMonsterCarrot = new CMonsterCarrot();
 	pMonsterCarrot->SetPos(WINSIZEX * 0.5, WINSIZEY * 0.4);
-	AddGameObject(pMonsterCarrot);
+	AddGameObject(pMonsterCarrot);*/
 
 	CImage* pImgGround = RESOURCE->LoadImg(L"BossStage_Ground", L"Image\\Botanic-Panic_Ground.png");
 	CImageObject* pObjGround = new CImageObject();
@@ -52,9 +53,9 @@ void CSceneBossStage::Init()
 	AddGameObject(pObjGround);
 
 	// 몬스터
-	/*CMonsterPotato* pMonsterPotato = new CMonsterPotato();
+	CMonsterPotato* pMonsterPotato = new CMonsterPotato();
 	pMonsterPotato->SetPos(WINSIZEX * 0.8, WINSIZEY * 0.6+10);
-	AddGameObject(pMonsterPotato);*/
+	AddGameObject(pMonsterPotato);
 
 	pPlayer = new CPlayer();
 	pPlayer->SetPos(PLAYERSTARTPOS);
@@ -71,6 +72,9 @@ void CSceneBossStage::Init()
 	CGround* pGround = new CGround();
 	pGround->SetPos(2500, GROUNDPOSY);
 	AddGameObject(pGround);
+
+	CCameraController* pCamController = new CCameraController();
+	AddGameObject(pCamController);
 }
 
 void CSceneBossStage::Enter()
