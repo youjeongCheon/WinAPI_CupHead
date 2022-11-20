@@ -81,7 +81,7 @@ void CMonster::OnCollisionEnter(CCollider* pOtherCollider)
 			else
 				m_HP -= 1;
 			bTakeHit = true;
-			DELETEOBJECT(pOtherCollider->GetOwner());
+			pMissile->DeathMissile();
 		}
 		else
 			Logger::Debug(L"충돌범위 밖");

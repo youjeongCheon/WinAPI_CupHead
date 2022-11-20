@@ -2,6 +2,7 @@
 #include "CCarrotMissile.h"
 
 #include "CGameManager.h"
+#include "CMissile.h"
 
 CCarrotMissile::CCarrotMissile()
 {
@@ -53,7 +54,8 @@ void CCarrotMissile::OnCollisionEnter(CCollider* pOther)
 	if (pOther->GetObjName() == L"미사일")
 	{
 		DELETEOBJECT(this);
-		DELETEOBJECT(pOther->GetOwner());
+		CMissile* pMissile = static_cast<CMissile*>(pOther->GetOwner());
+		pMissile->DeathMissile();
 	}
 	if (pOther->GetObjName() == L"플레이어")
 	{

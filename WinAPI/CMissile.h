@@ -37,4 +37,5 @@ public:
 	void SetVelocity(float velocity);
 	void SetExMissile(bool bExMissile);
 	bool GetExMissile();
+	void DeathMissile();
 };
