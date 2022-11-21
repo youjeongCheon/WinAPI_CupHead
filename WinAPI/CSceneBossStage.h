@@ -2,7 +2,7 @@
 #include "CScene.h"
 
 class CPlayer;
-class CImage;
+class CHPObject;
 class CImageObject;
 
 class CSceneBossStage : public CScene
@@ -13,6 +13,7 @@ public:
 
 private:
 	CPlayer* pPlayer;
+	CHPObject* pHP;
 
 private:
 	void Init()		override;

@@ -327,6 +327,15 @@
     <ClInclude Include="CCloud.h">
       <Filter>GameObject\BossStage</Filter>
     </ClInclude>
+    <ClInclude Include="CHPObject.h">
+      <Filter>GameObject\Stage</Filter>
+    </ClInclude>
+    <ClInclude Include="CCard.h">
+      <Filter>GameObject\Stage</Filter>
+    </ClInclude>
+    <ClInclude Include="CCardMaker.h">
+      <Filter>GameObject\Stage</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="WinAPI.cpp">
@@ -562,6 +571,15 @@
     </ClCompile>
     <ClCompile Include="CCloud.cpp">
       <Filter>GameObject\BossStage</Filter>
+    </ClCompile>
+    <ClCompile Include="CHPObject.cpp">
+      <Filter>GameObject\Stage</Filter>
+    </ClCompile>
+    <ClCompile Include="CCard.cpp">
+      <Filter>GameObject\Stage</Filter>
+    </ClCompile>
+    <ClCompile Include="CCardMaker.cpp">
+      <Filter>GameObject\Stage</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

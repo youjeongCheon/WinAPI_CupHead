@@ -31,7 +31,7 @@ void CMonserPyrimid::Init()
 	m_pPyramid = RESOURCE->LoadImg(L"BlockPyramid", L"Image\\tutorial_pyramid_topper.png");
 	m_pHitPyramid = RESOURCE->LoadImg(L"BlockPyramidHit", L"Image\\tutorial_pyramid_topper_takeHit.png");
 	m_pImage = m_pPyramid;
-	SetPos(2995, 276);
+	SetPos(2995, 300);
 	AddCollider(ColliderType::Rect, Vector(220, 142), Vector(0, 0));
 }
 

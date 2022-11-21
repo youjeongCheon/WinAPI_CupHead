@@ -7,6 +7,7 @@
 #include "CGround.h"
 #include "CImageObject.h"
 #include "CCloud.h"
+#include "CHPObject.h"
 
 #include "CMonsterCarrot.h"
 #include "CCameraController.h"
@@ -23,6 +24,11 @@ CSceneBossStage::~CSceneBossStage()
 
 void CSceneBossStage::Init()
 {
+	
+}
+
+void CSceneBossStage::Enter()
+{
 	CImage* pImgBackSky = RESOURCE->LoadImg(L"BossStage_BackSky", L"Image\\Botanic-Panic_Sky.png");
 	CImageObject* pObjBackSky = new CImageObject();
 	pObjBackSky->SetImage(pImgBackSky);
@@ -36,12 +42,6 @@ void CSceneBossStage::Init()
 	CCloud* pCloud2 = new CCloud();
 	pCloud2->SetPos(WINSIZEX * 1.5f, WINSIZEY * 0.5f);
 	AddGameObject(pCloud2);
-
-	/*CImage* pImgCloud = RESOURCE->LoadImg(L"BossStage_Cloud", L"Image\\Botanic-Panic_Cloud.png");
-	CImageObject* pObjCloud = new CImageObject();
-	pObjCloud->SetImage(pImgCloud);
-	pObjCloud->SetPos(WINSIZEX * 0.5f, WINSIZEY * 0.5f);
-	AddGameObject(pObjCloud);*/
 
 	CImage* pImgPlant = RESOURCE->LoadImg(L"BossStage_Plant", L"Image\\Botanic-Panic_PlantLayer.png");
 	CImageObject* pObjPlant = new CImageObject();
@@ -58,7 +58,7 @@ void CSceneBossStage::Init()
 
 	// ¸ó½ºÅÍ
 	CMonsterPotato* pMonsterPotato = new CMonsterPotato();
-	pMonsterPotato->SetPos(WINSIZEX * 0.8, WINSIZEY * 0.6+10);
+	pMonsterPotato->SetPos(WINSIZEX * 0.8, WINSIZEY * 0.6 + 10);
 	AddGameObject(pMonsterPotato);
 
 	pPlayer = new CPlayer();
@@ -73,22 +73,22 @@ void CSceneBossStage::Init()
 	pObjFrontLayer->SetPos(WINSIZEX * 0.5f, WINSIZEY * 0.5f);
 	AddGameObject(pObjFrontLayer);
 
+	pHP = new CHPObject();
+	AddGameObject(pHP);
+
 	CGround* pGround = new CGround();
 	pGround->SetPos(2500, GROUNDPOSY);
 	AddGameObject(pGround);
 
 	CCameraController* pCamController = new CCameraController();
 	AddGameObject(pCamController);
-}
 
-void CSceneBossStage::Enter()
-{
-	Init();
 	CAMERA->FadeIn(0.25f);
 }
 
 void CSceneBossStage::Update()
 {
+	pHP->SetHP(pPlayer->GetHp());
 	if (pPlayer->GetPos().x > WINSIZEX-100)
 		pPlayer->SetPos(WINSIZEX - 100, pPlayer->GetPos().y);
 
@@ -108,7 +108,8 @@ void CSceneBossStage::Render()
 void CSceneBossStage::Exit()
 {
 	CAMERA->FadeOut(0.25f);
-	SceneRelease();
+	DeleteAll();
+	RESOURCE->Release();
 }
 
 void CSceneBossStage::Release()

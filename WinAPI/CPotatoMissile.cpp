@@ -18,7 +18,7 @@ void CPotatoMissile::Init()
 {
 	m_pImgMissile= RESOURCE->LoadImg(L"Potato", L"Image\\Botanic_Panic_Potato.png");
 	m_pAnimator = new CAnimator;
-	m_pAnimator->CreateAnimation(L"PotatoMissile", m_pImgMissile, Vector(1, 6219), Vector(134, 139), Vector(135, 0), 0.1f, 8);
+	m_pAnimator->CreateAnimation(L"PotatoMissile", m_pImgMissile, Vector(1, 6219), Vector(134, 138), Vector(135, 0), 0.1f, 8);
 	AddComponent(m_pAnimator);
 
 	AddCollider(ColliderType::Circle, Vector(50, 50), Vector(0, 0));

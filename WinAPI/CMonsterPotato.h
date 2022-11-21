@@ -13,9 +13,6 @@ private:
 	wstring m_strState;
 
 	CImage* m_pPotato;
-	CImage* m_pHitPotato;
-	
-	CImage* m_pImage;
 
 	CAnimator* m_pAnimator;
 	CAnimator* m_pAnimatorEarth;

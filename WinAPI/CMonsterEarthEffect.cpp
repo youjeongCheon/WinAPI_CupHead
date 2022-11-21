@@ -16,10 +16,10 @@ void CMonsterEarthEffect::Init()
 {
 	CImage* pEarth = RESOURCE->LoadImg(L"Earth", L"Image\\Botanic_Panic_Potato.png");
 	m_pAnimatorEarth = new CAnimator;
-	m_pAnimatorEarth->CreateAnimation(L"EarthIntro0", pEarth, Vector(2, 61), Vector(557, 461), Vector(558, 0), 0.1f, 5, false);
-	m_pAnimatorEarth->CreateAnimation(L"EarthIntro1", pEarth, Vector(2, 523), Vector(557, 461), Vector(558, 0), 0.1f, 5, false);
-	m_pAnimatorEarth->CreateAnimation(L"EarthIntro2", pEarth, Vector(2, 985), Vector(557, 461), Vector(558, 0), 0.1f, 5, false);
-	m_pAnimatorEarth->CreateAnimation(L"EarthIntro3", pEarth, Vector(2, 1447), Vector(557, 461), Vector(558, 0), 0.1f, 3, false);
+	m_pAnimatorEarth->CreateAnimation(L"EarthIntro0", pEarth, Vector(2, 61), Vector(557, 460), Vector(558, 0), 0.1f, 5, false);
+	m_pAnimatorEarth->CreateAnimation(L"EarthIntro1", pEarth, Vector(2, 523), Vector(557, 460), Vector(558, 0), 0.1f, 5, false);
+	m_pAnimatorEarth->CreateAnimation(L"EarthIntro2", pEarth, Vector(2, 985), Vector(557, 460), Vector(558, 0), 0.1f, 5, false);
+	m_pAnimatorEarth->CreateAnimation(L"EarthIntro3", pEarth, Vector(2, 1447), Vector(557, 460), Vector(558, 0), 0.1f, 3, false);
 	AddComponent(m_pAnimatorEarth);
 }
 

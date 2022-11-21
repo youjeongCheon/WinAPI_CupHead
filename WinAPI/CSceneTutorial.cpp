@@ -37,6 +37,11 @@ void CSceneTutorial::SetParryNum(int num)
 
 void CSceneTutorial::Init()
 {
+	
+}
+
+void CSceneTutorial::Enter()
+{
 	pBackLayer = RESOURCE->LoadImg(L"BackLayer", L"Image\\tutorial_room_back_layer.png");
 	pFrontLayer = RESOURCE->LoadImg(L"FrontLayer", L"Image\\tutorial_room_front_layer.png");
 
@@ -120,7 +125,7 @@ void CSceneTutorial::Init()
 	AddGameObject(pBlockCylinder2);
 
 	CObstacle* pObstacleCylinder1 = new CObstacle();
-	pObstacleCylinder1->SetScale(128, 266);
+	pObstacleCylinder1->SetScale(128, 300);
 	pObstacleCylinder1->SetPos(3925, pObstacleCylinder1->GetOnGroundPosY());
 	AddGameObject(pObstacleCylinder1);
 
@@ -151,10 +156,6 @@ void CSceneTutorial::Init()
 	CCameraController* pCamController = new CCameraController();
 	pCamController->Setplayer(pPlayer);
 	AddGameObject(pCamController);
-}
-
-void CSceneTutorial::Enter()
-{
 	CAMERA->FadeIn(0.25f);
 }
 
@@ -178,12 +179,13 @@ void CSceneTutorial::Update()
 
 void CSceneTutorial::Render()
 {
-	RENDER->Text(L"THE TUTORIAL", 0, 300, 500, 300,Color(),30.0F);
 }
 
 void CSceneTutorial::Exit()
 {
 	CAMERA->FadeOut(0.25f);
+	DeleteAll();
+	RESOURCE->Release();
 }
 
 void CSceneTutorial::Release()

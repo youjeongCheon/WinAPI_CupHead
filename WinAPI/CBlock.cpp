@@ -45,11 +45,11 @@ void CBlock::Init()
 		break;
 	case BlockType::Plinth:
 		m_pBlock = m_pPlinth;
-		SetPos(3019, 453);
+		SetPos(3019, 480);
 		break;
 	case BlockType::Cylinder2:
 		m_pBlock = m_pCylinder2;
-		SetPos(4020, 431);
+		SetPos(4020, 450);
 		break;
 	case BlockType::Exit_Door:
 		m_pBlock = m_pEixitDoor;

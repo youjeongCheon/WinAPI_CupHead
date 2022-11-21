@@ -98,7 +98,7 @@ void CCollider::PhysicsUpdate()
 
 void CCollider::Render()
 {
-	Color color = Color(0, 0, 0, 0);
+	/*Color color = Color(0, 0, 0, 0);
 	if (m_uiCollisionCount > 0)
 	{
 		color = Color(255, 0, 0, 1.f);
@@ -125,7 +125,7 @@ void CCollider::Render()
 			m_vecScale.x,
 			color
 		);
-	}
+	}*/
 }
 
 void CCollider::Release()

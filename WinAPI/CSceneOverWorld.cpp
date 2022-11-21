@@ -21,6 +21,11 @@ CSceneOverWorld::~CSceneOverWorld()
 
 void CSceneOverWorld::Init()
 {
+	
+}
+
+void CSceneOverWorld::Enter()
+{
 	pBackLayer = RESOURCE->LoadImg(L"overMap", L"Image\\overmap.png");
 
 	pBackground = new CImageObject();
@@ -36,21 +41,18 @@ void CSceneOverWorld::Init()
 	pPlayer->SetPos(OVERWORLDPLAYERSTARTPOS);
 	AddGameObject(pPlayer);
 
-	pTopper= RESOURCE->LoadImg(L"overMapTopper", L"Image\\overmap_topper.png");
+	pTopper = RESOURCE->LoadImg(L"overMapTopper", L"Image\\overmap_topper.png");
 
 	pTopperObject = new CImageObject();
 	pTopperObject->SetImage(pTopper);
-	pTopperObject->SetPos(1284.5- 500, 1213.5-720);
+	pTopperObject->SetPos(1284.5 - 500, 1213.5 - 720);
 	pTopperObject->SetLayer(Layer::FrontLayer);
 	AddGameObject(pTopperObject);
 
 	CCameraController* pCamController = new CCameraController();
 	pCamController->SetOverWorldPlayer(pPlayer);
 	AddGameObject(pCamController);
-}
 
-void CSceneOverWorld::Enter()
-{
 	CAMERA->FadeIn(0.25f);
 	LoadTile(GETPATH + L"Tile\\OverMap.tile");
 }
@@ -77,6 +79,8 @@ void CSceneOverWorld::Render()
 void CSceneOverWorld::Exit()
 {
 	CAMERA->FadeOut(0.25f);
+	DeleteAll();
+	RESOURCE->Release();
 }
 
 void CSceneOverWorld::Release()

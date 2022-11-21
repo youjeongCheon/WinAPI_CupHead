@@ -11,7 +11,6 @@ CMonsterPotato::CMonsterPotato()
 	m_curState = MonsterState::Null;
 	m_strState = L"";
 	m_pPotato= nullptr;
-	m_pHitPotato = nullptr;
 	fCoolTime = 0;
 	missileCount = 0;
 	m_pAnimator = nullptr;
@@ -29,8 +28,6 @@ void CMonsterPotato::Init()
 	m_HP = 50;
 
 	m_pPotato = RESOURCE->LoadImg(L"Potato", L"Image\\Botanic_Panic_Potato.png");
-	m_pHitPotato = RESOURCE->LoadImg(L"HitPotato", L"Image\\Botanic_Panic_Potato_TakeHit.png");
-
 
 	CImage* pPotatoIntro = RESOURCE->LoadImg(L"PotatoIntro", L"Image\\Potato_Intro.png");
 	CImage* pPotatoIdle = RESOURCE->LoadImg(L"PotatoIdle", L"Image\\Potato_Idle.png");

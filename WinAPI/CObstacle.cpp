@@ -26,7 +26,7 @@ void CObstacle::Update()
 
 void CObstacle::Render()
 {
-	switch (dir)
+	/*switch (dir)
 	{
 	case CollisionDir::Up:
 	{
@@ -87,7 +87,7 @@ void CObstacle::Render()
 		);
 	}
 	break;
-	}
+	}*/
 }
 
 void CObstacle::Release()

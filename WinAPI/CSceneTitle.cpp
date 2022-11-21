@@ -19,8 +19,13 @@ CSceneTitle::~CSceneTitle()
 
 void CSceneTitle::Init()
 {
+
+}
+
+void CSceneTitle::Enter()
+{
 	pTitleText = RESOURCE->LoadImg(L"title_text", L"Image\\Title_Text.png");
-	
+
 	pBackLayer = RESOURCE->LoadImg(L"title_screen_background", L"Image\\title_screen_background.png");
 	pBackground = new CImageObject();
 	pBackground->SetImage(pBackLayer);
@@ -32,10 +37,6 @@ void CSceneTitle::Init()
 	pObject->SetPos(WINSIZEX * 0.5f, WINSIZEY * 0.55f);
 	AddGameObject(pObject);
 
-}
-
-void CSceneTitle::Enter()
-{	
 	CAMERA->FadeIn(0.25f);
 }
 
@@ -75,7 +76,9 @@ void CSceneTitle::Render()
 
 void CSceneTitle::Exit()
 {
-
+	CAMERA->FadeOut(0.25f);
+	DeleteAll();
+	RESOURCE->Release();
 }
 
 void CSceneTitle::Release()

@@ -145,6 +145,8 @@
     <ClInclude Include="CButton.h" />
     <ClInclude Include="CCameraController.h" />
     <ClInclude Include="CCameraManager.h" />
+    <ClInclude Include="CCard.h" />
+    <ClInclude Include="CCardMaker.h" />
     <ClInclude Include="CCarrotBeam.h" />
     <ClInclude Include="CCarrotMissile.h" />
     <ClInclude Include="CCloud.h" />
@@ -157,6 +159,7 @@
     <ClInclude Include="CGameObject.h" />
     <ClInclude Include="CGround.h" />
     <ClInclude Include="CGroundTile.h" />
+    <ClInclude Include="CHPObject.h" />
     <ClInclude Include="CImageObject.h" />
     <ClInclude Include="CInputManager.h" />
     <ClInclude Include="CLayer.h" />
@@ -231,6 +234,8 @@
     <ClCompile Include="CButton.cpp" />
     <ClCompile Include="CCameraController.cpp" />
     <ClCompile Include="CCameraManager.cpp" />
+    <ClCompile Include="CCard.cpp" />
+    <ClCompile Include="CCardMaker.cpp" />
     <ClCompile Include="CCarrotBeam.cpp" />
     <ClCompile Include="CCarrotMissile.cpp" />
     <ClCompile Include="CCloud.cpp" />
@@ -243,6 +248,7 @@
     <ClCompile Include="CGameObject.cpp" />
     <ClCompile Include="CGround.cpp" />
     <ClCompile Include="CGroundTile.cpp" />
+    <ClCompile Include="CHPObject.cpp" />
     <ClCompile Include="CImageObject.cpp" />
     <ClCompile Include="CInputManager.cpp" />
     <ClCompile Include="CLayer.cpp" />
