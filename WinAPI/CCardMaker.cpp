@@ -30,27 +30,27 @@ void CCardMaker::Update()
 	{
 	case 0:
 		fCoolTime += DT;
-		if (fCoolTime > 6.0f)
+		if (fCoolTime > 9.0f)
 			ChangeCard(1);
 		break;
 	case 1:
 		fCoolTime += DT;
-		if (fCoolTime > 6.0f)
+		if (fCoolTime > 9.0f)
 			ChangeCard(2);
 		break;
 	case 2:
 		fCoolTime += DT;
-		if (fCoolTime > 6.0f)
+		if (fCoolTime > 9.0f)
 			ChangeCard(3);
 		break;
 	case 3:
 		fCoolTime += DT;
-		if (fCoolTime > 6.0f)
+		if (fCoolTime > 9.0f)
 			ChangeCard(4);
 		break;
 	case 4:
 		fCoolTime += DT;
-		if (fCoolTime > 6.0f)
+		if (fCoolTime > 9.0f)
 			ChangeCard(1);
 		break;
 	case 5:

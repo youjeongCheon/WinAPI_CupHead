@@ -27,7 +27,7 @@ void CCard::Init()
     m_pAnimator = new CAnimator;
     m_pAnimator->CreateAnimation(L"Null", m_pImgCard, Vector(0, 0), Vector(1, 1), Vector(1, 0), 0.1f, 1, false);
     m_pAnimator->CreateAnimation(L"Front", m_pImgCard, Vector(0, 0), Vector(30, 40), Vector(30, 0), 0.1f, 1, false);
-    m_pAnimator->CreateAnimation(L"Back", m_pImgCard, Vector(30, 0), Vector(30, 40), Vector(30, 0), 1.0f, 6);
+    m_pAnimator->CreateAnimation(L"Back", m_pImgCard, Vector(30, 0), Vector(30, 40), Vector(30, 0), 1.5f, 6);
     AddComponent(m_pAnimator);
 }
 
@@ -44,7 +44,7 @@ void CCard::Update()
     {
         fCoolTime += DT;
         m_pAnimator->Play(L"Back");
-        if (fCoolTime > 6.0f)
+        if (fCoolTime > 9.0f)
             bCreateCard = false;
     }
     else // (bDeleteCard == false)&&(bCreateCard == false)

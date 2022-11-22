@@ -20,6 +20,16 @@ Vector CGameManager::GetPlayerPos()
 	return pPlayer->GetPos();
 }
 
+void CGameManager::SetSpecialAttackCount(int count)
+{
+	m_SpecialAttackCount = count;
+}
+
+int CGameManager::GetSpecialAttackCount()
+{
+	return m_SpecialAttackCount;
+}
+
 void CGameManager::SetPlayer(CPlayer* player)
 {
 	pPlayer = player;
