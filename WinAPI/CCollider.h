@@ -27,6 +27,7 @@ private:
 	void SetScale(Vector scale);
 
 	bool bChange;
+	bool bRender;
 
 private:
 	void SetType(ColliderType type);
