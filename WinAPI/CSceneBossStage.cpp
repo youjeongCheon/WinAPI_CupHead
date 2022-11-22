@@ -9,9 +9,6 @@
 #include "CCloud.h"
 #include "CHPObject.h"
 
-#include "CMonsterCarrot.h"
-#include "CCameraController.h"
-
 CSceneBossStage::CSceneBossStage()
 {
 	pPlayer = nullptr;
@@ -79,9 +76,6 @@ void CSceneBossStage::Enter()
 	CGround* pGround = new CGround();
 	pGround->SetPos(2500, GROUNDPOSY);
 	AddGameObject(pGround);
-
-	CCameraController* pCamController = new CCameraController();
-	AddGameObject(pCamController);
 
 	CAMERA->FadeIn(0.25f);
 }

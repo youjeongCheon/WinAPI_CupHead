@@ -4,6 +4,7 @@
 #include "CPotatoMissile.h"
 #include "CPotatoParry.h"
 #include "CMonsterOnion.h"
+#include "CMonsterCarrot.h"
 #include "CMonsterEarthEffect.h"
 
 CMonsterPotato::CMonsterPotato()
