@@ -5,6 +5,7 @@
 #include "COverWorldPlayer.h"
 #include "CCameraController.h"
 #include "CImageObject.h"
+#include "CGameManager.h"
 
 CSceneOverWorld::CSceneOverWorld()
 {
@@ -21,7 +22,6 @@ CSceneOverWorld::~CSceneOverWorld()
 
 void CSceneOverWorld::Init()
 {
-	
 }
 
 void CSceneOverWorld::Enter()
@@ -38,8 +38,10 @@ void CSceneOverWorld::Enter()
 	AddGameObject(pObjGoToBossStage);
 
 	pPlayer = new COverWorldPlayer();
-	pPlayer->SetPos(OVERWORLDPLAYERSTARTPOS);
+	SETOVERWORLDPLAYER(pPlayer);
+	SETOVERWORLDPLAYERPOS;
 	AddGameObject(pPlayer);
+
 
 	pTopper = RESOURCE->LoadImg(L"overMapTopper", L"Image\\overmap_topper.png");
 
@@ -65,11 +67,6 @@ void CSceneOverWorld::Update()
 		CAMERA->FadeOut(0.25f);
 		DELAYCHANGESCENE(GroupScene::Title, 0.25f);
 	}
-
-	wstring strX = to_wstring(pPlayer->GetPos().x);
-	wstring strY = to_wstring(pPlayer->GetPos().y);
-
-	Logger::Debug(strX + L" " + strY);
 }
 
 void CSceneOverWorld::Render()
@@ -78,6 +75,7 @@ void CSceneOverWorld::Render()
 
 void CSceneOverWorld::Exit()
 {
+	GETOVERWORLDPLAYERPOS;
 	CAMERA->FadeOut(0.25f);
 	DeleteAll();
 	RESOURCE->Release();

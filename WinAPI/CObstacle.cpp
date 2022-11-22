@@ -103,9 +103,7 @@ void CObstacle::OnCollisionEnter(CCollider* pOther)
 		if(!bpass)
 			count++;
 		pPlayer->SetColliderCount(count);
-		wstring str = to_wstring(count);
-		Logger::Debug(str);
-		Logger::Debug(L"count++");
+		
 	}
 }
 
@@ -191,8 +189,7 @@ void CObstacle::OnCollisionExit(CCollider* pOther)
 		if(count>0)
 			count--;
 		pPlayer->SetColliderCount(count);
-		wstring str = to_wstring(count);
-		Logger::Debug(str);
+		
 		if (count == 0)
 		{
 			pPlayer->SetOnBlock(false);
