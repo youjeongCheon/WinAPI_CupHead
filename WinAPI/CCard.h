@@ -6,13 +6,13 @@ public:
 	CCard();
 	virtual ~CCard();
 
-	void SetDeleteCard(bool bDelete);
-
+	void Settingcard(bool bDelete, bool bCreate);
 private:
 	CImage* m_pImgCard;
 	CAnimator* m_pAnimator;
 
 	bool bDeleteCard;
+	bool bCreateCard;
 	float fCoolTime;
 
 	void Init() override;

@@ -134,9 +134,9 @@ void CMonsterPotato::Update()
 		if (fCoolTime > 0.8f)
 		{
 			DELETEOBJECT(this);
-			CMonsterOnion* pMonsterOnion = new CMonsterOnion();
+			/*CMonsterOnion* pMonsterOnion = new CMonsterOnion();
 			pMonsterOnion->SetPos(WINSIZEX * 0.5, WINSIZEY * 0.4);
-			ADDOBJECT(pMonsterOnion);
+			ADDOBJECT(pMonsterOnion);*/
 		}
 		break;
 	}

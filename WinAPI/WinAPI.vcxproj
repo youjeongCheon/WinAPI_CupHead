@@ -85,8 +85,7 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <HeapReserveSize>
       </HeapReserveSize>
-      <HeapCommitSize>
-      </HeapCommitSize>
+      <HeapCommitSize>2000000000</HeapCommitSize>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -108,8 +107,7 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <HeapReserveSize>
       </HeapReserveSize>
-      <HeapCommitSize>
-      </HeapCommitSize>
+      <HeapCommitSize>2000000000</HeapCommitSize>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -127,8 +125,7 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <HeapReserveSize>
       </HeapReserveSize>
-      <HeapCommitSize>
-      </HeapCommitSize>
+      <HeapCommitSize>2000000000</HeapCommitSize>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -150,8 +147,7 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <HeapReserveSize>
       </HeapReserveSize>
-      <HeapCommitSize>
-      </HeapCommitSize>
+      <HeapCommitSize>2000000000</HeapCommitSize>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>

@@ -6,15 +6,18 @@ CCard::CCard()
 	m_pAnimator = nullptr;
 	m_pImgCard = nullptr;
     bDeleteCard = true;
+    bCreateCard = false;
+    fCoolTime = 0;
 }
 
 CCard::~CCard()
 {
 }
 
-void CCard::SetDeleteCard(bool bDelete)
+void CCard::Settingcard(bool bDelete, bool bCreate)
 {
     bDeleteCard = bDelete;
+    bCreateCard = bCreate;
 }
 
 void CCard::Init()
@@ -34,14 +37,17 @@ void CCard::Update()
         m_pAnimator->Play(L"Null");
         fCoolTime = 0;
     }
-    else
+    else if (bCreateCard == true) //&&(bDeleteCard == false)
     {
         fCoolTime += DT;
-
-        if (fCoolTime < 6.0f)
-            m_pAnimator->Play(L"Back");
-        else
-            m_pAnimator->Play(L"Front");
+        m_pAnimator->Play(L"Back");
+        if (fCoolTime > 0.6f)
+            bCreateCard = false;
+    }
+    else // (bDeleteCard == false)&&(bCreateCard == false)
+    {
+        m_pAnimator->Play(L"Front");
+        fCoolTime = 0;
     }
     
 }
