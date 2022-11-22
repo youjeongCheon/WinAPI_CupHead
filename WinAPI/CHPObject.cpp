@@ -41,9 +41,6 @@ void CHPObject::Update()
     str = L"HP=";
     switch (m_hp)
     {
-    case 0:
-        str += L"0";
-        break;
     case 1:
         str += L"1";
         break;
@@ -52,6 +49,9 @@ void CHPObject::Update()
         break;
     case 3:
         str += L"3";
+        break;
+    default:
+        str += L"0";
         break;
     }
     m_pAnimator->Play(str);

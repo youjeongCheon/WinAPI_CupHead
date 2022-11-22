@@ -3,6 +3,7 @@
 
 class CPlayer;
 class CHPObject;
+class CCardMaker;
 class CImageObject;
 
 class CSceneBossStage : public CScene
@@ -14,6 +15,7 @@ public:
 private:
 	CPlayer* pPlayer;
 	CHPObject* pHP;
+	CCardMaker* pCardMaker;
 
 private:
 	void Init()		override;

@@ -3,6 +3,7 @@
 
 CCard::CCard()
 {
+    m_layer = Layer::FrontLayer;
 	m_pAnimator = nullptr;
 	m_pImgCard = nullptr;
     bDeleteCard = true;
@@ -32,6 +33,8 @@ void CCard::Init()
 
 void CCard::Update()
 {
+
+    
     if (bDeleteCard == true)
     {
         m_pAnimator->Play(L"Null");
@@ -41,7 +44,7 @@ void CCard::Update()
     {
         fCoolTime += DT;
         m_pAnimator->Play(L"Back");
-        if (fCoolTime > 0.6f)
+        if (fCoolTime > 6.0f)
             bCreateCard = false;
     }
     else // (bDeleteCard == false)&&(bCreateCard == false)
@@ -49,7 +52,7 @@ void CCard::Update()
         m_pAnimator->Play(L"Front");
         fCoolTime = 0;
     }
-    
+
 }
 
 void CCard::Render()

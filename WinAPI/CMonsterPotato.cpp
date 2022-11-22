@@ -138,6 +138,9 @@ void CMonsterPotato::Update()
 			/*CMonsterOnion* pMonsterOnion = new CMonsterOnion();
 			pMonsterOnion->SetPos(WINSIZEX * 0.5, WINSIZEY * 0.4);
 			ADDOBJECT(pMonsterOnion);*/
+			CMonsterCarrot* pMonsterCarrot = new CMonsterCarrot();
+			pMonsterCarrot->SetPos(WINSIZEX * 0.5, WINSIZEY * 0.4);
+			ADDOBJECT(pMonsterCarrot);
 		}
 		break;
 	}

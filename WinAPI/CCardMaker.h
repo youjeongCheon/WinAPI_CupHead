@@ -15,12 +15,6 @@ private:
 
 	vector<CCard*> vCard;
 
-	CCard* pCard1;
-	CCard* pCard2;
-	CCard* pCard3;
-	CCard* pCard4;
-	CCard* pCard5;
-
 	void Init() override;
 	void Update() override;
 	void Render() override;

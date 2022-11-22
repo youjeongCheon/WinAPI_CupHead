@@ -8,10 +8,13 @@
 #include "CImageObject.h"
 #include "CCloud.h"
 #include "CHPObject.h"
+#include "CCardMaker.h"
 
 CSceneBossStage::CSceneBossStage()
 {
 	pPlayer = nullptr;
+	pHP = nullptr;
+	pCardMaker = nullptr;
 	
 }
 
@@ -73,6 +76,9 @@ void CSceneBossStage::Enter()
 	pHP = new CHPObject();
 	AddGameObject(pHP);
 
+	pCardMaker = new CCardMaker();
+	AddGameObject(pCardMaker);
+
 	CGround* pGround = new CGround();
 	pGround->SetPos(2500, GROUNDPOSY);
 	AddGameObject(pGround);
@@ -83,6 +89,7 @@ void CSceneBossStage::Enter()
 void CSceneBossStage::Update()
 {
 	pHP->SetHP(pPlayer->GetHp());
+	//pCardMaker->SetSpecialAttackCount(pPlayer->GetSpecialAttackCount());
 	if (pPlayer->GetPos().x > WINSIZEX-100)
 		pPlayer->SetPos(WINSIZEX - 100, pPlayer->GetPos().y);
 
