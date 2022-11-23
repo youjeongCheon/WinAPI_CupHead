@@ -120,6 +120,11 @@ void CGameObject::SetColliderScale(Vector scale)
 	m_pCollider->SetScale(scale);
 }
 
+void CGameObject::SetColliderPos(Vector pos)
+{
+	m_pCollider->SetChangePos(pos);
+}
+
 void CGameObject::RemoveCollider()
 {
 	if (nullptr == m_pCollider)

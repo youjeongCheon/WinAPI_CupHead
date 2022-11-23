@@ -26,12 +26,14 @@ void CPlayerStateRun::Update()
 	{
 		if (BUTTONSTAY('C'))
 		{
-			// RunShooT
-			str += L"Shoot";
-			if (BUTTONDOWN('X'))
-			{
-				pPlayer->CreateMissile(pPlayer->GetPos(), pPlayer->GetLookDir());
-			}
+			//// RunShooT
+			//str += L"Shoot";
+			//if (BUTTONDOWN('X'))
+			//{
+			//	pPlayer->CreateMissile(pPlayer->GetPos(), pPlayer->GetLookDir());
+			//}
+
+			pPlayer->ChangeState(PlayerState::Aim);
 
 		}
 		if (BUTTONSTAY(VK_RIGHT))
