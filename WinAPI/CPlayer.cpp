@@ -1,6 +1,7 @@
 #include "framework.h"
 #include "CPlayer.h"
 
+#include "CGameManager.h"
 #include "CPlayerStateIdle.h"
 #include "CPlayerStateRun.h"
 #include "CPlayerStateJump.h"
@@ -46,7 +47,7 @@ CPlayer::CPlayer()
 	bIsOnBlock = false;
 	bPassBlock = false;
 	m_ColliderCount = 0;
-	m_SpecialAttackCount = 0;
+	SETSPECIALATTACK(0);
 
 	m_HP = 3;
 }
@@ -175,12 +176,7 @@ void CPlayer::SetSpecialAttackCount(int count)
 {
 	if (count > 6)
 		count = 5;
-	m_SpecialAttackCount = count;
-}
-
-int CPlayer::GetSpecialAttackCount()
-{
-	return m_SpecialAttackCount;
+	SETSPECIALATTACK(count);
 }
 
 void CPlayer::Init()

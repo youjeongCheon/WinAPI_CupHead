@@ -9,6 +9,7 @@ CGameManager::CGameManager()
 	pPlayer = nullptr;
 	pOverWorldPlayer = nullptr;
 	m_vecOverWorldPlayerPos = OVERWORLDPLAYERSTARTPOS;
+	m_SpecialAttackCount = 0;
 }
 
 CGameManager::~CGameManager()

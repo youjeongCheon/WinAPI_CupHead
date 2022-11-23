@@ -19,7 +19,7 @@ void CPlayerStateSpecialAttack::Update()
 	wstring str = L"SpecialAttack";
 	m_LookDir = pPlayer->GetLookDir();
 
-	int count = pPlayer->GetSpecialAttackCount();
+	int count = GETSPECIALATTACK;
 	if (count <= 0)
 		pPlayer->ChangeState(PlayerState::Idle);
 	else

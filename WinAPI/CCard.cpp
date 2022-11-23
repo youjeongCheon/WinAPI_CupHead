@@ -45,7 +45,12 @@ void CCard::Update()
         fCoolTime += DT;
         m_pAnimator->Play(L"Back");
         if (fCoolTime > 9.0f)
+        {
             bCreateCard = false;
+            int count = GETSPECIALATTACK;
+            count++;
+            SETSPECIALATTACK(count);
+        }
     }
     else // (bDeleteCard == false)&&(bCreateCard == false)
     {

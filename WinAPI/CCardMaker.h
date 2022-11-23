@@ -21,9 +21,6 @@ private:
 	void Release() override;
 
 	void ChangeCard(int num);
-public:
-	void SetSpecialAttackCount(int count);
-	void CreateCard();
 
 };
 

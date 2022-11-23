@@ -89,7 +89,6 @@ void CSceneBossStage::Enter()
 void CSceneBossStage::Update()
 {
 	pHP->SetHP(pPlayer->GetHp());
-	SETSPECIALATTACK(pPlayer->GetSpecialAttackCount());
 
 	if (pPlayer->GetPos().x > WINSIZEX-100)
 		pPlayer->SetPos(WINSIZEX - 100, pPlayer->GetPos().y);

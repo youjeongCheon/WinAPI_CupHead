@@ -51,7 +51,6 @@ private:
 	bool	bPassBlock;
 
 	int		m_ColliderCount;
-	int		m_SpecialAttackCount;
 
 	int m_HP;
 
@@ -82,7 +81,6 @@ public:
 	void CreateMissile(Vector pos, Vector direction, bool ExMissile= false);
 
 	void SetSpecialAttackCount(int count);
-	int GetSpecialAttackCount();
 
 private:
 	void Init() override;
