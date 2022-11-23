@@ -22,7 +22,7 @@ CMonsterOnion::~CMonsterOnion()
 
 void CMonsterOnion::Init()
 {
-	m_HP = 100;
+	m_HP = 70;
 	CImage* pOnionIntro = RESOURCE->LoadImg(L"OnionIntro", L"Image\\Onion_Intro.png");
 	CImage* pOnionIdle = RESOURCE->LoadImg(L"OnionIdle", L"Image\\Onion_Idle.png");
 	CImage* pOnionTransCry = RESOURCE->LoadImg(L"OnionTransCry", L"Image\\Onion_TransCry.png");
