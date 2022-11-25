@@ -1,35 +1,63 @@
 #include "framework.h"
 #include "CMonster.h"
 
-#include "CRenderManager.h"
-#include "CCollider.h"
+#include "CMissile.h"
 
 CMonster::CMonster()
 {
 	m_vecScale = Vector(100, 100);
 	m_layer = Layer::Monster;
+	m_HP = 5;
+	bTakeHit = false;
+	fImageCoolTime = 0;
+	m_curState = MonsterState::Null;
+	m_PreState = MonsterState::Null;
 }
 
 CMonster::~CMonster()
 {
 }
 
+bool CMonster::CollisionRange(Vector pos)
+{
+	return true;
+}
+
+void CMonster::ChangeState(MonsterState state)
+{
+	m_PreState = m_curState;
+	m_curState = state;
+	fCoolTime = 0;
+}
+
+void CMonster::SetHP(int hp)
+{
+	m_HP = hp;
+}
+
+int CMonster::GetHP()
+{
+	return m_HP;
+}
+
+bool CMonster::GetTakeHit()
+{
+	return bTakeHit;
+}
+
 void CMonster::Init()
 {
-	AddCollider(ColliderType::Rect, Vector(90, 90), Vector(0, 0));
+	AddCollider(ColliderType::Rect, m_vecScale, Vector(0, 0));
 }
 
 void CMonster::Update()
 {
+	
 }
 
 void CMonster::Render()
 {
-	RENDER->FrameRect(
-		m_vecPos.x - m_vecScale.x * 0.5f,
-		m_vecPos.y - m_vecScale.y * 0.5f,
-		m_vecPos.x + m_vecScale.x * 0.5f,
-		m_vecPos.y + m_vecScale.y * 0.5f);
+	
 }
 
 void CMonster::Release()
@@ -44,8 +72,21 @@ void CMonster::OnCollisionEnter(CCollider* pOtherCollider)
 	}
 	else if (pOtherCollider->GetObjName() == L"미사일")
 	{
-		Logger::Debug(L"몬스터가 미사일과 충돌진입");
+		if (CollisionRange(pOtherCollider->GetPos()))
+		{
+			CMissile* pMissile = static_cast<CMissile*>(pOtherCollider->GetOwner());
+			Logger::Debug(L"몬스터가 미사일과 충돌진입");
+			if (pMissile->GetExMissile())
+				m_HP -= 10;
+			else
+				m_HP -= 1;
+			bTakeHit = true;
+			pMissile->DeathMissile();
+		}
+		else
+			Logger::Debug(L"충돌범위 밖");
 	}
+	
 }
 
 void CMonster::OnCollisionStay(CCollider* pOtherCollider)
@@ -60,6 +101,14 @@ void CMonster::OnCollisionExit(CCollider* pOtherCollider)
 	}
 	else if (pOtherCollider->GetObjName() == L"미사일")
 	{
-		Logger::Debug(L"몬스터가 미사일과 충돌해제");
+		if (CollisionRange(pOtherCollider->GetPos()))
+		{
+			Logger::Debug(L"몬스터가 미사일과 충돌해제");
+		}
+	}
+	if (m_HP == 0)
+	{
+		Logger::Debug(L"Monster Die");
+		m_curState = MonsterState::Death;
 	}
 }

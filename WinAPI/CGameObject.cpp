@@ -115,6 +115,16 @@ void CGameObject::AddCollider(ColliderType type, Vector scale, Vector offsetPos)
 	AddComponent(m_pCollider);
 }
 
+void CGameObject::SetColliderScale(Vector scale)
+{
+	m_pCollider->SetScale(scale);
+}
+
+void CGameObject::SetColliderPos(Vector pos)
+{
+	m_pCollider->SetChangePos(pos);
+}
+
 void CGameObject::RemoveCollider()
 {
 	if (nullptr == m_pCollider)
@@ -177,6 +187,7 @@ void CGameObject::GameObjectRender()
 	// 상속한 자식 표현갱신
 	Render();
 
+	list<CComponent*>& list = m_listComponent;
 	// 게임오브젝트 내에 모든 컴포넌트 표현갱신
 	for (CComponent* pComponent : m_listComponent)
 	{

@@ -4,6 +4,8 @@
 #include "CInputManager.h"
 #include "CCameraManager.h"
 
+#include "CPlayer.h"
+
 CCameraController::CCameraController()
 {
 }
@@ -12,17 +14,23 @@ CCameraController::~CCameraController()
 {
 }
 
+void CCameraController::Setplayer(CPlayer* pPlayer)
+{
+	this->pPlayer = pPlayer;
+}
+
+void CCameraController::SetOverWorldPlayer(COverWorldPlayer* pPlayer)
+{
+	this->pOverWorldPlayer = pPlayer;
+}
+
 void CCameraController::Init()
 {
 }
 
 void CCameraController::Update()
 {
-	if (LMOUSEDOWN(false))
-	{
-		CAMERA->SetTargetPos(MOUSEWORLDPOS, 1);
-	}
-
+	
 	Vector dir;
 	if (BUTTONSTAY('A'))
 	{
@@ -31,9 +39,10 @@ void CCameraController::Update()
 	else if (BUTTONSTAY('D'))
 		dir.x = 1;
 	else dir.x = 0;
-
 	if (BUTTONSTAY('W'))
+	{
 		dir.y = -1;
+	}
 	else if (BUTTONSTAY('S'))
 		dir.y = 1;
 	else

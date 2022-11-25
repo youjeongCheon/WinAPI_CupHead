@@ -24,9 +24,9 @@ public:
 	CSound* FindSound(const wstring& key);
 	CSound* LoadSound(const wstring& key, const wstring& fileName);
 
+	void Release();
 private:
 	void Init();
-	void Release();
 };
 
 #define RESOURCE	CResourceManager::GetInstance()

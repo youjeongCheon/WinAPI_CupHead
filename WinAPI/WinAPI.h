@@ -27,7 +27,13 @@ enum class GroupScene
 {
 	Title,
 
+	Tutorial,
+
 	TileTool,
+
+	OverWorld,
+
+	BossStage,
 
 	Stage01,
 
@@ -42,9 +48,15 @@ enum class Layer
 {
 	Default,
 	Tile,
+	MonsterCarrot,
+	Ground,
+	Obstacle,
+	Monster,
+	FrontObject,
 	Player,
 	Missile,
-	Monster,
+	MonsterMissile,
+	FrontLayer,
 
 	Ui,
 	Size,
@@ -63,3 +75,9 @@ enum class TypeTile
 
 	Size,
 };
+
+//========================================
+//##				∞‘¿”¡¬«•             ##
+//========================================
+#define GROUNDPOSY 590 
+

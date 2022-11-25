@@ -256,6 +256,7 @@ void CSceneTileTool::LoadMap(const wstring& strPath)
 {
 	CImage* pImage = RESOURCE->LoadImgWithPath(strPath, strPath);
 	m_pImageObj->SetImage(pImage);
+	m_pImageObj->SetPos(1500, 500);
 }
 
 void CSceneTileTool::LoadMapData()

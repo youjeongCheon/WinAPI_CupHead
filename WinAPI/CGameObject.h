@@ -65,7 +65,10 @@ private:
 protected:
 	CCollider* GetCollider();
 	void AddCollider(ColliderType type, Vector scale, Vector offsetPos);
+	void SetColliderScale(Vector scale);
+	void SetColliderPos(Vector pos);
 	void RemoveCollider();
+	
 
 	virtual void OnCollisionEnter(CCollider* pOtherCollider) {};	// 충돌체크를 확인하는 오브젝트는 재정의하여 사용
 	virtual void OnCollisionStay(CCollider* pOtherCollider) {};	// 충돌체크를 확인하는 오브젝트는 재정의하여 사용

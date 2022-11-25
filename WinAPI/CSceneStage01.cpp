@@ -27,14 +27,14 @@ CSceneStage01::~CSceneStage01()
 void CSceneStage01::Init()
 {
 	pPlayer = new CPlayer();
-	pPlayer->SetPos(200, WINSIZEY * 0.5f);
+	pPlayer->SetPos(PLAYERSTARTPOS);
 	AddGameObject(pPlayer);
 
 	CMonster* pMonster = new CMonster();
 	pMonster->SetPos(1000, WINSIZEY * 0.5f);
 	AddGameObject(pMonster);
 
-	CCameraController* pCamController = new CCameraController;
+	CCameraController* pCamController = new CCameraController();
 	AddGameObject(pCamController);
 }
 

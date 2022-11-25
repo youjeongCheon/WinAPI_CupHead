@@ -1,10 +1,30 @@
 #pragma once
 #include "CGameObject.h"
+
+enum class MonsterState { Null, Intro, Idle, Attack, Trans, Death, DeathLeave };
+
 class CMonster : public CGameObject
 {
 public:
 	CMonster();
 	virtual ~CMonster();
+
+protected:
+	MonsterState m_curState;
+	MonsterState m_PreState;
+	int m_HP;
+	bool bTakeHit;
+	 
+	float fImageCoolTime;
+	float fCoolTime;
+
+	virtual bool CollisionRange( Vector pos);
+	void ChangeState(MonsterState state);
+
+public:
+	void SetHP(int hp);
+	int GetHP();
+	bool GetTakeHit();
 
 private:
 	void Init() override;

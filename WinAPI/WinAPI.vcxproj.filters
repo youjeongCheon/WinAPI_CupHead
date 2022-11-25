@@ -49,8 +49,29 @@
     <Filter Include="GameObject\Common">
       <UniqueIdentifier>{9e45e506-939f-4c97-8f87-6146ebb42d5f}</UniqueIdentifier>
     </Filter>
-    <Filter Include="GameObject\Stage01">
+    <Filter Include="GameObject\Stage">
       <UniqueIdentifier>{f2ad0501-d505-4b88-af0d-880a4673ef5b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GameObject\Stage\Missile">
+      <UniqueIdentifier>{e1469eed-e30f-40da-ae08-b7f2c93fd2af}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GameObject\Player">
+      <UniqueIdentifier>{bfda7133-269f-42ed-84d4-a5bb70793eac}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GameObject\Player\PlayerState">
+      <UniqueIdentifier>{4091405f-b243-4403-a42f-dc58fe0b2684}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GameObject\Tutorial">
+      <UniqueIdentifier>{63d352a1-b169-45df-817c-29b3099a0cce}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GameObject\BossStage">
+      <UniqueIdentifier>{c53eb3db-8115-4f4f-af48-57b31f54cce7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GameObject\Title">
+      <UniqueIdentifier>{c71e22b2-dfdf-4d47-9710-4ae12de20964}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GameObject\OverWorld">
+      <UniqueIdentifier>{4560b6a3-5e87-4c22-b6c3-853ab050ca85}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -162,14 +183,8 @@
     <ClInclude Include="CCameraController.h">
       <Filter>GameObject\Common</Filter>
     </ClInclude>
-    <ClInclude Include="CMissile.h">
-      <Filter>GameObject\Stage01</Filter>
-    </ClInclude>
     <ClInclude Include="CMonster.h">
-      <Filter>GameObject\Stage01</Filter>
-    </ClInclude>
-    <ClInclude Include="CPlayer.h">
-      <Filter>GameObject\Stage01</Filter>
+      <Filter>GameObject\Stage</Filter>
     </ClInclude>
     <ClInclude Include="CTilePanel.h">
       <Filter>Engine\Asset\UI</Filter>
@@ -182,6 +197,144 @@
     </ClInclude>
     <ClInclude Include="CSoundManager.h">
       <Filter>Engine\Manager</Filter>
+    </ClInclude>
+    <ClInclude Include="CState.h">
+      <Filter>Util</Filter>
+    </ClInclude>
+    <ClInclude Include="CPlayer.h">
+      <Filter>GameObject\Player</Filter>
+    </ClInclude>
+    <ClInclude Include="CPlayerStateIdle.h">
+      <Filter>GameObject\Player\PlayerState</Filter>
+    </ClInclude>
+    <ClInclude Include="CPlayerStateDash.h">
+      <Filter>GameObject\Player\PlayerState</Filter>
+    </ClInclude>
+    <ClInclude Include="CPlayerStateDuck.h">
+      <Filter>GameObject\Player\PlayerState</Filter>
+    </ClInclude>
+    <ClInclude Include="CPlayerStateJump.h">
+      <Filter>GameObject\Player\PlayerState</Filter>
+    </ClInclude>
+    <ClInclude Include="CPlayerStateRun.h">
+      <Filter>GameObject\Player\PlayerState</Filter>
+    </ClInclude>
+    <ClInclude Include="CGameManager.h">
+      <Filter>Engine\Manager</Filter>
+    </ClInclude>
+    <ClInclude Include="CPlayerStateAim.h">
+      <Filter>GameObject\Player\PlayerState</Filter>
+    </ClInclude>
+    <ClInclude Include="CPlayerStateShoot.h">
+      <Filter>GameObject\Player\PlayerState</Filter>
+    </ClInclude>
+    <ClInclude Include="CSceneTutorial.h">
+      <Filter>Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="CPlayerStateSpecialAttack.h">
+      <Filter>GameObject\Player\PlayerState</Filter>
+    </ClInclude>
+    <ClInclude Include="CPlayerStateTakeHit.h">
+      <Filter>GameObject\Player\PlayerState</Filter>
+    </ClInclude>
+    <ClInclude Include="CMissile.h">
+      <Filter>GameObject\Stage\Missile</Filter>
+    </ClInclude>
+    <ClInclude Include="CMissileSpawn.h">
+      <Filter>GameObject\Stage\Missile</Filter>
+    </ClInclude>
+    <ClInclude Include="CMissileDeath.h">
+      <Filter>GameObject\Stage\Missile</Filter>
+    </ClInclude>
+    <ClInclude Include="CLayer.h">
+      <Filter>Engine\Asset</Filter>
+    </ClInclude>
+    <ClInclude Include="CGround.h">
+      <Filter>GameObject\Stage</Filter>
+    </ClInclude>
+    <ClInclude Include="CObstacle.h">
+      <Filter>GameObject\Stage</Filter>
+    </ClInclude>
+    <ClInclude Include="CBlock.h">
+      <Filter>GameObject\Tutorial</Filter>
+    </ClInclude>
+    <ClInclude Include="CMonserPyrimid.h">
+      <Filter>GameObject\Tutorial</Filter>
+    </ClInclude>
+    <ClInclude Include="CPlayerStateFall.h">
+      <Filter>GameObject\Player\PlayerState</Filter>
+    </ClInclude>
+    <ClInclude Include="CPlayerStateParry.h">
+      <Filter>GameObject\Player\PlayerState</Filter>
+    </ClInclude>
+    <ClInclude Include="CParrySphere.h">
+      <Filter>GameObject\Tutorial</Filter>
+    </ClInclude>
+    <ClInclude Include="CSceneOverWorld.h">
+      <Filter>Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="COverWorldPlayer.h">
+      <Filter>GameObject\Player</Filter>
+    </ClInclude>
+    <ClInclude Include="CSceneBossStage.h">
+      <Filter>Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="CMonsterPotato.h">
+      <Filter>GameObject\BossStage</Filter>
+    </ClInclude>
+    <ClInclude Include="CPotatoMissile.h">
+      <Filter>GameObject\BossStage</Filter>
+    </ClInclude>
+    <ClInclude Include="CParryObject.h">
+      <Filter>GameObject\Stage</Filter>
+    </ClInclude>
+    <ClInclude Include="CPotatoParry.h">
+      <Filter>GameObject\BossStage</Filter>
+    </ClInclude>
+    <ClInclude Include="CMonsterMissile.h">
+      <Filter>GameObject\Stage</Filter>
+    </ClInclude>
+    <ClInclude Include="CMonsterOnion.h">
+      <Filter>GameObject\BossStage</Filter>
+    </ClInclude>
+    <ClInclude Include="COnionMissile.h">
+      <Filter>GameObject\BossStage</Filter>
+    </ClInclude>
+    <ClInclude Include="COnionParry.h">
+      <Filter>GameObject\BossStage</Filter>
+    </ClInclude>
+    <ClInclude Include="COnionMissileEffect.h">
+      <Filter>GameObject\BossStage</Filter>
+    </ClInclude>
+    <ClInclude Include="CMonsterEarthEffect.h">
+      <Filter>GameObject\BossStage</Filter>
+    </ClInclude>
+    <ClInclude Include="CMonsterCarrot.h">
+      <Filter>GameObject\BossStage</Filter>
+    </ClInclude>
+    <ClInclude Include="CCarrotMissile.h">
+      <Filter>GameObject\BossStage</Filter>
+    </ClInclude>
+    <ClInclude Include="CCarrotBeam.h">
+      <Filter>GameObject\BossStage</Filter>
+    </ClInclude>
+    <ClInclude Include="CTitleObject.h">
+      <Filter>GameObject\Title</Filter>
+    </ClInclude>
+    <ClInclude Include="COverWorldObject.h">
+      <Filter>GameObject\OverWorld</Filter>
+    </ClInclude>
+    <ClInclude Include="CCloud.h">
+      <Filter>GameObject\BossStage</Filter>
+    </ClInclude>
+    <ClInclude Include="CHPObject.h">
+      <Filter>GameObject\Stage</Filter>
+    </ClInclude>
+    <ClInclude Include="CCard.h">
+      <Filter>GameObject\Stage</Filter>
+    </ClInclude>
+    <ClInclude Include="CCardMaker.h">
+      <Filter>GameObject\Stage</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -275,14 +428,8 @@
     <ClCompile Include="CCameraController.cpp">
       <Filter>GameObject\Common</Filter>
     </ClCompile>
-    <ClCompile Include="CMissile.cpp">
-      <Filter>GameObject\Stage01</Filter>
-    </ClCompile>
     <ClCompile Include="CMonster.cpp">
-      <Filter>GameObject\Stage01</Filter>
-    </ClCompile>
-    <ClCompile Include="CPlayer.cpp">
-      <Filter>GameObject\Stage01</Filter>
+      <Filter>GameObject\Stage</Filter>
     </ClCompile>
     <ClCompile Include="CTileButton.cpp">
       <Filter>Engine\Asset\UI</Filter>
@@ -295,6 +442,144 @@
     </ClCompile>
     <ClCompile Include="CSoundManager.cpp">
       <Filter>Engine\Manager</Filter>
+    </ClCompile>
+    <ClCompile Include="CState.cpp">
+      <Filter>Util</Filter>
+    </ClCompile>
+    <ClCompile Include="CPlayer.cpp">
+      <Filter>GameObject\Player</Filter>
+    </ClCompile>
+    <ClCompile Include="CPlayerStateIdle.cpp">
+      <Filter>GameObject\Player\PlayerState</Filter>
+    </ClCompile>
+    <ClCompile Include="CPlayerStateRun.cpp">
+      <Filter>GameObject\Player\PlayerState</Filter>
+    </ClCompile>
+    <ClCompile Include="CPlayerStateJump.cpp">
+      <Filter>GameObject\Player\PlayerState</Filter>
+    </ClCompile>
+    <ClCompile Include="CPlayerStateDuck.cpp">
+      <Filter>GameObject\Player\PlayerState</Filter>
+    </ClCompile>
+    <ClCompile Include="CPlayerStateDash.cpp">
+      <Filter>GameObject\Player\PlayerState</Filter>
+    </ClCompile>
+    <ClCompile Include="CGameManager.cpp">
+      <Filter>Engine\Manager</Filter>
+    </ClCompile>
+    <ClCompile Include="CPlayerStateAim.cpp">
+      <Filter>GameObject\Player\PlayerState</Filter>
+    </ClCompile>
+    <ClCompile Include="CPlayerStateShoot.cpp">
+      <Filter>GameObject\Player\PlayerState</Filter>
+    </ClCompile>
+    <ClCompile Include="CSceneTutorial.cpp">
+      <Filter>Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="CPlayerStateSpecialAttack.cpp">
+      <Filter>GameObject\Player\PlayerState</Filter>
+    </ClCompile>
+    <ClCompile Include="CPlayerStateTakeHit.cpp">
+      <Filter>GameObject\Player\PlayerState</Filter>
+    </ClCompile>
+    <ClCompile Include="CMissile.cpp">
+      <Filter>GameObject\Stage\Missile</Filter>
+    </ClCompile>
+    <ClCompile Include="CMissileDeath.cpp">
+      <Filter>GameObject\Stage\Missile</Filter>
+    </ClCompile>
+    <ClCompile Include="CMissileSpawn.cpp">
+      <Filter>GameObject\Stage\Missile</Filter>
+    </ClCompile>
+    <ClCompile Include="CLayer.cpp">
+      <Filter>Engine\Asset</Filter>
+    </ClCompile>
+    <ClCompile Include="CGround.cpp">
+      <Filter>GameObject\Stage</Filter>
+    </ClCompile>
+    <ClCompile Include="CObstacle.cpp">
+      <Filter>GameObject\Stage</Filter>
+    </ClCompile>
+    <ClCompile Include="CBlock.cpp">
+      <Filter>GameObject\Tutorial</Filter>
+    </ClCompile>
+    <ClCompile Include="CMonserPyrimid.cpp">
+      <Filter>GameObject\Tutorial</Filter>
+    </ClCompile>
+    <ClCompile Include="CPlayerStateFall.cpp">
+      <Filter>GameObject\Player\PlayerState</Filter>
+    </ClCompile>
+    <ClCompile Include="CPlayerStateParry.cpp">
+      <Filter>GameObject\Player\PlayerState</Filter>
+    </ClCompile>
+    <ClCompile Include="CParrySphere.cpp">
+      <Filter>GameObject\Tutorial</Filter>
+    </ClCompile>
+    <ClCompile Include="CSceneOverWorld.cpp">
+      <Filter>Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="COverWorldPlayer.cpp">
+      <Filter>GameObject\Player</Filter>
+    </ClCompile>
+    <ClCompile Include="CMonsterPotato.cpp">
+      <Filter>GameObject\BossStage</Filter>
+    </ClCompile>
+    <ClCompile Include="CPotatoMissile.cpp">
+      <Filter>GameObject\BossStage</Filter>
+    </ClCompile>
+    <ClCompile Include="CParryObject.cpp">
+      <Filter>GameObject\Stage</Filter>
+    </ClCompile>
+    <ClCompile Include="CPotatoParry.cpp">
+      <Filter>GameObject\BossStage</Filter>
+    </ClCompile>
+    <ClCompile Include="CMonsterMissile.cpp">
+      <Filter>GameObject\Stage</Filter>
+    </ClCompile>
+    <ClCompile Include="CMonsterOnion.cpp">
+      <Filter>GameObject\BossStage</Filter>
+    </ClCompile>
+    <ClCompile Include="COnionMissile.cpp">
+      <Filter>GameObject\BossStage</Filter>
+    </ClCompile>
+    <ClCompile Include="COnionParry.cpp">
+      <Filter>GameObject\BossStage</Filter>
+    </ClCompile>
+    <ClCompile Include="COnionMissileEffect.cpp">
+      <Filter>GameObject\BossStage</Filter>
+    </ClCompile>
+    <ClCompile Include="CMonsterEarthEffect.cpp">
+      <Filter>GameObject\BossStage</Filter>
+    </ClCompile>
+    <ClCompile Include="CSceneBossStage.cpp">
+      <Filter>Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="CMonsterCarrot.cpp">
+      <Filter>GameObject\BossStage</Filter>
+    </ClCompile>
+    <ClCompile Include="CCarrotMissile.cpp">
+      <Filter>GameObject\BossStage</Filter>
+    </ClCompile>
+    <ClCompile Include="CCarrotBeam.cpp">
+      <Filter>GameObject\BossStage</Filter>
+    </ClCompile>
+    <ClCompile Include="CTitleObject.cpp">
+      <Filter>GameObject\Title</Filter>
+    </ClCompile>
+    <ClCompile Include="COverWorldObject.cpp">
+      <Filter>GameObject\OverWorld</Filter>
+    </ClCompile>
+    <ClCompile Include="CCloud.cpp">
+      <Filter>GameObject\BossStage</Filter>
+    </ClCompile>
+    <ClCompile Include="CHPObject.cpp">
+      <Filter>GameObject\Stage</Filter>
+    </ClCompile>
+    <ClCompile Include="CCard.cpp">
+      <Filter>GameObject\Stage</Filter>
+    </ClCompile>
+    <ClCompile Include="CCardMaker.cpp">
+      <Filter>GameObject\Stage</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

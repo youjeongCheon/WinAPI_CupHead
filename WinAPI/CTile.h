@@ -28,7 +28,7 @@ protected:
 	bool m_bLineRender;
 
 public:
-	void SetType(TypeTile type);
+	void SetType(TypeTile type) ;
 	void SetPos(Vector pos) = delete;
 	void SetPos(float x, float y) = delete;
 
