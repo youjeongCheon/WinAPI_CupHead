@@ -65,7 +65,7 @@ void CPlayer::ChangeState(PlayerState state)
 	switch (m_curState)
 	{
 	case PlayerState::Duck:
-		SetColliderScale(Vector(140, 50));
+		SetColliderScale(Vector(140, 140));
 		break;
 	case PlayerState::Jump:
 		SetColliderScale(Vector(70, 70));
