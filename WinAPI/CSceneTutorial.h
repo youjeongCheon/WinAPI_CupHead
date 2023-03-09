@@ -2,6 +2,7 @@
 
 class CPlayer;
 class CImage;
+class CSound;
 class CImageObject;
 class CParrySphere;
 
@@ -20,6 +21,7 @@ private:
 	CImageObject* pBackground;
 	CImageObject* pFrontground;
 
+	CSound* pBGM;
 	int parryNum;
 
 public:

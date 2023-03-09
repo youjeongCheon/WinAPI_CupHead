@@ -14,6 +14,7 @@ CSceneOverWorld::CSceneOverWorld()
 	pBackground = nullptr;
 	pTopper = nullptr;
 	pTopperObject = nullptr;
+	pBGM = nullptr;
 }
 
 CSceneOverWorld::~CSceneOverWorld()
@@ -54,6 +55,9 @@ void CSceneOverWorld::Enter()
 	CCameraController* pCamController = new CCameraController();
 	pCamController->SetOverWorldPlayer(pPlayer);
 	AddGameObject(pCamController);
+
+	pBGM = RESOURCE->LoadSound(L"OverWorld", L"Sound\\OverWorld.mp3");
+	SOUND->Play(pBGM,1.0f,true);
 
 	CAMERA->FadeIn(0.25f);
 	LoadTile(GETPATH + L"Tile\\OverMap.tile");

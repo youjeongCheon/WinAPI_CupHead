@@ -9,6 +9,7 @@ CSceneTitle::CSceneTitle()
 	pTitleText = nullptr;
 	pBackLayer = nullptr;
 	pBackground = nullptr;
+	pBGM = nullptr;
 
 	fCoolTime = 0;
 }
@@ -19,7 +20,7 @@ CSceneTitle::~CSceneTitle()
 
 void CSceneTitle::Init()
 {
-
+	
 }
 
 void CSceneTitle::Enter()
@@ -37,6 +38,8 @@ void CSceneTitle::Enter()
 	pObject->SetPos(WINSIZEX * 0.5f, WINSIZEY * 0.55f);
 	AddGameObject(pObject);
 
+	pBGM = RESOURCE->LoadSound(L"Title", L"Sound\\Title.mp3");
+	SOUND->Play(pBGM,1.0f,true);
 	CAMERA->FadeIn(0.25f);
 }
 

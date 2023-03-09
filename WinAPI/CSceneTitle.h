@@ -4,6 +4,7 @@
 class CImage;
 class CImageObject;
 class CAnimator;
+class CSound;
 
 class CSceneTitle : public CScene
 {
@@ -15,6 +16,7 @@ private:
 	CImage* pTitleText;
 	CImage* pBackLayer;
 	CImageObject* pBackground;
+	CSound* pBGM;
 
 	float fCoolTime;
 private:

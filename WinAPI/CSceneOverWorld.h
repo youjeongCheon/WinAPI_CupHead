@@ -4,6 +4,7 @@
 class COverWorldPlayer;
 class CImage;
 class CImageObject;
+class CSound;
 
 class CSceneOverWorld : public CScene
 {
@@ -19,6 +20,8 @@ private:
 
 	CImage* pTopper;
 	CImageObject* pTopperObject;
+
+	CSound* pBGM;
 
 private:
 	void Init()		override;

@@ -18,6 +18,8 @@ CSceneTutorial::CSceneTutorial()
 
 	pBackground = nullptr;
 	pFrontground = nullptr;
+
+	pBGM = nullptr;
 	parryNum = 0;
 }
 
@@ -151,7 +153,8 @@ void CSceneTutorial::Enter()
 	pFrontground->SetScreenFixed(true);
 	AddGameObject(pFrontground);
 
-
+	pBGM = RESOURCE->LoadSound(L"Tutorial", L"Sound\\Tutorial.mp3");
+	SOUND->Play(pBGM,1.0f,true);
 
 	CCameraController* pCamController = new CCameraController();
 	pCamController->Setplayer(pPlayer);
