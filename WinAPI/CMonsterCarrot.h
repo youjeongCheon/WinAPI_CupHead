@@ -18,7 +18,7 @@ private:
 	CAnimator* m_pAnimatorEarth;
 
 	CSound* pAppearSFX = RESOURCE->LoadSound(L"boos_carrot_appear", L"Sound\\boss_carrot_appear.wav");
-	CSound* pDeathSFX = RESOURCE->FindSound(L"pDeathSFX");
+	CSound* pDeathSFX = RESOURCE->LoadSound(L"boss_death", L"Sound\\boss_death.wav");
 	CSound* pShootSFX = RESOURCE->LoadSound(L"boss_shoot", L"Sound\\boss_shoot.wav");
 	CSound* pBeamSFX = RESOURCE->LoadSound(L"boos_beam", L"Sound\\boss_beam.wav");
 

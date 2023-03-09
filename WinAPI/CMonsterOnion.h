@@ -21,7 +21,7 @@ private:
 	bool isDeath = false;
 
 	CSound* pAppearSFX = RESOURCE->LoadSound(L"boss_appear", L"Sound\\boss_appear.wav");
-	CSound* pDeathSFX = RESOURCE->FindSound(L"pDeathSFX");
+	CSound* pDeathSFX = RESOURCE->LoadSound(L"boss_death", L"Sound\\boss_death.wav");
 
 private:
 	void Init() override;
