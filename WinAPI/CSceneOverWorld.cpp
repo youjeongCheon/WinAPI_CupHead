@@ -57,7 +57,7 @@ void CSceneOverWorld::Enter()
 	AddGameObject(pCamController);
 
 	pBGM = RESOURCE->LoadSound(L"OverWorld", L"Sound\\OverWorld.mp3");
-	SOUND->Play(pBGM,1.0f,true);
+	SOUND->Play(pBGM,0.5f,true);
 
 	CAMERA->FadeIn(0.25f);
 	LoadTile(GETPATH + L"Tile\\OverMap.tile");

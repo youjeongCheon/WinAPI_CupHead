@@ -84,7 +84,7 @@ void CSceneBossStage::Enter()
 	AddGameObject(pGround);
 
 	pBGM = RESOURCE->LoadSound(L"Botanic Panic", L"Sound\\Botanic Panic.mp3");
-	SOUND->Play(pBGM, 1.0f, true);
+	SOUND->Play(pBGM, 0.5f, true);
 
 	CAMERA->FadeIn(0.25f);
 }

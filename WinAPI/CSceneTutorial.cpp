@@ -154,7 +154,7 @@ void CSceneTutorial::Enter()
 	AddGameObject(pFrontground);
 
 	pBGM = RESOURCE->LoadSound(L"Tutorial", L"Sound\\Tutorial.mp3");
-	SOUND->Play(pBGM,1.0f,true);
+	SOUND->Play(pBGM,0.5f,true);
 
 	CCameraController* pCamController = new CCameraController();
 	pCamController->Setplayer(pPlayer);
