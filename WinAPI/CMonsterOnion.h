@@ -3,6 +3,7 @@
 
 class CAnimator;
 class CMonsterEarthEffect;
+class CSound;
 
 class CMonsterOnion :  public CMonster
 {
@@ -16,6 +17,11 @@ private:
 	CAnimator* m_pAnimator;
 
 	int missileCount;
+	bool isAppear = false;
+	bool isDeath = false;
+
+	CSound* pAppearSFX = RESOURCE->LoadSound(L"boss_appear", L"Sound\\boss_appear.wav");
+	CSound* pDeathSFX = RESOURCE->FindSound(L"pDeathSFX");
 
 private:
 	void Init() override;

@@ -132,15 +132,17 @@ void CMonsterPotato::Update()
 		break;
 	case MonsterState::DeathLeave:
 		m_strState += L"DeathLeave";
+		if (!isDeath)
+		{
+			SOUND->Play(pDeathSFX);
+			isDeath = true;
+		}
 		if (fCoolTime > 0.8f)
 		{
 			DELETEOBJECT(this);
 			CMonsterOnion* pMonsterOnion = new CMonsterOnion();
 			pMonsterOnion->SetPos(WINSIZEX * 0.5, WINSIZEY * 0.4);
 			ADDOBJECT(pMonsterOnion);
-			/*CMonsterCarrot* pMonsterCarrot = new CMonsterCarrot();
-			pMonsterCarrot->SetPos(WINSIZEX * 0.5, WINSIZEY * 0.4);
-			ADDOBJECT(pMonsterCarrot);*/
 		}
 		break;
 	}
@@ -153,6 +155,7 @@ void CMonsterPotato::Render()
 
 void CMonsterPotato::Release()
 {
+	isDeath = false;
 }
 
 void CMonsterPotato::AnimatorUpdate()
@@ -163,12 +166,14 @@ void CMonsterPotato::AnimatorUpdate()
 
 void CMonsterPotato::CreateMissile()
 {
+	SOUND->Play(pShootSFX);
 	CPotatoMissile* pMissile= new CPotatoMissile();
 	ADDOBJECT(pMissile);
 }
 
 void CMonsterPotato::CreateParry()
 {
+	SOUND->Play(pShootSFX);
 	CPotatoParry* pParry = new CPotatoParry();
 	ADDOBJECT(pParry);
 }

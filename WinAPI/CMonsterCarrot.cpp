@@ -61,13 +61,17 @@ void CMonsterCarrot::Init()
 void CMonsterCarrot::Update()
 {
 	fCoolTime += DT;
-	//m_pAnimatorEarth->Play(L"EarthIntro");
 
 	m_strState = L"Carrot";
 	switch (m_curState)
 	{
 	case MonsterState::Null:
 		m_strState += L"Null";
+		if (!isAppear)
+		{
+			SOUND->Play(pAppearSFX);
+			isAppear = true;
+		}
 		if (fCoolTime >= 1.0f)
 			ChangeState(MonsterState::Intro);
 		break;
@@ -154,6 +158,11 @@ void CMonsterCarrot::Update()
 		break;
 	case MonsterState::Death:
 		fDeathCoolTime += DT;
+		if (!isDeath)
+		{
+			SOUND->Play(pDeathSFX);
+			isDeath = true;
+		}
 		if (fDeathCoolTime>5.0f)
 		{
 			CAMERA->FadeOut(0.25f);
@@ -188,6 +197,7 @@ void CMonsterCarrot::AnimatorUpdate()
 void CMonsterCarrot::CreateMissile()
 {
 	CCarrotMissile* pMissile = new CCarrotMissile();
+	SOUND->Play(pShootSFX);
 	if (missileCount%2==0)
 		pMissile->SetPos(0, 0);
 	else
@@ -198,6 +208,7 @@ void CMonsterCarrot::CreateMissile()
 void CMonsterCarrot::CreateBeam()
 {
 	CCarrotBeam* pBeam = new CCarrotBeam();
+	SOUND->Play(pBeamSFX);
 	pBeam->SetDir(m_vecBeamDir);
 	ADDOBJECT(pBeam);
 }

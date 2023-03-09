@@ -2,6 +2,7 @@
 #include "CMonster.h"
 
 class CAnimator;
+class CSound;
 
 class CMonsterPotato : public CMonster
 {
@@ -17,8 +18,12 @@ private:
 	CAnimator* m_pAnimator;
 	CAnimator* m_pAnimatorEarth;
 
+	CSound* pShootSFX = RESOURCE->LoadSound(L"boss_shoot", L"Sound\\boss_shoot.wav");
+	CSound* pDeathSFX = RESOURCE->LoadSound(L"boss_death", L"Sound\\boss_death.wav");
+
 	int missileCount;
 	float fEarthCoolTime;
+	bool isDeath = false;
 
 private:
 	void Init() override;

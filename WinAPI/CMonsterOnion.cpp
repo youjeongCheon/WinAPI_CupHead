@@ -59,6 +59,11 @@ void CMonsterOnion::Update()
 	{
 	case MonsterState::Null:
 		m_strState += L"Null";
+		if (!isAppear)
+		{
+			SOUND->Play(pAppearSFX);
+			isAppear = true;
+		}
 		if (fCoolTime >= 0.9f)
 			ChangeState(MonsterState::Intro);
 		break;
@@ -102,6 +107,11 @@ void CMonsterOnion::Update()
 		break;
 	case MonsterState::Death:
 		m_strState += L"Death";
+		if (!isDeath)
+		{
+			SOUND->Play(pDeathSFX);
+			isDeath = true;
+		}
 		if (fCoolTime < 1.9f)
 			m_strState += L"1";
 		else if (fCoolTime >= 1.9f)
@@ -125,6 +135,8 @@ void CMonsterOnion::Render()
 
 void CMonsterOnion::Release()
 {
+	isAppear = false;
+	isDeath = false;
 }
 
 void CMonsterOnion::AnimatorUpdate()
