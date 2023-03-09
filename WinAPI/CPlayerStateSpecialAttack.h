@@ -2,6 +2,7 @@
 #include "CState.h"
 
 class CPlayer;
+class CSound;
 
 class CPlayerStateSpecialAttack : public CState
 {
@@ -12,6 +13,8 @@ private:
 
 	Vector m_vecMissilePos;
 	bool bShoot;
+
+	CSound* pSound = RESOURCE->LoadSound(L"EX", L"Sound\\player_weapon_peashot_ex.wav");
 
 public:
 	CPlayerStateSpecialAttack(CPlayer* pPlayer) { this->pPlayer = pPlayer; }

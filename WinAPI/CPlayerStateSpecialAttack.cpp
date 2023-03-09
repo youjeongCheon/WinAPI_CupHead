@@ -34,6 +34,7 @@ void CPlayerStateSpecialAttack::Update()
 				pPlayer->CreateMissile(m_vecMissilePos, m_LookDir, true);
 				count--;
 				pPlayer->SetSpecialAttackCount(count);
+				SOUND->Play(pSound, 1.5f);
 				bShoot = true;
 			}
 		}

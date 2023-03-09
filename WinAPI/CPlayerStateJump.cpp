@@ -11,6 +11,7 @@ CPlayerStateJump::~CPlayerStateJump()
 void CPlayerStateJump::Enter()
 {
 	fCooltime = 0;
+	SOUND->Play(pSound, 1.3f);
 }
 
 void CPlayerStateJump::Update()

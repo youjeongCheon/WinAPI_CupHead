@@ -11,6 +11,7 @@ CPlayerStateTakeHit::~CPlayerStateTakeHit()
 void CPlayerStateTakeHit::Enter()
 {
 	fCooltime = 0;
+	SOUND->Play(pSound);
 }
 
 void CPlayerStateTakeHit::Update()

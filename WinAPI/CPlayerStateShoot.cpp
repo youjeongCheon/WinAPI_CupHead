@@ -13,6 +13,7 @@ void CPlayerStateShoot::Enter()
 {
 	fCooltime = 0;
 	bShoot = false;
+	SOUND->Play(pSound);
 }
 
 void CPlayerStateShoot::Update()

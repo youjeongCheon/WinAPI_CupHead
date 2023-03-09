@@ -11,6 +11,7 @@ CPlayerStateDash::~CPlayerStateDash()
 void CPlayerStateDash::Enter()
 {
 	fCooltime = 0;
+	SOUND->Play(pSound,1.2f);
 }
 
 void CPlayerStateDash::Update()

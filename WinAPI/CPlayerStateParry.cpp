@@ -11,6 +11,7 @@ CPlayerStateParry::~CPlayerStateParry()
 void CPlayerStateParry::Enter()
 {
 	fCooltime = 0;
+	SOUND->Play(pSound);
 }
 
 void CPlayerStateParry::Update()

@@ -19,6 +19,7 @@ void CMissileDeath::Init()
 	m_pAnimator->CreateAnimation(L"Dearh", m_pImgMissileDeath, Vector(0.f, 0.f), Vector(300, 300), Vector(300, 0.f), 0.05f, 6, false);
 	AddComponent(m_pAnimator);
 	m_pAnimator->Play(L"Dearh");
+	SOUND->Play(pSound);
 }
 
 void CMissileDeath::Update()

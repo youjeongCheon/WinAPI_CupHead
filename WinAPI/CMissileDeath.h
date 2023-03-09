@@ -1,5 +1,8 @@
 #pragma once
 #include "CMissile.h"
+
+class CSound;
+
 class CMissileDeath : public CMissile
 {
 public:
@@ -8,7 +11,7 @@ public:
 private:
 	CAnimator* m_pAnimator;
 	CImage* m_pImgMissileDeath;
-
+	CSound* pSound = RESOURCE->LoadSound(L"player_shoot_hit", L"Sound\\player_shoot_hit.wav");
 	float fCoolTime = 0;
 
 private:
