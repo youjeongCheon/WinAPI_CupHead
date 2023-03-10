@@ -15,11 +15,9 @@ CMonserPyrimid::~CMonserPyrimid()
 
 bool CMonserPyrimid::CollisionRange(Vector pos)
 {
+	// Collider Scale = (220, 110);
 	float minX = m_vecPos.x - 0.5f * 220;
-	float maxX = m_vecPos.x;
-	float minY = m_vecPos.y - 0.5f * 142;
-	float maXY = m_vecPos.y + 0.5f * 142;
-	if (pos.x < minX /* && pos.x<maxX && pos.y>minY && pos.y < maXY*/)
+	if (pos.x < minX)
 		return false;
 	else
 		return true;
