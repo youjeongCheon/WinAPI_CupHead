@@ -22,6 +22,8 @@ CMonsterOnion::~CMonsterOnion()
 
 void CMonsterOnion::Init()
 {
+	srand(time(NULL));
+
 	m_HP = 70;
 	CImage* pOnionIntro = RESOURCE->LoadImg(L"OnionIntro", L"Image\\Onion_Intro.png");
 	CImage* pOnionIdle = RESOURCE->LoadImg(L"OnionIdle", L"Image\\Onion_Idle.png");
@@ -51,7 +53,6 @@ void CMonsterOnion::Init()
 
 void CMonsterOnion::Update()
 {
-	srand(time(NULL));
 
 	fCoolTime += DT;
 	m_strState = L"Onion";
@@ -147,7 +148,12 @@ void CMonsterOnion::AnimatorUpdate()
 void CMonsterOnion::CreateMissile()
 {
 	COnionMissile* pMissile = new COnionMissile();
-	pMissile->SetPos(100 * (rand() % 11 + 1), 0);
+	while (prePos == curPos)
+	{
+		curPos = SetRandPos();
+	}
+	prePos = curPos;
+	pMissile->SetPos(curPos, 0);
 	ADDOBJECT(pMissile);
 }
 
@@ -155,4 +161,9 @@ void CMonsterOnion::CreateParry()
 {
 	COnionParry* pParry = new COnionParry();
 	ADDOBJECT(pParry);
+}
+
+float CMonsterOnion::SetRandPos()
+{
+	return 100 * (rand() % 11 + 1);
 }
