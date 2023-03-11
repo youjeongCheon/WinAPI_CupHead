@@ -45,6 +45,11 @@ void CSceneTitle::Enter()
 
 void CSceneTitle::Update()
 {
+	if (BUTTONDOWN(VK_ESCAPE))
+	{
+		CAMERA->FadeOut(0.25f);
+		DestroyWindow(hWnd);
+	}
 	if (BUTTONDOWN(VK_F1))
 	{
 		CAMERA->FadeOut(0.25f);
